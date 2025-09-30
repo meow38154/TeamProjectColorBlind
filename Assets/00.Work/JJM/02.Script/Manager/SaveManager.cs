@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace 장준민
 {
-    public class 세이브매니저 : MonoBehaviour
+    public class SaveManager : MonoBehaviour
     {
-        [SerializeField] private 게임세이브데이터 _data;
-        private string _fileName = "세이브데이터";
+        [SerializeField] private SaveData _data;
+        private string _fileName = "Save_data";
 
         private void Awake()
         {
             if (PlayerPrefs.GetString(_fileName) != "")
             {
                 string json = PlayerPrefs.GetString(_fileName);
-                _data = JsonUtility.FromJson<게임세이브데이터>(json);
+                _data = JsonUtility.FromJson<SaveData>(json);
             }
 
             else
             {
-                _data = new 게임세이브데이터();
+                _data = new SaveData();
             }
         }
 

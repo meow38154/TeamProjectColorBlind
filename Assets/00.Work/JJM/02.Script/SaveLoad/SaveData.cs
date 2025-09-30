@@ -7,7 +7,7 @@ namespace 장준민
 {
     [Serializable]
 
-    public class 게임세이브데이터
+    public class SaveData
     {
         public string[] 임리우들;
     }
