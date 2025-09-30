@@ -6,11 +6,13 @@ namespace _00.Work.Lusalord._02.Script.Agent
     public class AgentMovement : MonoBehaviour
     {
         public float moveSpeed;
-        public Vector2 jumpPower;
-    
-        protected float XMove;
+        public float jumpPower;
     
         public Rigidbody2D Rb { get; private set; }
+        public bool isGrounded;
+        
+        protected float XMove;
+        
 
         private void Awake()
         {
@@ -33,7 +35,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
             Rb.linearVelocityX = XMove * moveSpeed;
         }
         
-        public void Jump(float multiplier)
+        public void Jump(float multiplier = 1f)
         {
             Rb.linearVelocity = Vector2.zero;
             
