@@ -10,10 +10,7 @@ public class Player : MonoBehaviour
     public AgentMovement MovementCompo { get; private set; }
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     
-    
     private bool _canDoubleJump;
-    
-    
 
     private void Awake()
     {

@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TilemapGrass 1_0: 3136573523026009406
+      TilemapGrass 1_1: 5189146688508758557
+      TilemapGrass 1_10: 7873331121735190345
+      TilemapGrass 1_11: 7215474123939017745
+      TilemapGrass 1_2: 8310239565096458575
+      TilemapGrass 1_3: 2041525916224910393
+      TilemapGrass 1_4: -6027222954997247005
+      TilemapGrass 1_5: 626167776585465280
+      TilemapGrass 1_6: -7694764224807144787
+      TilemapGrass 1_7: -7004752887262830963
+      TilemapGrass 1_8: 704625957374198003
+      TilemapGrass 1_9: 5684979950035542470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
