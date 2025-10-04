@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct ItemState
+public struct Stats
 {
-    public string ItemID;
-    public int Count;
+    public string skillName;
+    public bool skillRemissionStatus;
+    public int skillLevel;
 }
 
 public class CategoryManager : Singleton<CategoryManager>
 {
-    [SerializeField] private ItemState[] _states;
+    [SerializeField] private Stats[] _states;
 }
