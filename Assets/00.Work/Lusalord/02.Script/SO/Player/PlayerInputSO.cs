@@ -44,7 +44,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         {
             if (Camera.main)
             {
-                MousePos = Camera.main.world(context.ReadValue<Vector2>());
+                MousePos = Camera.main.ScreenToWorldPoint (context.ReadValue<Vector2>());
             }
         }
     }
