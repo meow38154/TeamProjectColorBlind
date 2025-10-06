@@ -7,15 +7,12 @@ public class NotifyValue<T>
     private T _value;
     public T Value
     {
-        get
-        {
-            return _value;
-        }
+        get => _value;
         set
         {
             T before = _value;
             _value = value;
-            if((before == null && _value != null) || before.Equals(_value) == false) 
+            if(before != null && !before.Equals(_value)) 
                 OnValueChanged?.Invoke(before, _value);
         }
     }
