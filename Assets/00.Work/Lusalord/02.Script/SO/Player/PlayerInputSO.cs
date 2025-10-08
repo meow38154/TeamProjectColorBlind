@@ -9,6 +9,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
     {
         private InputSystem_Actions _input;
         public Action OnJumpKeyPressed;
+        public Action OnDashKeyPressed;
 
         public Vector2 MoveDir { get; private set; }
         public Vector2 MousePos { get; private set; }
@@ -36,15 +37,25 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         {
             if (context.performed)
             {
-                OnJumpKeyPressed.Invoke();
-            }
+                OnJumpKeyPressed?.Invoke();
+            }   
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
             if (Camera.main)
             {
-                MousePos = Camera.main.ScreenToWorldPoint (context.ReadValue<Vector2>());
+                Vector3 screenPos = context.ReadValue<Vector2>();
+                screenPos.z = -Camera.main.transform.position.z; // 카메라가 z좌표를 보정함
+                MousePos = Camera.main.ScreenToWorldPoint(screenPos);
+            }
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                OnDashKeyPressed?.Invoke();
             }
         }
     }
