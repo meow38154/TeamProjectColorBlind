@@ -20,10 +20,10 @@ namespace _00.Work.Lusalord._02.Script.Player
             [SerializeField] private float extraGravity;
             [SerializeField] private float gravityDelay;
             
-            private float _timeInAir = 0;
+            private float _timeInAir;
         #endregion
 
-        [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
+        [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private bool _canDoubleJump;
 
@@ -35,6 +35,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             MovementCompo = GetComponentInChildren<AgentMovement>();
             RendererCompo = GetComponentInChildren<AgentRenderer>();
+            
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
             PlayerInput.OnDashKeyPressed += HandleDashPressed;
         }
@@ -47,7 +48,6 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void FixedUpdate()
         {
-            Debug.Log(PlayerInput.MousePos);
             ApplyExtraGravity();
         }
         
@@ -76,10 +76,9 @@ namespace _00.Work.Lusalord._02.Script.Player
             _timeInAir = 0;
         }
 
-        private void HandleDashPressed()
+        private void HandleDashPressed() // 대쉬를 담당하는 메서드
         {
-            Vector2 dir = PlayerInput.MousePos - (Vector2)transform.position;
-            MovementCompo.Dash(dir.normalized);
+            MovementCompo.Dash(PlayerInput.MousePos);
         }
         private void SetUpMovementInput()
         {

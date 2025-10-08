@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extraGravity: 200
-  gravityDelay: 0.15
+  gravityDelay: 10000
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: 97b19e5792f17cc46b0682f7e9aa1764, type: 2}
   onJumpPressEvent:
     m_PersistentCalls:
@@ -1022,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
       propertyPath: dashPower
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
       propertyPath: isGrounded

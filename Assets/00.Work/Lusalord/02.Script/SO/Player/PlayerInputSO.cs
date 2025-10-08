@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace _00.Work.Lusalord._02.Script.SO.Player
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/Player/PlayerInputSO")]
-    public class PlayerInputSO : ScriptableObject, InputSystem_Actions.IPlayerActions
+    public class PlayerInputSo : ScriptableObject, InputSystem_Actions.IPlayerActions
     {
         private InputSystem_Actions _input;
         public Action OnJumpKeyPressed;
@@ -45,9 +45,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         {
             if (Camera.main)
             {
-                Vector3 screenPos = context.ReadValue<Vector2>();
-                screenPos.z = -Camera.main.transform.position.z; // 카메라가 z좌표를 보정함
-                MousePos = Camera.main.ScreenToWorldPoint(screenPos);
+                MousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
             }
         }
 
