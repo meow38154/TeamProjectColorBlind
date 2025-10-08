@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace _00.Work.Lusalord._02.Script.Agent
@@ -7,9 +6,10 @@ namespace _00.Work.Lusalord._02.Script.Agent
     {
         #region PlayerMovement
 
-        [Header("PlayerMovement")]
+        [Header("PlayerMovement")]      
         public float moveSpeed;
         public float jumpPower;
+        public float dashPower;
         
         protected float XMove;
 
@@ -21,8 +21,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Vector2 groundCheckerSize;
         
-        public bool isGrounded;
-        
+        public bool IsGrounded { get; private set; }
         
         #endregion
         
@@ -37,18 +36,18 @@ namespace _00.Work.Lusalord._02.Script.Agent
         {
             Rb = GetComponentInParent<Rigidbody2D>();
         }
-
+                
         private void FixedUpdate()
         {
+            IsGrounded = CheckGround();
             MoveAgent();
         }
-
-
-        public void SetMove(float xMove)
+        
+        public void SetMove(float xMove)    
         {
             XMove = xMove;
         }
-
+        
         public void MoveAgent()
         {
             Rb.linearVelocityX = XMove * moveSpeed;
@@ -60,19 +59,37 @@ namespace _00.Work.Lusalord._02.Script.Agent
             
             Rb.AddForce(Vector2.up * jumpPower * multiplier, ForceMode2D.Impulse);
         }
-
-        private void CheckGround()
+        
+        public void Dash(Vector2 direction, float multiplier = 1f)
         {
-            Collider2D cd = Physics2D.OverlapBox(transform.position, groundCheckerSize, 0, groundLayer);
-            isGrounded = cd;
+            Debug.Log("실행");
+            Vector2 dir = (direction - (Vector2)transform.position).normalized;
+            Rb.AddForce(dir * dashPower * multiplier, ForceMode2D.Impulse);
         }
         
+        private bool CheckGround()
+        {
+            Collider2D cd = Physics2D.OverlapBox(
+                transform.position, 
+                groundCheckerSize, 
+                0, 
+                groundLayer);
+            return cd;
+        }
+
+        public void AddGravityForce(Vector2 force)
+        {
+            Rb.AddForce(force, ForceMode2D.Force);
+        }
+
+   
+        
 #if UNITY_EDITOR
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()     
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(transform.position, groundCheckerSize);
-        }
+        }   
 #endif
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 namespace _00.Work.Lusalord._02.Script.SO.Player
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/Player/PlayerInputSO")]
-    public class PlayerInputSO : ScriptableObject, InputSystem_Actions.IPlayerActions
+    public class PlayerInputSo : ScriptableObject, InputSystem_Actions.IPlayerActions
     {
         private InputSystem_Actions _input;
         public Action OnJumpKeyPressed;
+        public Action OnDashKeyPressed;
 
         public Vector2 MoveDir { get; private set; }
         public Vector2 MousePos { get; private set; }
@@ -36,15 +37,23 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         {
             if (context.performed)
             {
-                OnJumpKeyPressed.Invoke();
-            }
+                OnJumpKeyPressed?.Invoke();
+            }   
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
             if (Camera.main)
             {
-                MousePos = Camera.main.ScreenToWorldPoint (context.ReadValue<Vector2>());
+                MousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+            }
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                OnDashKeyPressed?.Invoke();
             }
         }
     }
