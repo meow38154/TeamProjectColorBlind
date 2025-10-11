@@ -246,7 +246,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -453438725913153679, guid: c72b3e7122ccd81448a2ae767767a03d, type: 3}
+  m_Sprite: {fileID: 176972048701771988, guid: 85d317bb8da2c3e4fb22eb21e89b88f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -296,10 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 0.009161512
-  m_labelHash: 1.3971405e-28
+  m_CategoryHash: 1.0429618e-14
+  m_labelHash: 0.0000049058085
   m_SpriteKey: 0
-  m_SpriteHash: 163368403
+  m_SpriteHash: 147457214
 --- !u!114 &231861136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,8 +823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf1075c7851a0246a2728da8349e294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraGravity: 200
-  gravityDelay: 10000
+  extraGravity: 30
+  gravityDelay: 0.15
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: 97b19e5792f17cc46b0682f7e9aa1764, type: 2}
   onJumpPressEvent:
     m_PersistentCalls:
@@ -1022,6 +1022,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
       propertyPath: dashPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
+      propertyPath: jumpPower
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}

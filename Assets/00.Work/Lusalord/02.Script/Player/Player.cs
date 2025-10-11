@@ -26,9 +26,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private bool _canDoubleJump;
-
         
-
         public UnityEvent onJumpPressEvent;
 
         private void Awake()
@@ -60,19 +58,18 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void HandleJumpPressed() // 점프를 담당하는 메서드
         {
-            // if(!MovementCompo.IsGrounded && !_canDoubleJump) return;
+            if(!MovementCompo.IsGrounded && !_canDoubleJump) return;
             
             if (MovementCompo.IsGrounded) // 처음 점프
             {
-                onJumpPressEvent?.Invoke();     
-                MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
-                // _canDoubleJump = true;
+                _canDoubleJump = true;
             }
-            // else if (_canDoubleJump) // 점프 후 더블 점프 가능
-            // {
-            //     _canDoubleJump = false;
-            // }
-            
+            else if (_canDoubleJump) // 점프 후 더블 점프 가능
+            {
+                _canDoubleJump = false;
+            }
+            onJumpPressEvent?.Invoke();     
+            MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
             _timeInAir = 0;
         }
 
