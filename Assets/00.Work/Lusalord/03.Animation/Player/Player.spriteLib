@@ -75,6 +75,80 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 638547962490524362, guid: 85d317bb8da2c3e4fb22eb21e89b88f5, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
+  - m_Name: Hit
+    m_Hash: 580870305
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Hit_0
+      m_Hash: 546172327
+      m_Sprite: {fileID: -3113318867603725750, guid: f63be8b67b875de4db5caa279f14fa30, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3113318867603725750, guid: f63be8b67b875de4db5caa279f14fa30, type: 3}
+    - m_Name: Hit_1
+      m_Hash: 394976561
+      m_Sprite: {fileID: 6964246166108368805, guid: f63be8b67b875de4db5caa279f14fa30, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6964246166108368805, guid: f63be8b67b875de4db5caa279f14fa30, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Dash
+    m_Hash: 995914302
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Dash_0
+      m_Hash: 636310521
+      m_Sprite: {fileID: -1817917210700115316, guid: 39437c6b39d932743bbeefcce71e65b4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1817917210700115316, guid: 39437c6b39d932743bbeefcce71e65b4, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: Fall
+    m_Hash: 459436082
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Fall_0
+      m_Hash: 659955175
+      m_Sprite: {fileID: 6426998198145310576, guid: bac0cd4494d1c1540bab05b5fbac0125, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6426998198145310576, guid: bac0cd4494d1c1540bab05b5fbac0125, type: 3}
+    - m_Name: Fall_1
+      m_Hash: 273755505
+      m_Sprite: {fileID: 8929670297876800669, guid: bac0cd4494d1c1540bab05b5fbac0125, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8929670297876800669, guid: bac0cd4494d1c1540bab05b5fbac0125, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Death
+    m_Hash: 646380074
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Death_0
+      m_Hash: 673223268
+      m_Sprite: {fileID: -8930375550428167626, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8930375550428167626, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+    - m_Name: Death_1
+      m_Hash: 522691314
+      m_Sprite: {fileID: -1105763051638748235, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1105763051638748235, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+    - m_Name: Death_2
+      m_Hash: 103740232
+      m_Sprite: {fileID: 6093888871196031720, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6093888871196031720, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+    - m_Name: Death_3
+      m_Hash: 824820702
+      m_Sprite: {fileID: 1310784355317728019, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1310784355317728019, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+    - m_Name: Death_4
+      m_Hash: 793597565
+      m_Sprite: {fileID: 4779533478557457644, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4779533478557457644, guid: 249d5c9fd7f92d941b7b611c602a7087, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638957533366682460
+  m_ModificationHash: 638959550434135248
   m_Version: 1

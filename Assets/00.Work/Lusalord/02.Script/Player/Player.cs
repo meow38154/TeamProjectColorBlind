@@ -1,4 +1,4 @@
-    using _00.Work.Lusalord._02.Script.Agent;
+using _00.Work.Lusalord._02.Script.Agent;
 using _00.Work.Lusalord._02.Script.SO.Player;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,7 +40,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void OnDestroy()
         {
-            PlayerInput.OnJumpKeyPressed -= HandleJumpPressed; // 플레이어가 삭제되면 점프가 필요 없기 때문에 점프를 뺀다.
+            PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
         }
 
@@ -77,6 +77,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             MovementCompo.Dash(PlayerInput.MousePos);
         }
+        
         private void SetUpMovementInput()
         {
             MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
