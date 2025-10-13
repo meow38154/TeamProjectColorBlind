@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7540fecb063d584684147ab0b5ec680, type: 3}
   m_Name: BossPattenData
   m_EditorClassIdentifier: 
+  pattonSO:
+  - {fileID: 11400000, guid: 07a31fd229e788c458b3c69a8ed9fa18, type: 2}
