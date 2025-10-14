@@ -4,6 +4,10 @@ namespace _00.Work.Lusalord._02.Script.Player
 {
     public class AgentRenderer : MonoBehaviour
     {
+        public bool IsFacingRight()
+        {
+            return Mathf.Approximately(transform.eulerAngles.y, 0);
+        }
         public void FaceDirection(Vector2 mousePos) // 플레이어의 마우스가 바라보는 방향으로 캐릭터가 바라보도록 설정함
         {
             if (transform.position.x < mousePos.x) // 오른쪽
@@ -12,7 +16,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             }
             else if (transform.position.x > mousePos.x) // 왼쪽
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.eulerAngles = Vector3.zero;
             }
         }
     }

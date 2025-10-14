@@ -1,4 +1,4 @@
-    using _00.Work.Lusalord._02.Script.Agent;
+using _00.Work.Lusalord._02.Script.Agent;
 using _00.Work.Lusalord._02.Script.SO.Player;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,9 +26,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private bool _canDoubleJump;
-
         
-
         public UnityEvent onJumpPressEvent;
 
         private void Awake()
@@ -42,7 +40,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void OnDestroy()
         {
-            PlayerInput.OnJumpKeyPressed -= HandleJumpPressed; // 플레이어가 삭제되면 점프가 필요 없기 때문에 점프를 뺀다.
+            PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
         }
 
@@ -60,19 +58,18 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void HandleJumpPressed() // 점프를 담당하는 메서드
         {
-            // if(!MovementCompo.IsGrounded && !_canDoubleJump) return;
+            if(!MovementCompo.IsGrounded && !_canDoubleJump) return;
             
             if (MovementCompo.IsGrounded) // 처음 점프
             {
-                onJumpPressEvent?.Invoke();     
-                MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
-                // _canDoubleJump = true;
+                _canDoubleJump = true;
             }
-            // else if (_canDoubleJump) // 점프 후 더블 점프 가능
-            // {
-            //     _canDoubleJump = false;
-            // }
-            
+            else if (_canDoubleJump) // 점프 후 더블 점프 가능
+            {
+                _canDoubleJump = false;
+            }
+            onJumpPressEvent?.Invoke();     
+            MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
             _timeInAir = 0;
         }
 
@@ -80,6 +77,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             MovementCompo.Dash(PlayerInput.MousePos);
         }
+        
         private void SetUpMovementInput()
         {
             MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
