@@ -10,6 +10,6 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         Animator anim = GetComponentInChildren<Animator>();
-        _health = GetComponent<IHealth>();
+        _health = GetComponentInChildren<IHealth>();
     }
 }
