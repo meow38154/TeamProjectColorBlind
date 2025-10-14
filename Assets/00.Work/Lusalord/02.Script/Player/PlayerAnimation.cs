@@ -13,6 +13,9 @@ namespace _00.Work.Lusalord._02.Script.Player
         #region Hash
             private readonly int _moveXHash = Animator.StringToHash("MoveX");
             private readonly int _moveYHash = Animator.StringToHash("MoveY");
+            private readonly int _isGroundHash = Animator.StringToHash("IsGround");
+            
+            
         #endregion
 
         private void Awake()
@@ -24,11 +27,14 @@ namespace _00.Work.Lusalord._02.Script.Player
         private void FixedUpdate()
         {
             SetAnimation(_player.MovementCompo);
+            SetAnimation(_player.MovementCompo);
         }
 
         private void SetAnimation(AgentMovement movement)
         {
             _animator.SetFloat(_moveXHash, Mathf.Abs(movement.Rb.linearVelocityX));
+            _animator.SetFloat(_moveYHash, movement.Rb.linearVelocityY);
+            _animator.SetBool(_isGroundHash, movement.IsGrounded);
         }
     }
 }

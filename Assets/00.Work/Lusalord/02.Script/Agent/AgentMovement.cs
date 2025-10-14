@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _00.Work.Lusalord._02.Script.Agent
@@ -34,7 +35,16 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         private void Awake()
         {
-            Rb = GetComponentInParent<Rigidbody2D>();
+            try
+            {
+                Rb = GetComponentInParent<Rigidbody2D>();
+                if (Rb == null)
+                    throw new MissingComponentException("Rigidbody2D not found in parent object!");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[AgentMovement] Awake Error: {e.Message}");
+            }
         }
                 
         private void FixedUpdate()
@@ -62,9 +72,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         public void Dash(Vector2 direction, float multiplier = 1f)
         {
-            Debug.Log("실행");
-            Vector2 dir = (direction - (Vector2)transform.position).normalized;
-            Rb.AddForce(dir * dashPower * multiplier, ForceMode2D.Impulse);
+            ;
         }
         
         private bool CheckGround()
@@ -81,8 +89,6 @@ namespace _00.Work.Lusalord._02.Script.Agent
         {
             Rb.AddForce(force, ForceMode2D.Force);
         }
-
-   
         
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()     
