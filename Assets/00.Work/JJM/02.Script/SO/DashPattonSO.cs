@@ -10,12 +10,18 @@ public class DashPattonSO : PattonSO
 
     public float Xvelocity { get; private set; }
 
+    private int _x;
+
     public void PlayDash()
     {
         Sequence seq = DOTween.Sequence();
-        
+
+        seq.Append(DOTween.To(() => _x, x => _x = x, 0, FirstDeal));
         seq.Append(DOTween.To(() => Xvelocity, x => Xvelocity = x, DashDistance, MoveTime)
             .SetEase(MoveEase));
+        seq.Append(DOTween.To(() => _x, x => _x = x, 0, EndDeal));
     }
 
 }
+
+
