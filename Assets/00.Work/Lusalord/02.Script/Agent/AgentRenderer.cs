@@ -1,9 +1,10 @@
 using UnityEngine;
 
-namespace _00.Work.Lusalord._02.Script.Player
+namespace _00.Work.Lusalord._02.Script.Agent
 {
     public class AgentRenderer : MonoBehaviour
     {
+        public int FaceDir { get; private set; }
         public bool IsFacingRight()
         {
             return Mathf.Approximately(transform.eulerAngles.y, 0);
@@ -13,10 +14,12 @@ namespace _00.Work.Lusalord._02.Script.Player
             if (transform.position.x < mousePos.x) // 오른쪽
             {
                 transform.eulerAngles = new Vector3(0, 180, 0);
+                FaceDir = 1;
             }
             else if (transform.position.x > mousePos.x) // 왼쪽
             {
                 transform.eulerAngles = Vector3.zero;
+                FaceDir = -1;
             }
         }
     }
