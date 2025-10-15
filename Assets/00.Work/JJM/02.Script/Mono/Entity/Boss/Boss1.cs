@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss1 : MonoBehaviour
 {
     private IHealth _health;
 

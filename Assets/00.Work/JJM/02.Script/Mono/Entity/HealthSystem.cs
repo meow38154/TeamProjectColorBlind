@@ -22,9 +22,14 @@ public class HealthSystem : MonoBehaviour, IHealth
     {
         _currentHealth -= damage;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
-        if (_currentHealth < 0)
+        if (_currentHealth > 0)
         {
             OnGetDamge?.Invoke();
+        }
+
+        else
+        {
+            Die();
         }
     }
 
