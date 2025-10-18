@@ -1,0 +1,19 @@
+{
+  "dialogues": [
+    {
+      "speaker": "장준민",
+      "text": "여긴… 어디지?",
+      "eventTag": ""
+    },
+    {
+      "speaker": "김동선",
+      "text": "일어나 개발해야지.",
+      "eventTag": ""
+    },
+    {
+      "speaker": "장준민",
+      "text": "씨발",
+      "eventTag": ""
+    }
+  ]
+}

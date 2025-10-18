@@ -72,7 +72,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         public void Dash(Vector2 direction, float multiplier = 1f)
         {
-            ;
+            
         }
         
         private bool CheckGround()
@@ -95,7 +95,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(transform.position, groundCheckerSize);
-        }   
+        }
 #endif
     }
 }
