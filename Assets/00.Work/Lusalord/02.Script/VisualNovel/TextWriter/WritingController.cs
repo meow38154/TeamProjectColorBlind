@@ -11,7 +11,7 @@ namespace _00.Work.Lusalord._02.Script.VisualNovel
 
         public AttributeDataLine GetCurrentLine()
         {
-            Debug.Assert(attributeDataSO == null || attributeDataSO.attributeData == null, "SO 또는 Data가 존재하지 않습니다.");
+            Debug.Assert(!attributeDataSO || attributeDataSO.attributeData == null, "SO 또는 Data가 존재하지 않습니다.");
 
             if (attributeDataSO.attributeData != null)
             {

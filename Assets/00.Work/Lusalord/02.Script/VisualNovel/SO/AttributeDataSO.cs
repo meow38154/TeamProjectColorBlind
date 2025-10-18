@@ -21,5 +21,4 @@ public class AttributeDataSO : ScriptableObject
         string json = jsonFile.text;
         attributeData = JsonUtility.FromJson<AttributeData>(json);
     }
-    
 }
