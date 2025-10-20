@@ -1,9 +1,9 @@
 using System;
 using System.IO;
-using ¿Â¡ÿπŒ;
+using JJM;
 
 
-namespace ¿Â¡ÿπŒ
+namespace JJM
 {
     [Serializable]
 

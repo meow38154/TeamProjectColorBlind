@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ¿Â¡ÿπŒ
+namespace JJM
 {
     [Serializable]
     public class SaveDictionary<K, V> : ISerializationCallbackReceiver
