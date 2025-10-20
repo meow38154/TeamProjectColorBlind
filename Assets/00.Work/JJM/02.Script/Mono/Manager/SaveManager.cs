@@ -1,22 +1,23 @@
-using ¿Â¡ÿπŒ;
-using System.Collections;
+using System.IO;
 using UnityEngine;
 
-namespace ¿Â¡ÿπŒ
+namespace JJM
 {
     public class SaveManager : MonoBehaviour
     {
         [SerializeField] private SaveData _data;
-        private string _fileName = "Save_data";
+        private string _fileName = "SaveData.json";
+        private string _filePath;
 
         private void Awake()
         {
-            if (PlayerPrefs.GetString(_fileName) != "")
+            _filePath = Path.Combine(Application.persistentDataPath, _fileName);
+
+            if (File.Exists(_filePath))
             {
-                string json = PlayerPrefs.GetString(_fileName);
+                string json = File.ReadAllText(_filePath);
                 _data = JsonUtility.FromJson<SaveData>(json);
             }
-
             else
             {
                 _data = new SaveData();
@@ -25,9 +26,30 @@ namespace ¿Â¡ÿπŒ
 
         private void OnApplicationQuit()
         {
-            string json = JsonUtility.ToJson(_data);
-            PlayerPrefs.SetString(_fileName, json);
-            PlayerPrefs.Save();
+            Save();
+        }
+
+        public void Save()
+        {
+            string json = JsonUtility.ToJson(_data, true);
+            File.WriteAllText(_filePath, json);
+        }
+
+        public void Load()
+        {
+            if (File.Exists(_filePath))
+            {
+                string json = File.ReadAllText(_filePath);
+                _data = JsonUtility.FromJson<SaveData>(json);
+            }
+        }
+
+        public void DeleteSave()
+        {
+            if (File.Exists(_filePath))
+            {
+                File.Delete(_filePath);
+            }
         }
     }
 }
