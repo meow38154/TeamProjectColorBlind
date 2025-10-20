@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class Boss1 : MonoBehaviour
+public class Boss : MonoBehaviour
 {
-    private IHealth _health;
-
-    [SerializeField] private BossPattenData _pattenData;
+    [SerializeField] protected BossPattenData _pattenData;
+    protected IHealth _health;
     public Animator AnimCompo { get; private set; }
 
-    private void Awake()
+    protected void GetSetting()
     {
         Animator anim = GetComponentInChildren<Animator>();
         _health = GetComponentInChildren<IHealth>();
     }
+
+
 }
