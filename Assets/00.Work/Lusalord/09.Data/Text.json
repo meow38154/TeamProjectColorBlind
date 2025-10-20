@@ -1,0 +1,29 @@
+{
+  "dialogues": [
+    {
+      "speaker": "장준민",
+      "text": "FUCK YOU",
+      "emotion": "놀람"
+    },
+    {
+      "speaker": "김동선",
+      "text": "FUCK YOU",
+      "emotion": "안도"
+    },
+    {
+      "speaker": "장준민",
+      "text": "FUCK YOU",
+      "emotion": "의문"
+    },
+    {
+      "speaker": "김동선",
+      "text": "FUCK YOU",
+      "emotion": "진지"
+    },
+    {
+      "speaker": "장준민",
+      "text": "FUCK YOU",
+      "emotion": "불안"
+    }
+  ]
+}
