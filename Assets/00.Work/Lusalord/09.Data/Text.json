@@ -2,18 +2,28 @@
   "dialogues": [
     {
       "speaker": "장준민",
-      "text": "여긴… 어디지?",
-      "eventTag": ""
+      "text": "FUCK YOU",
+      "emotion": "놀람"
     },
     {
       "speaker": "김동선",
-      "text": "일어나 개발해야지.",
-      "eventTag": ""
+      "text": "FUCK YOU",
+      "emotion": "안도"
     },
     {
       "speaker": "장준민",
-      "text": "씨발",
-      "eventTag": ""
+      "text": "FUCK YOU",
+      "emotion": "의문"
+    },
+    {
+      "speaker": "김동선",
+      "text": "FUCK YOU",
+      "emotion": "진지"
+    },
+    {
+      "speaker": "장준민",
+      "text": "FUCK YOU",
+      "emotion": "불안"
     }
   ]
 }

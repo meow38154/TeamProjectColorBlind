@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: AttributeDataSO
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: eb583bfdea89feb4a9fb87c4d9a66e06, type: 3}
-  attributeData:
-    attributeData: []
+  dialogues: []

@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 160308874}
   - component: {fileID: 160308877}
   - component: {fileID: 160308876}
-  - component: {fileID: 160308875}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -159,21 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -315.67303}
   m_SizeDelta: {x: 0, y: -631.3461}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &160308875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160308873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d671c5832ef42429345498b4e21e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  writingController: {fileID: 306407328}
-  speakerText: {fileID: 733947339}
-  dialogueText: {fileID: 915179080}
 --- !u!114 &160308876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +344,7 @@ GameObject:
   - component: {fileID: 306407329}
   - component: {fileID: 306407328}
   m_Layer: 0
-  m_Name: WritingManager
+  m_Name: DialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +362,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e1eb234f88a9f439aeb40fb352d5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributeDataSO: {fileID: 11400000, guid: d94d6a627f3b28344bde89333b77b0b2, type: 2}
+  dialogueSo: {fileID: 11400000, guid: d94d6a627f3b28344bde89333b77b0b2, type: 2}
+  speakerText: {fileID: 733947339}
+  dialogueText: {fileID: 915179080}
+  typingSpeed: 0.03
 --- !u!4 &306407329
 Transform:
   m_ObjectHideFlags: 0
@@ -453,8 +440,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 968672fc586dc3b4aa61d0959e41acc7, type: 2}
-  m_sharedMaterial: {fileID: 5805081565850962766, guid: 968672fc586dc3b4aa61d0959e41acc7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02773d7d64e8ac64fbbaf20ac4fe6bba, type: 2}
+  m_sharedMaterial: {fileID: 2033650845765586999, guid: 02773d7d64e8ac64fbbaf20ac4fe6bba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -589,8 +576,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 968672fc586dc3b4aa61d0959e41acc7, type: 2}
-  m_sharedMaterial: {fileID: 5805081565850962766, guid: 968672fc586dc3b4aa61d0959e41acc7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02773d7d64e8ac64fbbaf20ac4fe6bba, type: 2}
+  m_sharedMaterial: {fileID: 2033650845765586999, guid: 02773d7d64e8ac64fbbaf20ac4fe6bba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
