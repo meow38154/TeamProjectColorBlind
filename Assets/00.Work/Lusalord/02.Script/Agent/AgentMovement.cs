@@ -10,7 +10,13 @@ namespace _00.Work.Lusalord._02.Script.Agent
         [Header("PlayerMovement")]      
         public float moveSpeed;
         public float jumpPower;
+        
         public float dashPower;
+        public float dashDuration;
+        public float dashCoolTime;
+        
+        public bool isDash;
+        public bool isDashCoolTime;
         
         protected float XMove;
 

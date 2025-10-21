@@ -1,3 +1,4 @@
+using System.Collections;
 using _00.Work.Lusalord._02.Script.Agent;
 using _00.Work.Lusalord._02.Script.SO.Player;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
-        private bool _canDoubleJump;
+        public bool _canDoubleJump;
         
         public UnityEvent onJumpPressEvent;
 
@@ -47,6 +48,9 @@ namespace _00.Work.Lusalord._02.Script.Player
         private void FixedUpdate()
         {
             ApplyExtraGravity();
+            if (MovementCompo.IsGrounded)
+                _canDoubleJump = true;
+
         }
         
         private void Update()
@@ -75,7 +79,10 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void HandleDashPressed() // 대쉬를 담당하는 메서드
         {
-            MovementCompo.Dash(PlayerInput.MousePos);
+            Debug.Log("실행됨");
+            if(MovementCompo.isDash || MovementCompo.isDashCoolTime)
+                return;
+            StartCoroutine(Dash(PlayerInput.MousePos.x));
         }
         
         private void SetUpMovementInput()
@@ -101,6 +108,29 @@ namespace _00.Work.Lusalord._02.Script.Player
             {
                 _timeInAir = 0;
             }
+        }
+
+        private IEnumerator Dash(float playerInputMousePosX)
+        {
+            MovementCompo.isDash = true;
+            MovementCompo.isDashCoolTime = true;
+
+            MovementCompo.Rb.linearVelocity = new Vector2(playerInputMousePosX * MovementCompo.dashPower, 0f);
+
+            float t = 0f;
+
+            while (t < MovementCompo.dashDuration)
+            {
+                MovementCompo.Rb.linearVelocity = new Vector2(playerInputMousePosX * MovementCompo.dashPower, 0f);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            MovementCompo.isDash = false;
+
+            yield return new WaitForSeconds(MovementCompo.dashCoolTime);
+            MovementCompo.isDashCoolTime = false;
+
         }
     }
 }
