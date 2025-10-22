@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _00.Work.Lusalord._02.Script.Agent
@@ -66,6 +67,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         public void MoveAgent()
         {
+            if(isDash) return;
             Rb.linearVelocityX = XMove * moveSpeed;
         }
         
@@ -78,9 +80,32 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         public void Dash(Vector2 direction, float multiplier = 1f)
         {
-            
+            if(isDash) return;
+            StartCoroutine(DashCoroutine(direction, multiplier));
         }
-        
+
+        private IEnumerator DashCoroutine(Vector2 direction, float multiplier)
+        {
+            isDash = true;
+            
+            float gra = Rb.gravityScale;
+            Rb.gravityScale = 0;
+            
+            Rb.linearVelocity = Vector2.zero;
+            
+            if (direction.x > 0)
+            {
+                Rb.AddForce(Vector2.right * (dashPower * multiplier), ForceMode2D.Impulse);
+            }
+            else
+            {
+                Rb.AddForce(Vector2.left * (dashPower * multiplier), ForceMode2D.Impulse);
+            }
+
+            yield return new WaitForSeconds(dashDuration);
+            Rb.gravityScale = gra;
+            isDash = false;
+        }
         private bool CheckGround()
         {
             Collider2D cd = Physics2D.OverlapBox(
@@ -93,6 +118,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
 
         public void AddGravityForce(Vector2 force)
         {
+            if(isDash) return;
             Rb.AddForce(force, ForceMode2D.Force);
         }
         

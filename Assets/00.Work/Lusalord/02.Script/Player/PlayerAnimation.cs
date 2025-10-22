@@ -37,6 +37,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             _animator.SetFloat(_moveYHash, movement.Rb.linearVelocityY);
             _animator.SetBool(_isGroundHash, movement.IsGrounded);
             _animator.SetBool(_doubleJump, _player._canDoubleJump);
+            _animator.SetBool(_dashHash, movement.isDash);
         }
     }
 }
