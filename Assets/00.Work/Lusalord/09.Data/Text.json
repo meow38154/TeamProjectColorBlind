@@ -1,29 +1,25 @@
 {
   "dialogues": [
     {
-      "speaker": "장준민",
-      "text": "FUCK YOU",
-      "emotion": "놀람"
+      "speaker": "???",
+      "text": "솔직히 처음엔 프로그래밍 이란 말만 들어도 숨이 턱 막혔어요.",
+      "emotion": ""
     },
     {
-      "speaker": "김동선",
-      "text": "FUCK YOU",
-      "emotion": "안도"
+      "speaker": "???",
+      "text": "게임 좋아서 온 건 맞는데",
+      "emotion": ""
     },
     {
-      "speaker": "장준민",
-      "text": "FUCK YOU",
-      "emotion": "의문"
+      "speaker": "???",
+      "text": "막상 클래스니 메소드 하는 걸 배우니깐 외계어 같고",
+      "emotion": ""
     },
     {
-      "speaker": "김동선",
-      "text": "FUCK YOU",
-      "emotion": "진지"
-    },
-    {
-      "speaker": "장준민",
-      "text": "FUCK YOU",
-      "emotion": "불안"
+      "speaker": "???",
+      "text": "내가 이걸 진짜 할 수 있나?",
+      "emotion": ""
     }
+    
   ]
 }
