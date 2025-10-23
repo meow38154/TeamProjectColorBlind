@@ -1,16 +1,19 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody2D))]
 public class Boss : MonoBehaviour
 {
-    [SerializeField] protected BossPattenData _pattenData;
-    protected IHealth _health;
-    public Animator AnimCompo { get; private set; }
+    private Boss1StateMachine _stateMachine;
 
-    protected void GetSetting()
+    public Boss1State _boss1State => _stateMachine.CurrentState;
+
+    private void Awake()
     {
-        Animator anim = GetComponentInChildren<Animator>();
-        _health = GetComponentInChildren<IHealth>();
+        _stateMachine = new Boss1StateMachine();
     }
 
-
+    private void Start()
+    {
+        
+    }
 }
