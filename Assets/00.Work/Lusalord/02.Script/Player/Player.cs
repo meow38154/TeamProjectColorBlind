@@ -1,3 +1,4 @@
+using System.Collections;
 using _00.Work.Lusalord._02.Script.Agent;
 using _00.Work.Lusalord._02.Script.SO.Player;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
-        private bool _canDoubleJump;
+        public bool _canDoubleJump;
         
         public UnityEvent onJumpPressEvent;
 
@@ -47,13 +48,16 @@ namespace _00.Work.Lusalord._02.Script.Player
         private void FixedUpdate()
         {
             ApplyExtraGravity();
+            if (MovementCompo.IsGrounded)
+                _canDoubleJump = true;
+
         }
         
         private void Update()
         {
             SetUpMovementInput();
             InAirTime();
-            RendererCompo.FaceDirection(PlayerInput.MousePos);
+            RendererCompo.FaceDirection(PlayerInput.MoveDir);
         }
 
         private void HandleJumpPressed() // 점프를 담당하는 메서드
@@ -75,7 +79,8 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void HandleDashPressed() // 대쉬를 담당하는 메서드
         {
-            MovementCompo.Dash(PlayerInput.MousePos);
+            Debug.Log("실햄됨x");
+            MovementCompo.Dash(PlayerInput.MoveDir);
         }
         
         private void SetUpMovementInput()

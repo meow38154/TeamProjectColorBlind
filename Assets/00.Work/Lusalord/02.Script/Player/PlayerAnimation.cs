@@ -14,6 +14,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             private readonly int _moveXHash = Animator.StringToHash("MoveX"); // 플레이어의 X좌표 움직임
             private readonly int _moveYHash = Animator.StringToHash("MoveY"); // 플레이어의 Y좌표 움직임
             private readonly int _isGroundHash = Animator.StringToHash("IsGround");// 플레이어가 땅에 닿았는지 체크
+            private readonly int _doubleJump = Animator.StringToHash("CanDoubleJump");
             private readonly int _dashHash = Animator.StringToHash("Dash");
             
             
@@ -35,6 +36,8 @@ namespace _00.Work.Lusalord._02.Script.Player
             _animator.SetFloat(_moveXHash, Mathf.Abs(movement.Rb.linearVelocityX)); // X값을 절대값으로 받아와 
             _animator.SetFloat(_moveYHash, movement.Rb.linearVelocityY);
             _animator.SetBool(_isGroundHash, movement.IsGrounded);
+            _animator.SetBool(_doubleJump, _player._canDoubleJump);
+            _animator.SetBool(_dashHash, movement.isDash);
         }
     }
 }
