@@ -1,19 +1,30 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent (typeof(Rigidbody2D))]
 public class Boss : MonoBehaviour
 {
-    private Boss1StateMachine _stateMachine;
+    [SerializeField, ReadOnly] protected int _phase = 1;
+    protected BossBrain _bossBrain;
 
-    public Boss1State _boss1State => _stateMachine.CurrentState;
-
-    private void Awake()
+    protected void BossBrainUpdate()
     {
-        _stateMachine = new Boss1StateMachine();
+        _bossBrain = GetComponent<BossBrain>();
     }
 
-    private void Start()
+    protected void PatternsPlay(string[] patterns, int phase)
     {
-        
+        StartCoroutine(PatternsPlayCoroutine(patterns, phase));
+    }
+
+    public IEnumerator PatternsPlayCoroutine(string[] patterns, int phase)
+    {
+        while (_phase == phase)
+        {
+            string stateName = _bossBrain.BossPattenData.patternSO[Random.Range(0, patterns.Length)].Name;
+            _bossBrain.StateMachine.ChangeState(stateName);
+
+            yield return new WaitForSeconds(_bossBrain.StateMachine.CurrentState.PatternPlayTime);
+        }
     }
 }

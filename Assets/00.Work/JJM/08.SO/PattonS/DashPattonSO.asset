@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13308938091488b46ae8c1e5125e5221, type: 3}
   m_Name: DashPattonSO
   m_EditorClassIdentifier: 
-  <PatternName>k__BackingField: Dash
-  <Name>k__BackingField: Boss1StingState
-  <StingState>k__BackingField:
-    firstDelay: 0
-    dashTime: 0
-    dashDistance: 0
+  <Name>k__BackingField: Dash
+  <firstDelay>k__BackingField: 0.5
+  <dashTime>k__BackingField: 1
+  <dashDistance>k__BackingField: 10
+  <endDelay>k__BackingField: 0.3

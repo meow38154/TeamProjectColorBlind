@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss1StateMachine
+public class BossStateMachine
 {
-    private Dictionary<string, Boss1State> _stateDictionary = new();
-    public Boss1State CurrentState { get; private set; }
+    private Dictionary<string, BossState> _stateDictionary = new();
+    public BossState CurrentState { get; private set; }
 
-    public void AddState(string stateName, Boss1State state)
+    public void AddState(string stateName, BossState state)
     {
-        if (!_stateDictionary.ContainsKey(stateName))
-            _stateDictionary.Add(stateName, state);
+        Debug.Log($"{stateName} {state}");
+        _stateDictionary.Add(stateName, state);
     }
     public void Initialize(string startState)
     {
