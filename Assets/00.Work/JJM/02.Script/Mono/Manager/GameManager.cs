@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
         float valuePosX = value.x; //나온 값에 x만 분리
         float directionValue = value.x / Mathf.Abs(value.x); //(대충 -1이랑 1만 나오게 하는 개 쩌는 공식)
 
-        return (int)directionValue; //반환
+        return -(int)directionValue; //반환
+        //ㅗ
     }
 }

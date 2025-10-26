@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e9229b57f520044afe25ac8cdf833b, type: 3}
-  m_Name: PattonSO
+  m_Script: {fileID: 11500000, guid: 0f861c39cc20f554b9620cd155ff26ec, type: 3}
+  m_Name: TakeDownSO
   m_EditorClassIdentifier: 
-  FirstDeal: 0
-  EndDeal: 0
+  <Name>k__BackingField: TakeDown
+  _firstDelay: 0.5
+  _jumpPower: 3
+  _jumpTime: 0.45
+  _jumpEase: 13
+  _downDelay: 1
+  _downTime: 0.4
+  _downEase: 12
+  _endDelay: 0.3
