@@ -33,7 +33,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void SetAnimation(AgentMovement movement) // 애니메이션을 세팅하는 메서드
         {
-            _animator.SetFloat(_moveXHash, Mathf.Abs(movement.Rb.linearVelocityX)); // X값을 절대값으로 받아와 
+            _animator.SetFloat(_moveXHash, Mathf.Abs(movement.Rb.linearVelocityX)); // X값을 절대값으로 받아와서 
             _animator.SetFloat(_moveYHash, movement.Rb.linearVelocityY);
             _animator.SetBool(_isGroundHash, movement.IsGrounded);
             _animator.SetBool(_doubleJump, _player._canDoubleJump);

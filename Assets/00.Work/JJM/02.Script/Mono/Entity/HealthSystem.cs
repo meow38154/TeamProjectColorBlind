@@ -3,44 +3,44 @@ using System;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth; 
-    [SerializeField] private int _currentHealth;
+    [SerializeField] private int maxHealth; 
+    [SerializeField] private int currentHealth;
 
-    public Action OnGetDamge; //´ë¹ÌÁö ÀÔ¾úÀ» ¶§ È£ÃâµÉ ¾×¼Ç
-    public Action OnHealHealth; //Ã¼·Â È¸º¹À» ÇßÀ» ¶§ È£ÃâµÉ ¾×¼Ç
-    public Action OnDie; //Á×¾úÀ» ¶§ È£ÃâµÉ ¾×¼Ç
+    public Action OnGetDamage; //ëŒ€ë¯¸ì§€ ìž…ì—ˆì„ ë•Œ í˜¸ì¶œë  ì•¡ì…˜
+    public Action OnHealHealth; //ì²´ë ¥ íšŒë³µì„ í–ˆì„ ë•Œ í˜¸ì¶œë  ì•¡ì…˜
+    public Action OnDie; //ì£½ì—ˆì„ ë•Œ í˜¸ì¶œë  ì•¡ì…˜
 
 
     private void Awake()
     {
-        _currentHealth = _maxHealth; //ÇöÀç Ã¼·ÂÀ» ÃÖ´ëÃ¼·ÂÀ¸·Î ¼³Á¤
+        currentHealth = maxHealth; //í˜„ìž¬ ì²´ë ¥ì„ ìµœëŒ€ì²´ë ¥ìœ¼ë¡œ ì„¤ì •
     }
 
     public void GetDamage(int damage)
     {
-        _currentHealth -= damage; //ÇöÀç Ã¼·Â¿¡ ¹ÞÀº ´ë¹ÌÁö ¸¸Å­À» ±ô
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth); //ÇöÀç Ã¼·ÂÀ» 0~_maxHealth »çÀÌ·Î ¹Ù²ãŠR(Ã¼·ÂÀÌ -·Î °¡Áö ¾Ê°Ô)
-        if (_currentHealth > 0) //¼³Á¤ ÀÌÈÄ Ã¼·ÂÀÌ 0 ÃÊ°úÀÏ ¶§
+        currentHealth -= damage; //í˜„ìž¬ ì²´ë ¥ì— ë°›ì€ ëŒ€ë¯¸ì§€ ë§Œí¼ì„ ê¹œ
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); //í˜„ìž¬ ì²´ë ¥ì„ 0~_maxHealth ì‚¬ì´ë¡œ ë°”ê¿”ë‘š(ì²´ë ¥ì´ -ë¡œ ê°€ì§€ ì•Šê²Œ)
+        if (currentHealth > 0) //ì„¤ì • ì´í›„ ì²´ë ¥ì´ 0 ì´ˆê³¼ì¼ ë•Œ
         {
-            OnGetDamge?.Invoke(); //´ë¹ÌÁö¸¦ ÀÔ¾úÀ» ¶§ »ç¿ëµÇ´Â ¾×¼Ç È£Ãâ (nullÀÌ¸é È£Ãâ ¾ÈÇÔ)
+            OnGetDamage?.Invoke(); //ëŒ€ë¯¸ì§€ë¥¼ ìž…ì—ˆì„ ë•Œ ì‚¬ìš©ë˜ëŠ” ì•¡ì…˜ í˜¸ì¶œ (nullì´ë©´ í˜¸ì¶œ ì•ˆí•¨)
         }
 
-        else //¼³Á¤ ÀÌÈÄ Ã¼·ÂÀÌ 0 ÀÌÇÏÀÏ ¶§
+        else //ì„¤ì • ì´í›„ ì²´ë ¥ì´ 0 ì´í•˜ì¼ ë•Œ
         {
-            Die(); //Á×¾úÀ» ¶§ »ç¿ëµÇ´Â ¸Þ¼­µå È£Ãâ
+            Die(); //ì£½ì—ˆì„ ë•Œ ì‚¬ìš©ë˜ëŠ” ë©”ì„œë“œ í˜¸ì¶œ
         }
     }
 
     public void GetHeal(int heal)
     {
-        OnHealHealth?.Invoke(); //Ã¼·ÂÀ» È¸º¹ÇßÀ» ¶§ »ç¿ëµÇ´Â ¾×¼Ç È£Ãâ (nullÀÌ¸é È£Ãâ ¾ÈÇÔ)
-        _currentHealth += heal; //¹ÞÀº Èú·® ¸¸Å­ Ã¼·ÂÀ» È¸º¹
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth); //ÇöÀç Ã¼·ÂÀ» 0~_maxHealth »çÀÌ·Î ¹Ù²ãŠR(Ã¼·ÂÀÌ ÃÖ´ëÃ¼·ÂÀ» ÃÊ°úÇÏÁö ¾Ê°Ô)
+        OnHealHealth?.Invoke(); //ì²´ë ¥ì„ íšŒë³µí–ˆì„ ë•Œ ì‚¬ìš©ë˜ëŠ” ì•¡ì…˜ í˜¸ì¶œ (nullì´ë©´ í˜¸ì¶œ ì•ˆí•¨)
+        currentHealth += heal; //ë°›ì€ ížëŸ‰ ë§Œí¼ ì²´ë ¥ì„ íšŒë³µ
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); //í˜„ìž¬ ì²´ë ¥ì„ 0~_maxHealth ì‚¬ì´ë¡œ ë°”ê¿”ë‘š(ì²´ë ¥ì´ ìµœëŒ€ì²´ë ¥ì„ ì´ˆê³¼í•˜ì§€ ì•Šê²Œ)
     }
 
     public void Die()
     {
-        OnDie?.Invoke(); //Á×¾úÀ» ¶§ »ç¿ëµÇ´Â ¾×¼Ç È£Ãâ (nullÀÌ¸é È£Ãâ ¾ÈÇÔ)
+        OnDie?.Invoke(); //ì£½ì—ˆì„ ë•Œ ì‚¬ìš©ë˜ëŠ” ì•¡ì…˜ í˜¸ì¶œ (nullì´ë©´ í˜¸ì¶œ ì•ˆí•¨)
         Debug.Log($"{gameObject} is die");
     }
 }

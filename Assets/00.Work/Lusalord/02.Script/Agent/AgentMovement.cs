@@ -18,8 +18,8 @@ namespace _00.Work.Lusalord._02.Script.Agent
         
         public bool isDash;
         public bool isDashCoolTime;
-        
-        protected float XMove;
+
+        private float XMove;
 
         #endregion
         
@@ -37,6 +37,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
 
         [Header("Component")]
         public Rigidbody2D Rb { get; private set; }
+        [field:SerializeField] public AgentRenderer RenderCompo { get; private set; }
 
         #endregion
         
@@ -46,7 +47,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
             {
                 Rb = GetComponentInParent<Rigidbody2D>();
                 if (Rb == null)
-                    throw new MissingComponentException("Rigidbody2D not found in parent object!");
+                    throw new MissingComponentException("Rb가 없습니다!");
             }
             catch (System.Exception e)
             {
@@ -93,14 +94,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
             
             Rb.linearVelocity = Vector2.zero;
             
-            if (direction.x > 0)
-            {
-                Rb.AddForce(Vector2.right * (dashPower * multiplier), ForceMode2D.Impulse);
-            }
-            else
-            {
-                Rb.AddForce(Vector2.left * (dashPower * multiplier), ForceMode2D.Impulse);
-            }
+            Rb.AddForce(new Vector2(RenderCompo.DirRotation, 0) * (dashPower * multiplier), ForceMode2D.Impulse);
 
             yield return new WaitForSeconds(dashDuration);
             Rb.gravityScale = gra;

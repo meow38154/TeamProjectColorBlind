@@ -520,6 +520,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: CanDoubleJump
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dash
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1308365883312723138}
   m_Solo: 0

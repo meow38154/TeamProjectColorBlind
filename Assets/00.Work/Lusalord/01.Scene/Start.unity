@@ -1231,6 +1231,10 @@ PrefabInstance:
       propertyPath: groundCheckerSize.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4220484970071115653, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
+      propertyPath: <RenderCompo>k__BackingField
+      value: 
+      objectReference: {fileID: 231861134}
     - target: {fileID: 5725886221812803265, guid: 96fa7bba9fe567741ad9c798d7b66ce0, type: 3}
       propertyPath: m_Name
       value: Movement
