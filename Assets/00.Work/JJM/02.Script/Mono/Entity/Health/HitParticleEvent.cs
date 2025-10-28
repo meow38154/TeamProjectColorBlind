@@ -25,8 +25,9 @@ public class HitParticleEvent : MonoBehaviour
         _healthSystem.OnGetDamge -= HitParticlePlay;
     }
 
-    private void HitParticlePlay()
+    private void HitParticlePlay(int num, Transform transform)
     {
         _hitParticle.Play();
+        Debug.Log(transform.position);
     }
 }

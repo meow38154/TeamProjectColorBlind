@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class HealthTest : MonoBehaviour
 {
+    [SerializeField] private Transform _transform;
     private HealthSystem healthSystem;
 
     private void Awake()
@@ -14,7 +15,7 @@ public class HealthTest : MonoBehaviour
     {
         if (Keyboard.current.hKey.wasPressedThisFrame)
         {
-            healthSystem.GetDamage(1);
+            healthSystem.GetDamage(1 ,_transform);
         }
     }
 }
