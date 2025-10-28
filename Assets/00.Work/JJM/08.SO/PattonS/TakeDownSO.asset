@@ -19,5 +19,5 @@ MonoBehaviour:
   _jumpEase: 13
   _downDelay: 0.2
   _downTime: 0.7
-  _downEase: 12
+  _downEase: 11
   _endDelay: 0.3
