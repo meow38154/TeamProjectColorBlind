@@ -17,7 +17,8 @@ namespace _00.Work.Lusalord._02.Script.Agent
         public float dashCoolTime;
         
         public bool isDash;
-        public bool isDashCoolTime;
+        private bool isDashCoolTime;
+        private bool _canAirDash = true;
 
         private float XMove;
 

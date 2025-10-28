@@ -108,10 +108,5 @@ namespace _00.Work.Lusalord._02.Script.Player
                 _timeInAir = 0;
             }
         }
-
-        private void Hit()
-        {
-            
-        }
     }
 }
