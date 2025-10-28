@@ -4,6 +4,8 @@ using System;
 
 public class BossStingState : BossState
 {
+    Sequence seq;
+
     public float _firstDelay;
     public float _dashTime;
     public float _dashDistance;
@@ -21,9 +23,11 @@ public class BossStingState : BossState
 
     public override void Enter()
     {
+
+        Debug.Log("대쉬 공격 시작");
         base.Enter();
 
-        Sequence seq = DOTween.Sequence();
+        seq = DOTween.Sequence();
         seq.AppendInterval(_firstDelay);
         seq.Append(_bossObject.transform.DOMoveX(_bossObject.transform.position.x + _dashDistance * GameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
         seq.AppendInterval(_endDelay);
@@ -37,5 +41,6 @@ public class BossStingState : BossState
     public override void Exit()
     {
         base.Exit();
+        seq.Kill();
     }
 }

@@ -29,6 +29,8 @@ public class BossTakeitDownState : BossState
 
     public override void Enter()
     {
+        Debug.Log("내려찍기 공격 활성화");
+
         base.Enter();
 
         float saveY = _bossObject.transform.position.y;
@@ -39,10 +41,10 @@ public class BossTakeitDownState : BossState
         .DOMoveY(_bossObject.transform.position.y + _jumpPower, _jumpTime)
         .SetEase(_jumpEase)
         );
-        seq.AppendInterval(_downDelay);
-
         Transform pTransform = GameManager.Instance.Player.transform;
         Debug.Log(pTransform.position.x);
+        seq.AppendInterval(_downDelay);
+
 
         seq.Append(_bossObject.transform
         .DOMove(new Vector2(pTransform.position.x, saveY), _downTime)

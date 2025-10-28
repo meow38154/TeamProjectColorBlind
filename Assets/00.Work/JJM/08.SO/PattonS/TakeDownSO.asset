@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: TakeDown
   _firstDelay: 0.5
   _jumpPower: 3
-  _jumpTime: 0.45
+  _jumpTime: 0.8
   _jumpEase: 13
-  _downDelay: 1
-  _downTime: 0.4
+  _downDelay: 0.2
+  _downTime: 0.7
   _downEase: 12
   _endDelay: 0.3
