@@ -11,6 +11,8 @@ namespace JJM
 
         private void Awake()
         {
+
+            
             _filePath = Path.Combine(Application.persistentDataPath, _fileName);
 
             if (File.Exists(_filePath))

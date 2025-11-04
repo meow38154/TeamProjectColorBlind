@@ -1,8 +1,11 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
     [field: SerializeField] public GameObject Player { get; private set; }
+    [field: SerializeField] public CinemachineImpulseSource CinemachineImpulseSource { get; private set; }
+
 
     public int TargetAndPlayerDirectionValue(Transform targetTransform) //타겟이 플레이어보다 왼쪽에 있는지 오른쪽에 있는 지 판별 후 값을 리턴하는 메서드 
     {
@@ -12,6 +15,5 @@ public class GameManager : Singleton<GameManager>
         float directionValue = value.x / Mathf.Abs(value.x); //(대충 -1이랑 1만 나오게 하는 개 쩌는 공식)
 
         return Mathf.Clamp(-(int)directionValue, -1, 1); //반환
-        
     }
 }

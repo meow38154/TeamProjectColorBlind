@@ -3,8 +3,8 @@ using System;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth; 
-    [SerializeField] private int _currentHealth;
+    [field: SerializeField] public int MaxHealth { get; private set; }
+    [field: SerializeField] public int CurrentHealth { get; private set; }
 
     public Action<int, Transform> OnGetDamge; //����� �Ծ��� �� ȣ��� �׼�
     public Action<int, Transform> OnHealHealth; //ü�� ȸ���� ���� �� ȣ��� �׼�
@@ -13,14 +13,14 @@ public class HealthSystem : MonoBehaviour
 
     private void Awake()
     {
-        _currentHealth = _maxHealth; //���� ü���� �ִ�ü������ ����
+        CurrentHealth = MaxHealth; //���� ü���� �ִ�ü������ ����
     }
 
     public void GetDamage(int damage, Transform transform)
     {
-        _currentHealth -= damage; //���� ü�¿� ���� ����� ��ŭ�� ��
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth); //���� ü���� 0~_maxHealth ���̷� �ٲ�R(ü���� -�� ���� �ʰ�)
-        if (_currentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
+        CurrentHealth -= damage; //���� ü�¿� ���� ����� ��ŭ�� ��
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth); //���� ü���� 0~_maxHealth ���̷� �ٲ�R(ü���� -�� ���� �ʰ�)
+        if (CurrentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
         {
             OnGetDamge?.Invoke(damage, transform); //������� �Ծ��� �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
         }
@@ -34,8 +34,8 @@ public class HealthSystem : MonoBehaviour
     public void GetHeal(int heal, Transform transform)
     {
         OnHealHealth?.Invoke(heal, transform); //ü���� ȸ������ �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
-        _currentHealth += heal; //���� ���� ��ŭ ü���� ȸ��
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth); //���� ü���� 0~_maxHealth ���̷� �ٲ�R(ü���� �ִ�ü���� �ʰ����� �ʰ�)
+        CurrentHealth += heal; //���� ���� ��ŭ ü���� ȸ��
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth); //���� ü���� 0~_maxHealth ���̷� �ٲ�R(ü���� �ִ�ü���� �ʰ����� �ʰ�)
     }
 
     public void Die()

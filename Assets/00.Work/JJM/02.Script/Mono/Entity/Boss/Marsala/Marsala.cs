@@ -16,6 +16,5 @@ public class Marsala : Boss
         {
             PatternsPlay(phase1Patterns, 1);
         }
-        
     }
 }
