@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternSO:
   - {fileID: 11400000, guid: 9cd58a3e6ea7dc7428ae91b4e0dd50e7, type: 2}
-  - {fileID: 11400000, guid: 9cd58a3e6ea7dc7428ae91b4e0dd50e7, type: 2}

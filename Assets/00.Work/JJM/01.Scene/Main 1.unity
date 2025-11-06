@@ -18123,7 +18123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778614659}
-  - component: {fileID: 1778614664}
+  - component: {fileID: 1778614666}
   - component: {fileID: 1778614662}
   - component: {fileID: 1778614661}
   - component: {fileID: 1778614665}
@@ -18192,25 +18192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc67e059405e8454bb47b3a94cf7b123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossObject: {fileID: 1778614664}
-  <BossPattenData>k__BackingField: {fileID: 11400000, guid: 8dbb87580018ab34c9accca27cbd5b48, type: 2}
---- !u!114 &1778614664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778614658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd989329dfe66454eaf2886f49839fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _phase: 1
-  phase1Patterns:
-  - Jump
-  phase2Patterns:
-  - 
+  _bossObject: {fileID: 1778614666}
+  <PattrenData>k__BackingField: {fileID: 11400000, guid: 8dbb87580018ab34c9accca27cbd5b48, type: 2}
 --- !u!61 &1778614665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18257,6 +18240,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 15.682168, y: 12.230566}
   m_EdgeRadius: 0
+--- !u!114 &1778614666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778614658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121ca28a24d1cac4394d0e649938c4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patterns:
+  - skillList:
+    - Jump
+    startHealth: 500
+    untilHealth: 250
+  _phase: 1
+  _passaveFlipX: 0
 --- !u!1 &1778753817
 GameObject:
   m_ObjectHideFlags: 0
@@ -18387,6 +18389,10 @@ PrefabInstance:
     - target: {fileID: 5407283881856459217, guid: 6c2465753e0b3e7448e5a260e58f43fe, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742805420181328580, guid: 6c2465753e0b3e7448e5a260e58f43fe, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

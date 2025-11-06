@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f861c39cc20f554b9620cd155ff26ec, type: 3}
-  m_Name: JumpSO
+  m_Script: {fileID: 11500000, guid: 13308938091488b46ae8c1e5125e5221, type: 3}
+  m_Name: SuperDash
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Jump
-  _minTime: 1
-  _maxTime: 3
+  <Name>k__BackingField: SuperDash
+  <firstDelay>k__BackingField: 1
+  <dashTime>k__BackingField: 0.5
+  <dashDistance>k__BackingField: 7.5
+  <endDelay>k__BackingField: 1

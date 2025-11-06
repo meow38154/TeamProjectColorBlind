@@ -3,8 +3,9 @@ using System.Collections;
 
 public class BossJumpState : BossState
 {
-    private float _minTime = 2f;
-    private float _maxTime = 5f;
+    private Animator _animator;
+    private float _minTime;
+    private float _maxTime;
     private Rigidbody2D _rb;
 
     public BossJumpState(float min, float max)
@@ -12,13 +13,20 @@ public class BossJumpState : BossState
         _maxTime = max;
         _minTime = min;
 
-        PatternPlayTime = Random.Range(_minTime, _maxTime);
+        PatternPlayTime = Random.Range(_minTime, _maxTime) + 0.5f;
     }
 
-    public override void Enter()
+    private IEnumerator AnimationIdleChange()
     {
-        Debug.Log("มกวม");
+        _bossObject.FlipXPlayer();
+        _animator.SetBool("Jump", true);
+        yield return new WaitForSeconds(0.5f);
+        Jump();
+        _animator.SetBool("Jump", false);
+    }
 
+    private void Jump()
+    {
         _rb = _bossObject.GetComponent<Rigidbody2D>();
 
         GameManager instance = GameManager.Instance;
@@ -29,10 +37,16 @@ public class BossJumpState : BossState
         Vector2 dir = new Vector2(
             instance.TargetAndPlayerDirectionValue(_bossObject.transform) *
             Mathf.Abs(playerDistanceX) * 1.3f, 
-            Mathf.Abs(playerDistanceY) * 2);
+            Mathf.Abs(playerDistanceY) * 2.5f);
 
 
         _rb.AddForce(dir, ForceMode2D.Impulse);
+    }
+
+    public override void Enter()
+    {
+        _animator = _bossObject.GetComponentInChildren<Animator>();
+        _bossObject.StartCoroutine(AnimationIdleChange());
     }
     public override void UpdateState() 
     {

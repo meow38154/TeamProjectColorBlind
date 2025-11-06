@@ -18092,9 +18092,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778614659}
-  - component: {fileID: 1778614664}
   - component: {fileID: 1778614662}
   - component: {fileID: 1778614661}
+  - component: {fileID: 1778614663}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -18160,9 +18160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc67e059405e8454bb47b3a94cf7b123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossObject: {fileID: 1778614664}
-  <BossPattenData>k__BackingField: {fileID: 11400000, guid: 77f2b5ac768cbc24db2767280fa81e63, type: 2}
---- !u!114 &1778614664
+  _bossObject: {fileID: 1778614663}
+  <PattrenData>k__BackingField: {fileID: 11400000, guid: 77f2b5ac768cbc24db2767280fa81e63, type: 2}
+--- !u!114 &1778614663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18171,14 +18171,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778614658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd989329dfe66454eaf2886f49839fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 121ca28a24d1cac4394d0e649938c4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patterns:
+  - skillList:
+    - Dash
+    - TakeDown
+    startHealth: 0
+    untilHealth: 0
   _phase: 1
-  phase1Patterns:
-  - Dash
-  - TakeDown
-  phase2Patterns: []
+  _passaveFlipX: 1
 --- !u!1 &1778753817
 GameObject:
   m_ObjectHideFlags: 0
