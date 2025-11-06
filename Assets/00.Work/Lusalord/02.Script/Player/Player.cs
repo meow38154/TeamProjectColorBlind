@@ -13,6 +13,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         
             public AgentMovement MovementCompo { get; private set; }
             public AgentRenderer RendererCompo { get; private set; }
+            public HealthSystem HealthSystem { get; private set; }
         #endregion
 
         #region AddGravity
@@ -27,8 +28,9 @@ namespace _00.Work.Lusalord._02.Script.Player
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         public bool _canDoubleJump;
-        
         public UnityEvent onJumpPressEvent;
+
+        public bool isDamage;
 
         private void Awake()
         {
@@ -50,7 +52,6 @@ namespace _00.Work.Lusalord._02.Script.Player
             ApplyExtraGravity();
             if (MovementCompo.IsGrounded)
                 _canDoubleJump = true;
-
         }
         
         private void Update()
@@ -79,7 +80,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void HandleDashPressed() // 대쉬를 담당하는 메서드
         {
-            Debug.Log("실햄됨x");
+            Debug.Log("실햄됨");
             MovementCompo.Dash(PlayerInput.MoveDir);
         }
         
