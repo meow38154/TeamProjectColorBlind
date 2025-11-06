@@ -6,6 +6,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player.FSM
     public class StateSO : ScriptableObject
     {
         public string StateName;
+        public string ClassName;
         public AnimatorParameterSO ParameterSO;
     }
 }

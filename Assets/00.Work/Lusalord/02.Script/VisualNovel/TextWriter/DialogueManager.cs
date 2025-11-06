@@ -1,6 +1,11 @@
+using System;
 using System.Collections;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace _00.Work.Lusalord._02.Script.VisualNovel.TextWriter
 {
@@ -14,17 +19,20 @@ namespace _00.Work.Lusalord._02.Script.VisualNovel.TextWriter
         private int _index;
         private bool _isTyping;
 
+        private void OnValidate()
+        {
+            dialogueSo.LoadFromJson(); 
+            
+        }
+
         private void Start()
         {
-            if (dialogueSo.dialogues == null || dialogueSo.dialogues.Length == 0)
-                dialogueSo.LoadFromJson();
-
             ShowDialogue();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (_isTyping)
                 {
