@@ -1,42 +1,34 @@
 using _00.Work.Lusalord._02.Script.Agent;
 using _00.Work.Lusalord._02.Script.Player;
+using _00.Work.Lusalord._02.Script.Player.FSMSystem;
 using _00.Work.Lusalord._02.Script.SO;
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public abstract class PlayerState
 {
     protected Player Player;
-    
-    protected AnimatorParameterSO StateParam;
-    protected bool IsTriggerCall;
+    protected PlayerStateMachine StateMachine;
+    public abstract PlayerStates States { get; }
 
-    protected AgentRenderer RenderCompo;
 
-    public PlayerState(AnimatorParameterSO param, Player player)
+    public PlayerState(Player player, PlayerStateMachine stateMachine)
     {
         Player = player;
-        StateParam = param;
-        RenderCompo = player.GetComponent<AgentRenderer>();
+        StateMachine = stateMachine;
     }
 
+    public virtual void Enter()
+    {
+        
+    }
+    
     public virtual void Update()
     {
         
     }
 
-    public virtual void Enter()
-    {
-        RenderCompo.SetParameter(StateParam, true);
-        IsTriggerCall = false;
-    }
-
     public virtual void Exit()
     {
-        RenderCompo.SetParameter(StateParam, false);
-    }
-
-    public virtual void AnimatorEndTrigger()
-    {
-        IsTriggerCall = true;
+        
     }
 }

@@ -19,7 +19,7 @@ namespace _00.Work.Lusalord._02.Script.VisualNovel.TextWriter
         private int _index;
         private bool _isTyping;
 
-        private void OnValidate()
+        private void Awake()
         {
             dialogueSo.LoadFromJson(); 
             

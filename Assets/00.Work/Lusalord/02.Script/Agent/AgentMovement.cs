@@ -7,7 +7,6 @@ namespace _00.Work.Lusalord._02.Script.Agent
 {
     public class AgentMovement : MonoBehaviour
     {
-        #region PlayerMovement
 
         [Header("PlayerMovement")]      
         public float moveSpeed;
@@ -22,26 +21,17 @@ namespace _00.Work.Lusalord._02.Script.Agent
         private bool _canAirDash = true;
 
         private float XMove;
-
-        #endregion
-        
-        #region GroundCheck
         
         [Header("GroundCheck")] 
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Vector2 groundCheckerSize;
         
-        public bool IsGrounded { get; private set; }
+        [field:SerializeField] public bool IsGrounded { get; private set; }
         
-        #endregion
-        
-        #region Component
 
         [Header("Component")]
         public Rigidbody2D Rb { get; private set; }
         [field:SerializeField] public AgentRenderer RenderCompo { get; private set; }
-
-        #endregion
         
         private void Awake()
         {
@@ -81,27 +71,6 @@ namespace _00.Work.Lusalord._02.Script.Agent
             Rb.AddForce(Vector2.up * jumpPower * multiplier, ForceMode2D.Impulse);
         }
         
-        public void Dash(Vector2 direction, float multiplier = 1f)
-        {
-            if(isDash) return;
-            StartCoroutine(DashCoroutine(direction, multiplier));
-        }
-
-        private IEnumerator DashCoroutine(Vector2 direction, float multiplier)
-        {
-            isDash = true;
-            
-            float gra = Rb.gravityScale;
-            Rb.gravityScale = 0;
-            
-            Rb.linearVelocity = Vector2.zero;
-            
-            Rb.AddForce(new Vector2(RenderCompo.DirRotation, 0) * (dashPower * multiplier), ForceMode2D.Impulse);
-
-            yield return new WaitForSeconds(dashDuration);
-            Rb.gravityScale = gra;
-            isDash = false;
-        }
         private bool CheckGround()
         {
             Collider2D cd = Physics2D.OverlapBox(
@@ -114,7 +83,6 @@ namespace _00.Work.Lusalord._02.Script.Agent
 
         public void AddGravityForce(Vector2 force)
         {
-            if(isDash) return;
             Rb.AddForce(force, ForceMode2D.Force);
         }
         

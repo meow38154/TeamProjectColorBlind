@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using _00.Work.Lusalord._02.Script.Agent;
+using _00.Work.Lusalord._02.Script.Player.FSMSystem;
 using _00.Work.Lusalord._02.Script.SO.Player;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,29 +10,17 @@ namespace _00.Work.Lusalord._02.Script.Player
 {
     public class Player : MonoBehaviour
     {   
-        #region Component
-            [Header("Component")]
-        
-            public AgentMovement MovementCompo { get; private set; }
-            public AgentRenderer RendererCompo { get; private set; }
-            public HealthSystem HealthSystem { get; private set; }
-        #endregion
-
-        #region AddGravity
-            [Header("AddGravity")]
-            
-            [SerializeField] private float extraGravity;
-            [SerializeField] private float gravityDelay;
-            
-            private float _timeInAir;
-        #endregion
-
+        public AgentMovement MovementCompo { get; private set; }
+        public AgentRenderer RendererCompo { get; private set; }
+        private Animator Animator => RendererCompo.animator;
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
-        public bool _canDoubleJump;
-        public UnityEvent onJumpPressEvent;
+        private PlayerStateMachine _playerStateMachine;
 
-        public bool isDamage;
+        public bool CanDoubleJump { get; private set; }
+        public bool jumpCount;
+        private float _timeInAir;
+        public UnityEvent onJumpPressEvent;
 
         private void Awake()
         {
@@ -38,75 +28,55 @@ namespace _00.Work.Lusalord._02.Script.Player
             RendererCompo = GetComponentInChildren<AgentRenderer>();
             
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
-            PlayerInput.OnDashKeyPressed += HandleDashPressed;
+            
+            _playerStateMachine = new PlayerStateMachine(this);
         }
-
+        
         private void OnDestroy()
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
-            PlayerInput.OnDashKeyPressed -= HandleDashPressed;
+        }
+
+        private void Start()
+        {
+            _playerStateMachine.Initialize(PlayerStates.Idle);
         }
 
         private void FixedUpdate()
         {
-            ApplyExtraGravity();
             if (MovementCompo.IsGrounded)
-                _canDoubleJump = true;
+                CanDoubleJump = true;
         }
-        
+
         private void Update()
         {
             SetUpMovementInput();
-            InAirTime();
-            RendererCompo.FaceDirection(PlayerInput.MoveDir);
+            _playerStateMachine.UpdateMachine();
         }
-
+        
         private void HandleJumpPressed() // 점프를 담당하는 메서드
         {
-            if(!MovementCompo.IsGrounded && !_canDoubleJump) return;
+            if(!MovementCompo.IsGrounded && !CanDoubleJump) return;
             
             if (MovementCompo.IsGrounded) // 처음 점프
             {
-                _canDoubleJump = true;
+                CanDoubleJump = true;
             }
-            else if (_canDoubleJump) // 점프 후 더블 점프 가능
+            else if (CanDoubleJump) // 점프 후 더블 점프 가능
             {
-                _canDoubleJump = false;
+                CanDoubleJump = false;
             }
             onJumpPressEvent?.Invoke();     
             MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
             _timeInAir = 0;
         }
-
-        private void HandleDashPressed() // 대쉬를 담당하는 메서드
-        {
-            Debug.Log("실햄됨");
-            MovementCompo.Dash(PlayerInput.MoveDir);
-        }
-        
         private void SetUpMovementInput()
         {
             MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
         }
-        
-        private void ApplyExtraGravity() // 공중에 떠있는 시간이 gravityDelay보다 커지면 플레이어를 떨어뜨린다.
+        public void ConsumeJumpFlag()
         {
-            if (_timeInAir > gravityDelay)
-            {
-                MovementCompo.AddGravityForce(new Vector2(0, -extraGravity));
-            }
-        }
-        
-        private void InAirTime() // 공중에 떠있는 시간을 구하는 메서드
-        {
-            if (MovementCompo.IsGrounded == false)
-            {
-                _timeInAir += Time.deltaTime;
-            }
-            else
-            {
-                _timeInAir = 0;
-            }
+            PlayerInput.jumpPressedFlag = false;
         }
     }
 }

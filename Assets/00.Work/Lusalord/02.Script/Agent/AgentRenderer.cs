@@ -6,18 +6,18 @@ namespace _00.Work.Lusalord._02.Script.Agent
 {
     public class AgentRenderer : MonoBehaviour
     {
-        private Animator _animator;
+        public Animator animator;
         public int DirRotation { get; private set; }
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
         }
 
-        public void SetParameter(AnimatorParameterSO param, int value) => _animator.SetInteger(param.HashValue, value);
-        public void SetParameter(AnimatorParameterSO param, float value) => _animator.SetFloat(param.HashValue, value);
-        public void SetParameter(AnimatorParameterSO param, bool value) => _animator.SetBool(param.HashValue, value);
-        public void SetParameter(AnimatorParameterSO param) => _animator.SetTrigger(param.HashValue);
+        public void SetParameter(AnimatorParameterSO param, int value) => animator.SetInteger(param.HashValue, value);
+        public void SetParameter(AnimatorParameterSO param, float value) => animator.SetFloat(param.HashValue, value);
+        public void SetParameter(AnimatorParameterSO param, bool value) => animator.SetBool(param.HashValue, value);
+        public void SetParameter(AnimatorParameterSO param) => animator.SetTrigger(param.HashValue);
         
         public void FaceDirection(Vector2 dir) // 플레이어의 마우스가 바라보는 방향으로 캐릭터가 바라보도록 설정함
         {

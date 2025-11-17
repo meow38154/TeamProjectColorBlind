@@ -8,7 +8,7 @@ public class EnemyTest : MonoBehaviour
         HealthSystem health = other.collider.GetComponentInChildren<HealthSystem>();
         if (health != null)
         {
-            health.GetDamage(1);
+            // health.GetDamage(1);
         }
     }
 }

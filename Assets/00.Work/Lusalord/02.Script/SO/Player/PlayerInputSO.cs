@@ -9,6 +9,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
     {
         private InputSystem_Actions _input;
         public Action OnJumpKeyPressed;
+        public bool jumpPressedFlag;
         public Action OnDashKeyPressed;
 
         public Vector2 MoveDir { get; private set; }
@@ -37,6 +38,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         {
             if (context.performed)
             {
+                jumpPressedFlag = true;
                 OnJumpKeyPressed?.Invoke();
             }   
         }
