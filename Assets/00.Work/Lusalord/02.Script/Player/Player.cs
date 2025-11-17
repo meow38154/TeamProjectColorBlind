@@ -78,10 +78,5 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.jumpPressedFlag = false;
         }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
