@@ -5,17 +5,24 @@ public abstract class BossState
 {
     protected BossState _boss1Stage;
     protected Boss _bossObject;
+    protected Rigidbody2D _rb;
+    protected Animator _anim;
 
     public float PatternPlayTime { get; protected set; }
 
     public void Initialize(BossState boss1Stage, Boss boss)
     {
         _bossObject = boss;
+        _anim = boss.GetComponentInChildren<Animator>();
+        if (_bossObject.TryGetComponent(out Rigidbody2D rb))
+        {
+            _rb = rb;
+        }
     }
 
     public virtual void Enter() 
     {
-        Debug.Log("들어감");
+        Debug.Log("상태 바뀜");
     }
     public virtual void UpdateState() { }
     public virtual void Exit() { }

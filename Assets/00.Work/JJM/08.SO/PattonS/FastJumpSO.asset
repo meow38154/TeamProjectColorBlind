@@ -15,3 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: FastJump
   _minTime: 0.5
   _maxTime: 1
+  _animWait: 0.5
+  _endTime: 1
+  _jumpPower: 12
+  _forPower: 4

@@ -6,22 +6,35 @@ public class BossJumpState : BossState
     private Animator _animator;
     private float _minTime;
     private float _maxTime;
-    private Rigidbody2D _rb;
+    private float _animWait;
+    private float _endTime;
+    private float _jumpPower;
+    private float _forPower;
 
-    public BossJumpState(float min, float max)
+    public BossJumpState(float min, float max, float _an, float endTime, float jumpPower, float forPower)
     {
         _maxTime = max;
         _minTime = min;
+        _animWait = _an;
 
-        PatternPlayTime = Random.Range(_minTime, _maxTime) + 0.5f;
+        _endTime = endTime;
+        _jumpPower = jumpPower;
+        PatternPlayTime = Random.Range(_minTime, _maxTime) + _endTime;
+        _forPower = forPower;
     }
 
     private IEnumerator AnimationIdleChange()
     {
         _bossObject.FlipXPlayer();
+        _bossObject.StartCoroutine(Anim());
+        yield return new WaitForSeconds(_animWait);
+        Jump();
+    }
+
+    private IEnumerator Anim()
+    {
         _animator.SetBool("Jump", true);
         yield return new WaitForSeconds(0.5f);
-        Jump();
         _animator.SetBool("Jump", false);
     }
 
@@ -31,17 +44,30 @@ public class BossJumpState : BossState
 
         GameManager instance = GameManager.Instance;
 
-        float playerDistanceX = instance.Player.transform.position.x - _bossObject.transform.position.x;
-        float playerDistanceY = instance.Player.transform.position.y - _bossObject.transform.position.y + 6;
+        Vector3 targetPos = instance.Player.transform.position;
+        float jumpHeight = _jumpPower;
+        float gravity = Mathf.Abs(Physics2D.gravity.y);
 
-        Vector2 dir = new Vector2(
-            instance.TargetAndPlayerDirectionValue(_bossObject.transform) *
-            Mathf.Abs(playerDistanceX) * 1.3f, 
-            Mathf.Abs(playerDistanceY) * 2.5f);
+        Vector3 startPos = _bossObject.transform.position;
 
+        float timeToPeak = Mathf.Sqrt(2 * jumpHeight / gravity);
+        float totalTime = timeToPeak + Mathf.Sqrt(2 * (startPos.y + jumpHeight - targetPos.y) / gravity);
 
-        _rb.AddForce(dir, ForceMode2D.Impulse);
+        float vx = _forPower * ((targetPos.x - startPos.x) / totalTime);
+        float vy = Mathf.Sqrt(2 * gravity * jumpHeight);
+
+        if (vx == float.NaN)
+        {
+            Debug.LogWarning($"{targetPos.x} {startPos.x} / {totalTime}");
+            vx = 0;
+        }
+
+        Vector2 velocity = new Vector2(vx, vy);
+
+        _rb.linearVelocity = Vector2.zero;
+        _rb.AddForce(velocity, ForceMode2D.Impulse);
     }
+
 
     public override void Enter()
     {

@@ -9,47 +9,64 @@ public class BossTakeitDownState : BossState
     public float _jumpTime;
     public Ease _jumpEase;
     public float _downDelay;
-    public float _downTime;
+    public float _downSpeed;
     public Ease _downEase;
     public float _endDelay;
 
-    public BossTakeitDownState(float firstDelay, float jumpTime ,float jumpPower, Ease jumpEase, float downDelay, float downTime, Ease downEase, float endDelay)
+    public BossTakeitDownState(float firstDelay, float jumpTime, float jumpPower, Ease jumpEase, float downDelay, float downTime, Ease downEase, float endDelay)
     {
-         _firstDelay = firstDelay;
+        _firstDelay = firstDelay;
         _jumpPower = jumpPower;
         _jumpTime = jumpTime;
         _jumpEase = jumpEase;
         _downDelay = downDelay;
-        _downTime = downTime;
+        _downSpeed = downTime;
         _downEase = downEase;
         _endDelay = endDelay;
 
-        PatternPlayTime = _firstDelay + _jumpTime + downDelay + _downTime + _endDelay;
+        PatternPlayTime = _firstDelay + _jumpTime + _downDelay + _endDelay + 0.5f;
     }
 
     public override void Enter()
     {
-        Debug.Log("내려찍기 공격 활성화");
-
         base.Enter();
 
         float saveY = _bossObject.transform.position.y;
 
         Sequence seq = DOTween.Sequence();
+
         seq.AppendInterval(_firstDelay);
+        seq.AppendCallback(() => 
+        { 
+            _anim.SetBool("Jump", true);
+            _rb.gravityScale = 0f;
+        });
         seq.Append(_bossObject.transform
-        .DOMoveY(_bossObject.transform.position.y + _jumpPower, _jumpTime)
-        .SetEase(_jumpEase)
+            .DOMoveY(_bossObject.transform.position.y + _jumpPower, _jumpTime)
+            .SetEase(_jumpEase)
         );
+
         Transform pTransform = GameManager.Instance.Player.transform;
-        Debug.Log(pTransform.position.x);
         seq.AppendInterval(_downDelay);
 
+        Vector2 targetPos = new Vector2(pTransform.position.x, saveY);
+        float distance = Vector2.Distance(_bossObject.transform.position, targetPos);
+        float duration = distance / _downSpeed;
+        seq.AppendCallback(() => 
+        {
+            _anim.SetBool("Jump", false);
+            _anim.SetBool("Down", true);
+            _bossObject.PassaveFlipX = false;
+        });
 
         seq.Append(_bossObject.transform
-        .DOMove(new Vector2(pTransform.position.x, saveY), _downTime)
-        .SetEase(_downEase)
+            .DOMove(targetPos, duration)
+            .SetEase(_downEase)
         );
+        seq.AppendCallback(() => { _anim.SetBool("Down", false);
+            _bossObject.PassaveFlipX = true;
+            _rb.gravityScale = 4f;
+        });
         seq.AppendInterval(_endDelay);
     }
 

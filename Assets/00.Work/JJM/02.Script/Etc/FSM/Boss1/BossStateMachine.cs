@@ -4,6 +4,10 @@ using UnityEngine;
 public class BossStateMachine
 {
     private Dictionary<string, BossState> _stateDictionary = new();
+                                 
+
+
+
     public BossState CurrentState { get; private set; }
 
     public void AddState(string stateName, BossState state)

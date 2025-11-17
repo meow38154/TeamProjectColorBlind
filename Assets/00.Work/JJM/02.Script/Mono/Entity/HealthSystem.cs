@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 public class HealthSystem : MonoBehaviour
 {
     [field: SerializeField] public int MaxHealth { get; private set; }
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField, ReadOnly] public int CurrentHealth { get; private set; }
 
     public Action<int, Transform> OnGetDamge; //����� �Ծ��� �� ȣ��� �׼�
     public Action<int, Transform> OnHealHealth; //ü�� ȸ���� ���� �� ȣ��� �׼�
     public Action OnDie; //�׾��� �� ȣ��� �׼�
+
+    [SerializeField] private float _invincibilityTime = 0;
+    private bool _invincibility = false;
 
 
     private void Awake()
@@ -18,16 +22,20 @@ public class HealthSystem : MonoBehaviour
 
     public void GetDamage(int damage, Transform transform)
     {
-        CurrentHealth -= damage; //���� ü�¿� ���� ����� ��ŭ�� ��
-        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth); //���� ü���� 0~_maxHealth ���̷� �ٲ�R(ü���� -�� ���� �ʰ�)
-        if (CurrentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
+        if (!_invincibility)
         {
-            OnGetDamge?.Invoke(damage, transform); //������� �Ծ��� �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
-        }
+            StartCoroutine(InvincibilityTime());
+            CurrentHealth -= damage;
+            CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+            if (CurrentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
+            {
+                OnGetDamge?.Invoke(damage, transform);
+            }
 
-        else //���� ���� ü���� 0 ������ ��
-        {
-            Die(); //�׾��� �� ���Ǵ� �޼��� ȣ��
+            else //���� ���� ü���� 0 ������ ��
+            {
+                Die(); //�׾��� �� ���Ǵ� �޼��� ȣ��
+            }
         }
     }
 
@@ -42,5 +50,12 @@ public class HealthSystem : MonoBehaviour
     {
         OnDie?.Invoke(); //�׾��� �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
         Debug.Log($"{gameObject} is die");
+    }
+
+    private IEnumerator InvincibilityTime()
+    {
+        _invincibility = true;
+        yield return new WaitForSeconds(_invincibilityTime);
+        _invincibility = false;
     }
 }

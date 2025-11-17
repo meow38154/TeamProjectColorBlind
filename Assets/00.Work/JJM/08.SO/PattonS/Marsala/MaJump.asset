@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f861c39cc20f554b9620cd155ff26ec, type: 3}
-  m_Name: JumpSO
+  m_Name: MaJump
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Jump
   _minTime: 1
-  _maxTime: 3
-  _animWait: 0.5
-  _endTime: 0.5
-  _jumpPower: 12
-  _forPower: 3.5
+  _maxTime: 2
+  _animWait: 0
+  _endTime: 1
+  _jumpPower: 5
+  _forPower: 3

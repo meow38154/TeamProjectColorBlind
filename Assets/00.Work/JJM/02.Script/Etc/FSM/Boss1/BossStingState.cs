@@ -23,14 +23,26 @@ public class BossStingState : BossState
 
     public override void Enter()
     {
-
+        bool good = false;
         Debug.Log("대쉬 공격 시작");
         base.Enter();
-
+        _anim.SetBool("Dash", true);
+        if (_bossObject.PassaveFlipX == true)
+        {
+            _bossObject.PassaveFlipX = false;
+            good = true;
+        }
         seq = DOTween.Sequence();
         seq.AppendInterval(_firstDelay);
-        seq.Append(_bossObject.transform.DOMoveX(_bossObject.transform.position.x + _dashDistance * GameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
-        seq.AppendInterval(_endDelay);
+        seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * GameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
+        seq.AppendCallback(() => 
+        { 
+            _anim.SetBool("Dash", false);
+            if (_bossObject.PassaveFlipX == false && good == true)
+            {
+                _bossObject.PassaveFlipX = true;
+            }
+        });
     }
 
     public override void UpdateState()

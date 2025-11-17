@@ -1,27 +1,58 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
 
-public class BossTakeDownState: BossState
+public class BossTakeDownState : BossState
 {
+    Rigidbody2D _rb;
+    Sequence seq;
+
+    float jumpPower = 12f;
+    float waitMidAir = 0.5f;
+    float slamTime = 0.25f;
+    float timeToPeak;
 
     public BossTakeDownState()
     {
-
+        _rb = _bossObject.GetComponent<Rigidbody2D>();
+        timeToPeak = jumpPower / Mathf.Abs(Physics2D.gravity.y);
+        PatternPlayTime = timeToPeak + waitMidAir + slamTime + 0.2f;
     }
 
-    public override void Enter() //패턴이 시작됐을 때
+    public override void Enter()
     {
-    base.Enter();
+        Transform tr = _bossObject.transform;
+        Transform pTr = GameManager.Instance.Player.transform;
+
+        float originalGravity = _rb.gravityScale;
+
+        seq?.Kill();
+        seq = DOTween.Sequence();
+
+        _rb.gravityScale = originalGravity;
+        _rb.linearVelocity = Vector2.zero;
+
+        _rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+        seq.AppendInterval(timeToPeak);
+
+        seq.AppendCallback(() =>
+        {
+            _rb.gravityScale = 0;
+            _rb.linearVelocity = Vector2.zero;
+        });
+
+        seq.AppendInterval(waitMidAir);
+
+        seq.Append(tr.DOMove(pTr.position, slamTime).SetEase(Ease.InQuad));
+
+        seq.AppendCallback(() =>
+        {
+            _rb.gravityScale = originalGravity;
+        });
     }
 
-    public override void UpdateState() //현재 상태가 이 패턴일 때
+    public override void Exit()
     {
-    base.UpdateState();
-    }
-
-    public override void Exit() //패턴이 끝날 때
-    {
-    base.Exit();
+        seq.Kill();
     }
 }

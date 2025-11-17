@@ -1,17 +1,17 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class HitParticleEvent : MonoBehaviour
+public class HitEvent : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _hitParticle;
     [SerializeField] private ParticleSystem _hitParticleFlyaway;
     private HealthSystem _healthSystem;
-    private SpriteRenderer renderer;
+    private SpriteRenderer _renderer;
 
     private void Awake()
     {
         _healthSystem = GetComponentInParent<HealthSystem>();
-        renderer = transform.root.GetComponentInChildren<SpriteRenderer>();
+        _renderer = transform.root.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -36,14 +36,14 @@ public class HitParticleEvent : MonoBehaviour
 
     private void HitParticlePlay(int num, Transform tran)
     {
-        renderer.DOKill();
-        renderer.color = Color.black;
+        _renderer.DOKill();
+        _renderer.color = Color.black;
 
         _hitParticle.Play();
         _hitParticle.Play();
 
-        renderer.color = Color.white;
-        renderer.DOColor(Color.black, 0.5f);
+        _renderer.color = Color.white;
+        _renderer.DOColor(Color.black, 0.5f);
 
         Vector2 rotationVector = -(tran.position - transform.position).normalized * 12.5f;
 

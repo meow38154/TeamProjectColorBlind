@@ -2,32 +2,40 @@ using UnityEngine;
 using System.Collections;
 using System;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 [Serializable]
 public struct PhasePatternList
 {
-    public string[] skillList;
-    public int startHealth;
-    public int untilHealth;
+    [Header("Num")]
+    public int phase;
+
+    [Header("Phase")]
+    [SerializeField, Range(0.0f, 100.0f)]
+    public float _phaseStartHealth;     // 시작 체력 %
+    [SerializeField, Range(0.0f, 100.0f)]
+    public float _phaseUntilHealth;     // 끝 체력 %
+
+    [Header("UseSkill")]
+    public string[] skillList;          // 해당 페이즈 패턴 이름 목록
 }
 
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Boss : MonoBehaviour
 {
     [Header("PatternSetting")]
     [SerializeField] protected PhasePatternList[] patterns;
 
-    [SerializeField, ReadOnly] protected int _phase = 1;
+    protected int _phase = -1;
 
     [Header("VisualSetting")]
-    [SerializeField] private bool _passaveFlipX = true;
+    [field: SerializeField] public bool PassaveFlipX { get; set; } = true;
+    [field: SerializeField] public bool PassaveFlipXFlip { get; set; } = true;
 
     protected BossBrain _bossBrain;
 
     private HealthSystem _healthSystem;
-
     private Coroutine _coroutine;
-
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -39,17 +47,17 @@ public class Boss : MonoBehaviour
 
     private void Start()
     {
-        PhaseChange(1, transform);
+        PhaseChange(0, transform);
     }
+
     private void Update()
     {
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
             Debug.Log(patterns[0].skillList[0]);
-            PatternsPlay(patterns[0].skillList, 1);
         }
 
-        if (_passaveFlipX)
+        if (PassaveFlipX)
         {
             FlipXPlayer();
         }
@@ -61,11 +69,11 @@ public class Boss : MonoBehaviour
 
         if (v == 1)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            _spriteRenderer.transform.rotation = Quaternion.Euler(0, PassaveFlipXFlip ? 0 : 180, 0);
         }
         if (v == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            _spriteRenderer.transform.rotation = Quaternion.Euler(0, PassaveFlipXFlip ? 180 : 0, 0);
         }
     }
 
@@ -74,21 +82,23 @@ public class Boss : MonoBehaviour
         _bossBrain = GetComponent<BossBrain>();
     }
 
-    protected void PatternsPlay(string[] patterns, int phase)
+    protected void PatternsPlay(string[] skillNames, int phase)
     {
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }
-        _coroutine = StartCoroutine(PatternsPlayCoroutine(patterns, phase));
+        _coroutine = StartCoroutine(PatternsPlayCoroutine(skillNames, phase));
     }
 
-    public IEnumerator PatternsPlayCoroutine(string[] patterns, int phase)
+    public IEnumerator PatternsPlayCoroutine(string[] skillNames, int phase)
     {
         while (_phase == phase)
         {
-            string stateName = _bossBrain.PattrenData.patternSO[UnityEngine.Random.Range(0, patterns.Length)].Name;
+            string stateName = skillNames[UnityEngine.Random.Range(0, skillNames.Length)];
             _bossBrain.StateMachine.ChangeState(stateName);
+
+            Debug.Log($"{stateName} 패턴 실행됨 {_phase}페이즈");
 
             yield return new WaitForSeconds(_bossBrain.StateMachine.CurrentState.PatternPlayTime);
         }
@@ -96,13 +106,24 @@ public class Boss : MonoBehaviour
 
     public void PhaseChange(int y, Transform tr)
     {
+        float currentHealthPercent = ((float)_healthSystem.CurrentHealth / (float)_healthSystem.MaxHealth) * 100f;
+
         for (int i = 0; i < patterns.Length; i++)
         {
-            Debug.Log($"{_healthSystem.CurrentHealth} {patterns[i].startHealth} {patterns[i].untilHealth} {patterns[i].skillList[0]}");
-            if (_healthSystem.CurrentHealth <= patterns[i].startHealth && _healthSystem.CurrentHealth >= patterns[i].untilHealth)
+            if (currentHealthPercent <= patterns[i]._phaseStartHealth &&
+                currentHealthPercent >= patterns[i]._phaseUntilHealth &&
+                _phase != patterns[i].phase)
             {
-                Debug.Log("조건 맞음");
-                PatternsPlay(patterns[i].skillList, i);
+                if (_coroutine != null)
+                {
+                    StopCoroutine(_coroutine);
+                }
+
+                _phase = patterns[i].phase;
+
+                Debug.Log($"페이즈 변경! Phase: {_phase} (Health: {currentHealthPercent}%)");
+                PatternsPlay(patterns[i].skillList, patterns[i].phase);
+
                 break;
             }
         }
