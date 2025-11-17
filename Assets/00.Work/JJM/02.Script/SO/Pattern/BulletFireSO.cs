@@ -5,7 +5,7 @@ using UnityEngine;
 public struct BulletSetting
 {
     [Header("다음 꺼 발사 이후 몇 초 후에 나옴?")]
-    public int _waitTime;
+    public float _waitTime;
 
     [Header("속도 관련")]
     public float _speed;
@@ -15,16 +15,18 @@ public struct BulletSetting
     public bool _lookPlayer;
 
     [Header("기타")]
+    public Vector2 _pos;
     public GameObject _bullet;
 }
 
 [CreateAssetMenu(fileName = "BulletFireSO", menuName = "Scriptable Objects/BulletFireSO")]
 public class BulletFireSO : PatternSO
 {
-    [SerializeField] public BulletSetting _bulletSetting;
+    [SerializeField] public BulletSetting[] _bulletSetting;
+    public float _endDelay;
 
     private void OnEnable()
     {
-        BossStateData = new BossBulletFireState();
+        BossStateData = new BossBulletFireState(_bulletSetting, _endDelay);
     }
 }

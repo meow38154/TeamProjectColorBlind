@@ -16,4 +16,16 @@ public class GameManager : Singleton<GameManager>
 
         return Mathf.Clamp(-(int)directionValue, -1, 1); //¹ÝÈ¯
     }
+
+    public float TargetLook(Transform main, Transform target)
+    {
+        Vector2 mainPos = main.position;
+        Vector2 targetPos = target.position;
+
+        Vector2 dir = targetPos - mainPos;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        return angle;
+    }
 }

@@ -15,7 +15,7 @@ TagManager:
   - Enemy
   - Boss
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 
@@ -43,6 +43,15 @@ TagManager:
     locked: 0
   - name: Particle
     uniqueID: 3491214285
+    locked: 0
+  - name: Bullet
+    uniqueID: 3216644531
+    locked: 0
+  - name: Player
+    uniqueID: 4142942971
+    locked: 0
+  - name: Boss
+    uniqueID: 1636568831
     locked: 0
   m_RenderingLayers:
   - Default

@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfd9bf342418bb54b8c89134be0d6aea, type: 3}
-  m_Name: Slime
+  m_Name: Test
   m_EditorClassIdentifier: 
   patternSO:
-  - {fileID: 11400000, guid: 9cd58a3e6ea7dc7428ae91b4e0dd50e7, type: 2}
-  - {fileID: 11400000, guid: 586312d99b14e204696a7fabaf1cedc1, type: 2}
-  - {fileID: 11400000, guid: 5e289ac1cd8a3d34f82f4de762e44a9e, type: 2}
+  - {fileID: 11400000, guid: 98e7a6e943fb44545b0647a40a0bea13, type: 2}
