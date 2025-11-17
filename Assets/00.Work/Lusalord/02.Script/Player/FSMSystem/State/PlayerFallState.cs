@@ -22,6 +22,16 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem
             if (isIdle)
             {
                 StateMachine.ChangeState(PlayerStates.Idle);
+                return;
+            }
+
+            bool isDoubleJump = !Player.MovementCompo.IsGrounded && !Player.CanDoubleJump &&
+                                 Player.PlayerInput.jumpPressedFlag;
+            if (isDoubleJump)
+            {
+                Player.ConsumeJumpFlag();
+                StateMachine.ChangeState(PlayerStates.DoubleJump);
+                return;
             }
         }
         public override void Exit()
