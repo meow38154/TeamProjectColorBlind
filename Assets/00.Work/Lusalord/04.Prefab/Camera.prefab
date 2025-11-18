@@ -59,7 +59,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6881448676840827796}
   - component: {fileID: 7907912233611614602}
-  - component: {fileID: 7977025354346340674}
   - component: {fileID: 3160506535556902282}
   m_Layer: 0
   m_Name: Enemy Camera
@@ -117,8 +116,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 19.07
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -134,14 +133,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7977025354346340674
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3579776809757857356}
-  m_Enabled: 1
 --- !u!114 &3160506535556902282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +296,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 19.07
+  orthographic size: 5.4
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
