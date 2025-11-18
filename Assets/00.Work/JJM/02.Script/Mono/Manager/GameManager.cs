@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [field: SerializeField] public GameObject Player { get; private set; }
+    [field: SerializeField] public Boss Boss { get; private set; }
     [field: SerializeField] public CinemachineImpulseSource CinemachineImpulseSource { get; private set; }
 
 

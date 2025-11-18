@@ -12,30 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17fdb80996a21641ac71b3364aa1a56, type: 3}
   m_Name: MaBulletFire
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Fire
+  <Name>k__BackingField: Firee
   _bulletSetting:
   - _waitTime: 0.2
-    _speed: 8
-    _lookRotation: 90
-    _lookPlayer: 0
-    _pos: {x: 0, y: 0}
-    _bullet: {fileID: 3072108421901309339, guid: 82eefd5cd99b67d4c96d63efffb6d0b7, type: 3}
-  - _waitTime: 0.2
-    _speed: 8
+    _speed: 12
     _lookRotation: 180
-    _lookPlayer: 0
-    _pos: {x: 0, y: 0}
-    _bullet: {fileID: 3072108421901309339, guid: 82eefd5cd99b67d4c96d63efffb6d0b7, type: 3}
-  - _waitTime: 0.2
-    _speed: 8
-    _lookRotation: 270
     _lookPlayer: 1
     _pos: {x: 0, y: 0}
-    _bullet: {fileID: 3072108421901309339, guid: 82eefd5cd99b67d4c96d63efffb6d0b7, type: 3}
+    _bullet: {fileID: 444528411443754144, guid: 2bef20e6e98ed8540973a4c0f64061d4, type: 3}
   - _waitTime: 0.2
-    _speed: 8
-    _lookRotation: 0
-    _lookPlayer: 0
+    _speed: 12
+    _lookRotation: 180
+    _lookPlayer: 1
     _pos: {x: 0, y: 0}
-    _bullet: {fileID: 3072108421901309339, guid: 82eefd5cd99b67d4c96d63efffb6d0b7, type: 3}
+    _bullet: {fileID: 444528411443754144, guid: 2bef20e6e98ed8540973a4c0f64061d4, type: 3}
+  - _waitTime: 0.2
+    _speed: 16
+    _lookRotation: 180
+    _lookPlayer: 1
+    _pos: {x: 0, y: 0}
+    _bullet: {fileID: 444528411443754144, guid: 2bef20e6e98ed8540973a4c0f64061d4, type: 3}
+  - _waitTime: 0.2
+    _speed: 20
+    _lookRotation: 180
+    _lookPlayer: 1
+    _pos: {x: 0, y: 0}
+    _bullet: {fileID: 444528411443754144, guid: 2bef20e6e98ed8540973a4c0f64061d4, type: 3}
   _endDelay: 3

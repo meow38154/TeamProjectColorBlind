@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995875fd0169d4a45a2c209bff03eb06, type: 3}
+  m_Name: KnightMain2
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: K2
+  _patterns:
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: 0522f6d8d2dda7d42a8ed31a360d67ea, type: 2}
+  - _firstDelay: 0.2
+    _pattern: {fileID: 11400000, guid: a9f95987aea24454089e44dac8dfe936, type: 2}
+  - _firstDelay: 0.5
+    _pattern: {fileID: 11400000, guid: 1e42854f24a5f364d926a966f2c8bffb, type: 2}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MaJump
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Jump
-  _minTime: 1
-  _maxTime: 2
+  _minTime: 0.5
+  _maxTime: 0.75
   _animWait: 0
   _endTime: 1
   _jumpPower: 5

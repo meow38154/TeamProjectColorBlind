@@ -4,8 +4,12 @@ using System.Collections;
 public class Bullet : MonoBehaviour
 {
     public float Speed { get; set; }
+    public bool Move { get; set; } = true;
+
+
 
     [SerializeField] private float DurationTime = 5f;
+
 
     private void OnEnable()
     {
@@ -14,7 +18,10 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += transform.right * Speed * Time.deltaTime;
+        if (Move)
+        {
+            transform.position += transform.right * Speed * Time.deltaTime;
+        }
     }
 
     private IEnumerator DieTime()

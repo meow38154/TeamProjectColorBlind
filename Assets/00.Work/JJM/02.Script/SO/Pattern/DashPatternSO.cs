@@ -10,6 +10,11 @@ public class DashPatternSO : PatternSO
 
     public void OnEnable()
     {
+        SettingUpdate();
+    }
+
+    public override void SettingUpdate()
+    {
         BossStateData = new BossStingState(firstDelay, dashTime, dashDistance, endDelay);
     }
 }

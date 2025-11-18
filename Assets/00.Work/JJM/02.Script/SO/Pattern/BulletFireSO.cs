@@ -27,6 +27,10 @@ public class BulletFireSO : PatternSO
 
     private void OnEnable()
     {
+        SettingUpdate();
+    }
+    public override void SettingUpdate()
+    {
         BossStateData = new BossBulletFireState(_bulletSetting, _endDelay);
     }
 }

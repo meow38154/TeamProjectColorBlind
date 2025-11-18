@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
     [field: SerializeField] public int MaxHealth { get; private set; }
     [field: SerializeField, ReadOnly] public int CurrentHealth { get; private set; }
 
-    public Action<int, Transform> OnGetDamge; //����� �Ծ��� �� ȣ��� �׼�
+    public Action<int, Transform> OnGetDamage; //����� �Ծ��� �� ȣ��� �׼�
     public Action<int, Transform> OnHealHealth; //ü�� ȸ���� ���� �� ȣ��� �׼�
     public Action OnDie; //�׾��� �� ȣ��� �׼�
 
@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour
             CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
             if (CurrentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
             {
-                OnGetDamge?.Invoke(damage, transform);
+                OnGetDamage?.Invoke(damage, transform);
             }
 
             else //���� ���� ü���� 0 ������ ��

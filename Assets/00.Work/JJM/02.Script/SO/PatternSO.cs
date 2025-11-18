@@ -3,5 +3,10 @@ using UnityEngine;
 public class PatternSO : ScriptableObject 
 { 
     public virtual BossState BossStateData { get; set; } 
-    [field: SerializeField] public string Name { get; set; } 
+    [field: SerializeField] public string Name { get; set; }
+
+    public virtual void SettingUpdate()
+    {
+
+    }
 }

@@ -266,13 +266,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 598076523125977012, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1316743796932499011, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1316743796932499011, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413827073205099883, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4177528898831199870, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
       propertyPath: <MaxHealth>k__BackingField
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348084975099350420, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368976508922674309, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573771499717249240, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7204506792509542842, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7204506792509542842, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.98
       objectReference: {fileID: 0}
     - target: {fileID: 7204506792509542842, guid: 85ce05bf3a677ef45aae319d03d6ec03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23997,6 +24021,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
+      propertyPath: patterns.Array.data[0].phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: patterns.Array.data[2].phase
       value: 3
       objectReference: {fileID: 0}
@@ -24010,11 +24038,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: patterns.Array.data[1].skillList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: patterns.Array.data[2].skillList.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
+      propertyPath: 'patterns.Array.data[1].skillList.Array.data[0]'
+      value: JF
       objectReference: {fileID: 0}
     - target: {fileID: 6330859139846858375, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: 'patterns.Array.data[1].skillList.Array.data[1]'

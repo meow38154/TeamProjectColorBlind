@@ -4,22 +4,22 @@ using UnityEngine;
 public class BossStateMachine
 {
     private Dictionary<string, BossState> _stateDictionary = new();
-                                 
-
-
-
     public BossState CurrentState { get; private set; }
 
     public void AddState(string stateName, BossState state)
     {
-        Debug.Log($"{stateName} {state}");
         _stateDictionary.Add(stateName, state);
     }
+
     public void Initialize(string startState)
     {
         if (_stateDictionary.TryGetValue(startState, out var state))
         {
             CurrentState = state;
+            if (CurrentState._bossObject == null)
+            {
+                CurrentState.Initialize(CurrentState, GameManager.Instance.Boss);
+            }
             CurrentState.Enter();
         }
     }
@@ -29,6 +29,11 @@ public class BossStateMachine
         if (!_stateDictionary.TryGetValue(newState, out var nextState))
         {
             return;
+        }
+
+        if (nextState._bossObject == null)
+        {
+            nextState.Initialize(nextState, GameManager.Instance.Boss);
         }
 
         CurrentState?.Exit();

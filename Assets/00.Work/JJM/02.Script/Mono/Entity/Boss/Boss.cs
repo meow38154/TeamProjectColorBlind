@@ -32,7 +32,7 @@ public class Boss : MonoBehaviour
     [field: SerializeField] public bool PassaveFlipX { get; set; } = true;
     [field: SerializeField] public bool PassaveFlipXFlip { get; set; } = true;
 
-    protected BossBrain _bossBrain;
+    [ReadOnly] public BossBrain _bossBrain;
 
     private HealthSystem _healthSystem;
     private Coroutine _coroutine;
@@ -131,11 +131,11 @@ public class Boss : MonoBehaviour
 
     private void OnEnable()
     {
-        _healthSystem.OnGetDamge += PhaseChange;
+        _healthSystem.OnGetDamage += PhaseChange;
     }
 
     private void OnDisable()
     {
-        _healthSystem.OnGetDamge -= PhaseChange;
+        _healthSystem.OnGetDamage -= PhaseChange;
     }
 }
