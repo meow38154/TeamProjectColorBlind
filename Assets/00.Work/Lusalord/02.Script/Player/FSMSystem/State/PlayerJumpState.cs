@@ -34,6 +34,12 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
                 StateMachine.ChangeState(PlayerStates.Fall);
                 return;
             }
+            
+            if (Player.MovementCompo.isDash)
+            {
+                StateMachine.ChangeState(PlayerStates.Dash);
+                return;
+            }
         }
 
         public override void Exit()

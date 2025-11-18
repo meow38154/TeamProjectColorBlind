@@ -8,6 +8,7 @@ public abstract class PlayerState
 {
     protected Player Player;
     protected PlayerStateMachine StateMachine;
+    
     public abstract PlayerStates States { get; }
 
 

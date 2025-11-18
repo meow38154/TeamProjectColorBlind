@@ -11,6 +11,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         public Action OnJumpKeyPressed;
         public bool jumpPressedFlag;
         public Action OnDashKeyPressed;
+        public Action OnAttackKeyPressed;
 
         public Vector2 MoveDir { get; private set; }
         public Vector2 MousePos { get; private set; }
@@ -45,9 +46,9 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            if (Camera.main)
+            if (UnityEngine.Camera.main)
             {
-                MousePos = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+                MousePos = UnityEngine.Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
             }
         }
 
@@ -57,6 +58,11 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
             {
                 OnDashKeyPressed?.Invoke();
             }
+        }
+
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            
         }
     }
 }

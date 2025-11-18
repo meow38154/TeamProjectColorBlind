@@ -33,6 +33,11 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem
                 StateMachine.ChangeState(PlayerStates.DoubleJump);
                 return;
             }
+            if (Player.MovementCompo.isDash)
+            {
+                StateMachine.ChangeState(PlayerStates.Dash);
+                return;
+            }
         }
         public override void Exit()
         {
