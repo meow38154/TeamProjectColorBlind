@@ -30,11 +30,18 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
                 StateMachine.ChangeState(PlayerStates.Idle);
                 return;
             }
+            
             bool canJump = Player.PlayerInput.jumpPressedFlag && Player.MovementCompo.IsGrounded;
             if (canJump)
             {
                 Player.ConsumeJumpFlag();
                 StateMachine.ChangeState(PlayerStates.Jump);
+                return;
+            }
+            
+            if (Player.MovementCompo.isDash)
+            {
+                StateMachine.ChangeState(PlayerStates.Dash);
                 return;
             }
         }

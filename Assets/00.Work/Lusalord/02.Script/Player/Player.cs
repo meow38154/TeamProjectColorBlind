@@ -13,6 +13,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
         private Animator Animator => RendererCompo.animator;
+        private Rigidbody2D _rigidbody;
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private PlayerStateMachine _playerStateMachine;
@@ -22,12 +23,26 @@ namespace _00.Work.Lusalord._02.Script.Player
         private float _timeInAir;
         public UnityEvent onJumpPressEvent;
 
+        [SerializeField] private float dashSpeed = 20f;
+        [SerializeField] private int dashCount = 1;
+        
+        [SerializeField] private float dashDuration = 0.2f;
+        [SerializeField] private float dashCooldown = 1f;
+
+        private bool _canDash = true;
+        private bool _isDashing;
+        private float _dashTimeLeft;
+        private float _dashCooldownTimeLeft;
+
+
         private void Awake()
         {
             MovementCompo = GetComponentInChildren<AgentMovement>();
             RendererCompo = GetComponentInChildren<AgentRenderer>();
-            
+            _rigidbody = GetComponent<Rigidbody2D>();
+
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
+            PlayerInput.OnDashKeyPressed += HandleDashPressed;
             
             _playerStateMachine = new PlayerStateMachine(this);
         }
@@ -35,6 +50,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         private void OnDestroy()
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
+            PlayerInput.OnDashKeyPressed -= HandleDashPressed;
         }
 
         private void Start()
@@ -45,11 +61,23 @@ namespace _00.Work.Lusalord._02.Script.Player
         private void FixedUpdate()
         {
             if (MovementCompo.IsGrounded)
+            {
                 CanDoubleJump = true;
+                dashCount = 1;                                  
+            }
+
+            RendererCompo.FaceDirection(PlayerInput.MoveDir);
         }
 
         private void Update()
         {
+            if (!_canDash)
+            {
+                _dashCooldownTimeLeft -= Time.deltaTime;
+                if (_dashCooldownTimeLeft <= 0)
+                    _canDash = true;
+            }
+
             SetUpMovementInput();
             _playerStateMachine.UpdateMachine();
         }
@@ -70,9 +98,27 @@ namespace _00.Work.Lusalord._02.Script.Player
             MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
             _timeInAir = 0;
         }
+
+        private void HandleDashPressed()
+        {
+            MovementCompo.Dash(new Vector2(RendererCompo.DirRotation, 0));
+
+        }
+        
         private void SetUpMovementInput()
         {
-            MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
+            if (!_isDashing)
+                MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
+        }
+
+        private IEnumerator DashRoutine()
+        {
+            while (_dashTimeLeft > 0)
+            {
+                _dashTimeLeft -= Time.deltaTime;
+                yield return null;
+            }
+            _isDashing = false;
         }
         public void ConsumeJumpFlag()
         {

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223778908460316859}
+  - component: {fileID: 7637019270860168231}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -34,6 +35,20 @@ Transform:
   - {fileID: 1072414067728023938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7637019270860168231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397484251559205971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679edeeae02daaf4b8a0c989313a81b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 6464833320451202961}
+  enemyCamera: {fileID: 7907912233611614602}
 --- !u!1 &3579776809757857356
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +305,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 19.07
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
