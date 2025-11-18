@@ -15,6 +15,12 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public Vector2 MoveDir { get; private set; }
         public Vector2 MousePos { get; private set; }
+        public bool OnLock { get; private set; } = false;
+        
+        public void LockInput(bool isLock)
+        {
+            OnLock = isLock;
+        }
         private void OnEnable()
         {
             if (_input == null)
@@ -32,11 +38,13 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (OnLock) return;
             MoveDir = context.ReadValue<Vector2>();
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (OnLock) return;
             if (context.performed)
             {
                 jumpPressedFlag = true;
@@ -46,6 +54,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public void OnLook(InputAction.CallbackContext context)
         {
+            if (OnLock) return;
             if (UnityEngine.Camera.main)
             {
                 MousePos = UnityEngine.Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
@@ -54,6 +63,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public void OnDash(InputAction.CallbackContext context)
         {
+            if (OnLock) return;
             if (context.performed)
             {
                 OnDashKeyPressed?.Invoke();

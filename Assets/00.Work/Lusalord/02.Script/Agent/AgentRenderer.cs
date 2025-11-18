@@ -14,10 +14,15 @@ namespace _00.Work.Lusalord._02.Script.Agent
             animator = GetComponent<Animator>();
         }
         private bool _lockAnimation = false;
-
-        public void LockAnimation(bool isLock)
+        
+        public bool IsAnimationFinished(string animName)
         {
-            _lockAnimation = isLock;
+            AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+
+            if (!info.IsName(animName))
+                return false;
+
+            return info.normalizedTime >= 1f;
         }
 
         public void SetParameter(AnimatorParameterSO param, int value)
