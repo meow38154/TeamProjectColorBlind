@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13308938091488b46ae8c1e5125e5221, type: 3}
   m_Name: SuperDash
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: SuperDash
-  <firstDelay>k__BackingField: 1
-  <dashTime>k__BackingField: 0.5
-  <dashDistance>k__BackingField: 7.5
+  <Name>k__BackingField: 0
+  <firstDelay>k__BackingField: 0
+  <dashTime>k__BackingField: 0
+  <dashDistance>k__BackingField: 0
   <endDelay>k__BackingField: 1

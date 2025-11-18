@@ -34,16 +34,22 @@ public class BossBulletFireState : BossState
             Debug.Log("정상 작동");
             Bullet bulletCompo = bullet.GetComponent<Bullet>();
 
-            bullet.transform.position = _bossObject.transform.position + (Vector3)i._pos;
+            if (!i._transform)
+            {
+                Vector2 finalPos = i._pos;
+                finalPos.x *= Mathf.Sign(_bossObject.GetComponentInChildren<SpriteRenderer>().transform.rotation.y == 0 ? 1 : -1);
 
+                bullet.transform.position =
+                    _bossObject.transform.position + (Vector3)finalPos;
+            }
+    
             bulletCompo.Speed = i._speed;
 
 
 
             if (!i._lookPlayer)
             {
-                bullet.transform.rotation = Quaternion.Euler(0, 0,
-                    i._lookRotation);
+                bullet.transform.rotation = i._lookRotation;
             }
             else
             {

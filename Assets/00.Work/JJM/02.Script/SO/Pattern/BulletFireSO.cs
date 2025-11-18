@@ -11,12 +11,13 @@ public struct BulletSetting
     public float _speed;
 
     [Header("방향 관련")]
-    public float _lookRotation;
+    public Quaternion _lookRotation;
     public bool _lookPlayer;
 
     [Header("기타")]
     public Vector2 _pos;
     public GameObject _bullet;
+    public bool _transform;
 }
 
 [CreateAssetMenu(fileName = "BulletFireSO", menuName = "Scriptable Objects/BulletFireSO")]

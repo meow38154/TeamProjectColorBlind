@@ -10,6 +10,7 @@ public class BossStingState : BossState
     public float _dashTime;
     public float _dashDistance;
     public float _endDelay;
+    public TargetFollow targetF;
 
     public BossStingState(float firstDelay, float dashTime, float dashDistance, float endDelay)
     {
@@ -23,10 +24,21 @@ public class BossStingState : BossState
 
     public override void Enter()
     {
+
+        if (_bossObject.TryGetComponent<TargetFollow>(out TargetFollow tar))
+        {
+            targetF = tar;
+        }
+
+        if (targetF != null)
+        {
+            targetF.Move = false;
+        }
+
         bool good = false;
         Debug.Log("대쉬 공격 시작");
         base.Enter();
-        _anim.SetBool("Dash", true);
+            _anim.SetBool("Dash", true);
         if (_bossObject.PassaveFlipX == true)
         {
             _bossObject.PassaveFlipX = false;
@@ -37,7 +49,7 @@ public class BossStingState : BossState
         seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * GameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
         seq.AppendCallback(() => 
         { 
-            _anim.SetBool("Dash", false);
+                _anim.SetBool("Dash", false);
             if (_bossObject.PassaveFlipX == false && good == true)
             {
                 _bossObject.PassaveFlipX = true;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7801540129787783296}
   - component: {fileID: 8274988646504432406}
   - component: {fileID: 206935773371577998}
+  - component: {fileID: 6490361013308590214}
   m_Layer: 0
   m_Name: ShurikenBullet
   m_TagString: Untagged
@@ -124,3 +125,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DurationTime: 5
+--- !u!114 &6490361013308590214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845182926570044099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395845b0318323041aabca893d337f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  _pos: {x: 0, y: 0}
+  _size: {x: 0.7, y: 0.7}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 512
+  _color: {r: 1, g: 0, b: 0, a: 1}

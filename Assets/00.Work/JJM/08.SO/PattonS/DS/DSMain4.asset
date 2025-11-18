@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995875fd0169d4a45a2c209bff03eb06, type: 3}
+  m_Name: DSMain4
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: I
+  _patterns:
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: 8f0781669d7c45a4f9e5d9956d99b031, type: 2}
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: b17018564c816ac4f834593d27310cd3, type: 2}
+  - _firstDelay: 1
+    _pattern: {fileID: 11400000, guid: ca45e29bf0d521b4b8cef5415099fb11, type: 2}

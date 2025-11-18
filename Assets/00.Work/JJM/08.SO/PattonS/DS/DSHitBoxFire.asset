@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17fdb80996a21641ac71b3364aa1a56, type: 3}
+  m_Name: DSHitBoxFire
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: 
+  _bulletSetting:
+  - _waitTime: 0
+    _speed: 0
+    _lookRotation: {x: 0.00000004371139, y: 1, z: -1.9106855e-15, w: -0.00000004371139}
+    _lookPlayer: 0
+    _pos: {x: 9, y: -4}
+    _bullet: {fileID: 3436900630669339843, guid: 7a16298920d3022448a0fc2a4d47a9f4, type: 3}
+    _transform: 0
+  _endDelay: 1

@@ -16,44 +16,51 @@ MonoBehaviour:
   _bulletSetting:
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 180
+    _lookRotation: {x: 0, y: 0, z: 0, w: 0}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 0
+    _lookRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 45
+    _lookRotation: {x: 0, y: 0, z: 0.86602545, w: 0.49999997}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 135
+    _lookRotation: {x: 0, y: 0, z: 1, w: -0.00000004371139}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 1
     _speed: 12.5
-    _lookRotation: 90
+    _lookRotation: {x: 0, y: 0, z: 0.25881904, w: 0.9659258}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 22.5
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   - _waitTime: 0
     _speed: 12.5
-    _lookRotation: 157.5
+    _lookRotation: {x: 0, y: 0, z: 0.9659258, w: 0.25881907}
     _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5426583530749307122, guid: 7d110a1beeb73de4895ccc07580ad4a9, type: 3}
+    _transform: 0
   _endDelay: 1
