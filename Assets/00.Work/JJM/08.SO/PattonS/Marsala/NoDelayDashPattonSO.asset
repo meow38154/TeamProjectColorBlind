@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f861c39cc20f554b9620cd155ff26ec, type: 3}
-  m_Name: TakeDownSO
+  m_Script: {fileID: 11500000, guid: 13308938091488b46ae8c1e5125e5221, type: 3}
+  m_Name: NoDelayDashPattonSO
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: TakeDown
-  _firstDelay: 0.5
-  _jumpPower: 3
-  _jumpTime: 0.8
-  _jumpEase: 13
-  _downDelay: 0.2
-  _downTime: 0.7
-  _downEase: 11
-  _endDelay: 0.3
+  <Name>k__BackingField: Dash
+  <firstDelay>k__BackingField: 0
+  <dashTime>k__BackingField: 0.6
+  <dashDistance>k__BackingField: 7.5
+  <endDelay>k__BackingField: 0.2

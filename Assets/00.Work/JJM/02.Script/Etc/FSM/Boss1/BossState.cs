@@ -3,10 +3,10 @@ using DG.Tweening;
 
 public abstract class BossState
 {
-    protected BossState _boss1Stage;
-    protected Boss _bossObject;
-    protected Rigidbody2D _rb;
-    protected Animator _anim;
+    public BossState _boss1Stage;
+    public Boss _bossObject;
+    public Rigidbody2D _rb;
+    public Animator _anim;
 
     public float PatternPlayTime { get; protected set; }
 
@@ -20,12 +20,11 @@ public abstract class BossState
         }
     }
 
-    public virtual void Enter() 
+    public virtual void Enter()
     {
         Debug.Log("»óÅÂ ¹Ù²ñ");
     }
     public virtual void UpdateState() { }
     public virtual void Exit() { }
-
     public virtual void Test() { }
 }

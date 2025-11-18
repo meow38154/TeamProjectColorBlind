@@ -16,17 +16,17 @@ public class HitEvent : MonoBehaviour
 
     private void OnEnable()
     {
-        _healthSystem.OnGetDamge += HitParticlePlay;
+        _healthSystem.OnGetDamage += HitParticlePlay;
     }
 
     private void OnDisable()
     {
-        _healthSystem.OnGetDamge -= HitParticlePlay;
+        _healthSystem.OnGetDamage -= HitParticlePlay;
     }
 
     private void OnDestroy()
     {
-        _healthSystem.OnGetDamge -= HitParticlePlay;
+        _healthSystem.OnGetDamage -= HitParticlePlay;
     }
 
     private void Update()

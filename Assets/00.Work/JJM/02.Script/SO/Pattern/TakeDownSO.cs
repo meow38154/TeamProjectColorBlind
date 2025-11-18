@@ -16,6 +16,18 @@ public class TakeDownSO : PatternSO
 
     public void OnEnable()
     {
+        SettingUpdate();
+    }
+
+    public override void SettingUpdate()
+    {
         BossStateData = new BossTakeitDownState(_firstDelay, _jumpTime, _jumpPower, _jumpEase, _downDelay, _downTime, _downEase, _endDelay);
     }
 }
+
+
+
+
+
+
+
