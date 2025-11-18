@@ -12,8 +12,8 @@ namespace _00.Work.Lusalord._02.Script.Player
     {   
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
-        private Animator Animator => RendererCompo.animator;
-        private Rigidbody2D _rigidbody;
+        public HealthSystem HealthSystem { get; private set; }
+
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private PlayerStateMachine _playerStateMachine;
@@ -39,10 +39,12 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             MovementCompo = GetComponentInChildren<AgentMovement>();
             RendererCompo = GetComponentInChildren<AgentRenderer>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            HealthSystem = GetComponentInChildren<HealthSystem>();
 
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
             PlayerInput.OnDashKeyPressed += HandleDashPressed;
+            HealthSystem.OnGetDamge += HandleHitState;
+            HealthSystem.OnDie += HandleDeathState;
             
             _playerStateMachine = new PlayerStateMachine(this);
         }
@@ -51,6 +53,9 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
+            HealthSystem.OnGetDamge -= HandleHitState;
+            HealthSystem.OnDie += HandleDeathState;
+            
         }
 
         private void Start()
@@ -123,6 +128,15 @@ namespace _00.Work.Lusalord._02.Script.Player
         public void ConsumeJumpFlag()
         {
             PlayerInput.jumpPressedFlag = false;
+        }
+
+        private void HandleHitState(int a, Transform t)
+        {
+            _playerStateMachine.ChangeState(PlayerStates.Hit);
+        }
+        private void HandleDeathState()
+        {
+            _playerStateMachine.ChangeState(PlayerStates.Death);
         }
     }
 }

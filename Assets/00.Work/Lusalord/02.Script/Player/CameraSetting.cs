@@ -7,6 +7,7 @@ public class CameraSetting : MonoBehaviour
     
     private void Awake()
     {
+        enemyCamera.transform.position = mainCamera.transform.position;
         enemyCamera.orthographicSize = mainCamera.orthographicSize;
     }
 }

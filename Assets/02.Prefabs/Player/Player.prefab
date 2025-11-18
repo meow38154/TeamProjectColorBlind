@@ -159,8 +159,6 @@ GameObject:
   - component: {fileID: 1662908660211999858}
   - component: {fileID: 1042982489732603192}
   - component: {fileID: 7987213606561925416}
-  - component: {fileID: 4696801028431997350}
-  - component: {fileID: 4141967628546735631}
   - component: {fileID: 2326237183757871278}
   - component: {fileID: 3019135569098362232}
   m_Layer: 0
@@ -204,7 +202,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.836
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -274,33 +272,6 @@ MonoBehaviour:
   dashCount: 1
   dashDuration: 0.2
   dashCooldown: 1
---- !u!114 &4696801028431997350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316743796932499011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5549f0ca4a2a64fb03ca57ade04c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageCaster: {fileID: 6573771499717249240}
---- !u!114 &4141967628546735631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316743796932499011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbdfd5d93c79470ab2975e5ff2357ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageCaster: {fileID: 3986363879740674703}
-  damage: 1
 --- !u!212 &2326237183757871278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -549,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7362798724091367811
 Transform:
   m_ObjectHideFlags: 0
@@ -620,6 +591,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742805420181328580, guid: 6c2465753e0b3e7448e5a260e58f43fe, type: 3}
       propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742805420181328580, guid: 6c2465753e0b3e7448e5a260e58f43fe, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
