@@ -32,5 +32,14 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
         {
             Player.RendererCompo.SetParameter(_attackParameter, false);
         }
+        public void AttackEvent_EnableHitBox()
+        {
+            Player.DamageCaster.attackHandler.EnableHitBox();
+        }
+
+        public void AttackEvent_DisableHitBox()
+        {
+            Player.DamageCaster.attackHandler.DisableHitBox();
+        }
     }
 }

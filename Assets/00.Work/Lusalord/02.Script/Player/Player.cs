@@ -13,6 +13,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
         public HealthSystem HealthSystem { get; private set; }
+        public DamageCaster DamageCaster { get; private set; }
 
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
@@ -41,6 +42,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             MovementCompo = GetComponentInChildren<AgentMovement>();
             RendererCompo = GetComponentInChildren<AgentRenderer>();
             HealthSystem = GetComponentInChildren<HealthSystem>();
+            DamageCaster = GetComponentInChildren<DamageCaster>();
 
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
             PlayerInput.OnDashKeyPressed += HandleDashPressed;
