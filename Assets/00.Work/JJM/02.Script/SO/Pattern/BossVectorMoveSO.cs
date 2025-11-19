@@ -8,6 +8,7 @@ public class BossVectorMoveSO : PatternSO
     public Vector3 _targetPos;
     public float _time;
     public float _endDelay;
+    public bool _flip;
 
     public void OnEnable()
     {
@@ -16,6 +17,6 @@ public class BossVectorMoveSO : PatternSO
 
     public override void SettingUpdate()
     {
-        BossStateData = new BossVectorMoveState(_firstDelay, _moveTime, _targetPos, _time, _endDelay);
+        BossStateData = new BossVectorMoveState(_firstDelay, _moveTime, _targetPos, _time, _endDelay, _flip);
     }
 }

@@ -32,14 +32,14 @@ public class BossRandomMoveState : BossState
 
         if (_bossObject.transform.position.x > 0)
         {
-            _target = new Vector2(Random.Range(-0.1f, -7f), Random.Range(3f, 7f));
+            _target = new Vector2(Random.Range(-0.1f, -8f), Random.Range(3f, 8f));
             _lineRenderer.SetPosition(1, _target);
 
         }
 
         if (_bossObject.transform.position.x < 0)
         {
-            _target = new Vector2(Random.Range(0.1f, 7f), Random.Range(3f, 7f));
+            _target = new Vector2(Random.Range(0.1f, 8f), Random.Range(3f, 8f));
             _lineRenderer.SetPosition(1, _target);
         }
 

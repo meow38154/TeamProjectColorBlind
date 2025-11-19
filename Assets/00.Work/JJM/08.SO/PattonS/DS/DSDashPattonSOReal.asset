@@ -16,4 +16,4 @@ MonoBehaviour:
   <firstDelay>k__BackingField: 0
   <dashTime>k__BackingField: 1
   <dashDistance>k__BackingField: 15
-  <endDelay>k__BackingField: 0
+  <endDelay>k__BackingField: 1

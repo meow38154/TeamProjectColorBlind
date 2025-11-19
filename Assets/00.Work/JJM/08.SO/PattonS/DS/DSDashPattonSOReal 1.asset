@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DSDashPattonSOReal 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Dash
-  <firstDelay>k__BackingField: 0
+  <firstDelay>k__BackingField: 0.5
   <dashTime>k__BackingField: 0.78
   <dashDistance>k__BackingField: 15
   <endDelay>k__BackingField: 0

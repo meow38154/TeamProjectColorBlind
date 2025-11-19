@@ -18,3 +18,4 @@ MonoBehaviour:
   _targetPos: {x: 0, y: -3, z: 0}
   _time: 2
   _endDelay: 1
+  _flip: 0

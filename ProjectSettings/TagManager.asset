@@ -17,7 +17,7 @@ TagManager:
   - Player
   - Bullet
   - NoBossPhysicsBullet
-  - 
+  - NoBossPhysicsGround
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 3182470787
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995875fd0169d4a45a2c209bff03eb06, type: 3}
+  m_Name: FibBulletPattern2 3
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Hand3
+  _patterns:
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: 2e38c55bf0204ff43b2a94f529c3f495, type: 2}
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: 643ec801eb9f38b4a874050c3ee53cbd, type: 2}
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: adb0efb08395b2146a07c47b3603efea, type: 2}
+  - _firstDelay: 0
+    _pattern: {fileID: 11400000, guid: 175d03cf7949ad6459a30c7716cbbdb1, type: 2}

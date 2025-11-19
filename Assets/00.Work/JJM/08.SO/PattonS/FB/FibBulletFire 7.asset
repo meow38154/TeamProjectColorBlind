@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17fdb80996a21641ac71b3364aa1a56, type: 3}
+  m_Name: FibBulletFire 7
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: G7
+  _bulletSetting:
+  - _waitTime: 0
+    _speed: 30
+    _lookRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
+    _lookPlayer: 0
+    _pos: {x: -5, y: 50}
+    _bullet: {fileID: 244492194436869750, guid: a396bdbf06a10964fad58abe444a333f, type: 3}
+    _transform: 0
+  - _waitTime: 0.3
+    _speed: 30
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+    _lookPlayer: 0
+    _pos: {x: -2.5, y: 50}
+    _bullet: {fileID: 244492194436869750, guid: a396bdbf06a10964fad58abe444a333f, type: 3}
+    _transform: 0
+  - _waitTime: 0.3
+    _speed: 30
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+    _lookPlayer: 0
+    _pos: {x: 0, y: 50}
+    _bullet: {fileID: 244492194436869750, guid: a396bdbf06a10964fad58abe444a333f, type: 3}
+    _transform: 0
+  - _waitTime: 0.3
+    _speed: 30
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+    _lookPlayer: 0
+    _pos: {x: 2.5, y: 50}
+    _bullet: {fileID: 244492194436869750, guid: a396bdbf06a10964fad58abe444a333f, type: 3}
+    _transform: 0
+  - _waitTime: 0.3
+    _speed: 30
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+    _lookPlayer: 0
+    _pos: {x: 5, y: 50}
+    _bullet: {fileID: 244492194436869750, guid: a396bdbf06a10964fad58abe444a333f, type: 3}
+    _transform: 0
+  _endDelay: 1

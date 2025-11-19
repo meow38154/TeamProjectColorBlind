@@ -17,4 +17,5 @@ MonoBehaviour:
   _moveTime: 0.5
   _targetPos: {x: 0, y: -3, z: 0}
   _time: 1
-  _endDelay: 0.5
+  _endDelay: 0.2
+  _flip: 0
