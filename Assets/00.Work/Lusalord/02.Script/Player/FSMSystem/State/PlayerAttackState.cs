@@ -6,8 +6,6 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
     {
         public override PlayerStates States => PlayerStates.Attack;
         private AnimatorParameterSO _attackParameter;
-
-        private bool _turnedOn;
         
         public PlayerAttackState(Player player, PlayerStateMachine stateMachine) : base(player, stateMachine)
         {
@@ -22,12 +20,12 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
         
         public override void Update()
         {
-            if (_turnedOn)
-            {
-                Player.RendererCompo.SetParameter(_attackParameter, false);
-                _turnedOn = false;
-            }
+            AnimatorStateInfo info = Player.RendererCompo.animator.GetCurrentAnimatorStateInfo(0);
             
+            if (info.normalizedTime > 1f)
+            {
+                StateMachine.ChangeState(PlayerStates.Idle);
+            }
         }
 
         public override void Exit()
