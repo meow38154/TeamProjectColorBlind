@@ -18,8 +18,6 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
             _hitParameter = AnimatorParamManage.Instance.GetParameter(PlayerStates.Hit);
             Player.RendererCompo.SetParameter(_hitParameter);
             Player.PlayerInput.LockInput(true);
-            
-
         }
         public override void Update()
         {

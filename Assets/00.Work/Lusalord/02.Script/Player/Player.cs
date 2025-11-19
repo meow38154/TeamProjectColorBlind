@@ -29,6 +29,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         [SerializeField] private float dashDuration = 0.2f;
         [SerializeField] private float dashCooldown = 1f;
 
+        public bool isDamaged;
         private bool _canDash = true;
         private bool _isDashing;
         private float _dashTimeLeft;
@@ -45,6 +46,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             PlayerInput.OnDashKeyPressed += HandleDashPressed;
             HealthSystem.OnGetDamge += HandleHitState;
             HealthSystem.OnDie += HandleDeathState;
+            PlayerInput.OnAttackKeyPressed += HandleAttackState;
             
             _playerStateMachine = new PlayerStateMachine(this);
         }
@@ -54,9 +56,10 @@ namespace _00.Work.Lusalord._02.Script.Player
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
             HealthSystem.OnGetDamge -= HandleHitState;
-            HealthSystem.OnDie += HandleDeathState;
-            
+            HealthSystem.OnDie -= HandleDeathState;
+            PlayerInput.OnAttackKeyPressed -= HandleAttackState;
         }
+        
 
         private void Start()
         {
@@ -129,7 +132,14 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.jumpPressedFlag = false;
         }
-
+        private void HandleAttackState()
+        {
+            if (_playerStateMachine.CurrentState.States == PlayerStates.Hit) return;
+            if (_playerStateMachine.CurrentState.States == PlayerStates.Death) return;
+            
+            Debug.Log("됨");
+            _playerStateMachine.ChangeState(PlayerStates.Attack);
+        }
         private void HandleHitState(int a, Transform t)
         {
             _playerStateMachine.ChangeState(PlayerStates.Hit);
@@ -138,5 +148,6 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             _playerStateMachine.ChangeState(PlayerStates.Death);
         }
+        
     }
 }

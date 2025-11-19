@@ -72,7 +72,10 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            
+            if (context.performed)
+            {
+                OnAttackKeyPressed?.Invoke();
+            }
         }
     }
 }
