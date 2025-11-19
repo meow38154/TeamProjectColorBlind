@@ -12,8 +12,9 @@ namespace _00.Work.Lusalord._02.Script.Player
     {   
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
-        private Animator Animator => RendererCompo.animator;
-        private Rigidbody2D _rigidbody;
+        public HealthSystem HealthSystem { get; private set; }
+        public DamageCaster DamageCaster { get; private set; }
+
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
         
         private PlayerStateMachine _playerStateMachine;
@@ -29,6 +30,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         [SerializeField] private float dashDuration = 0.2f;
         [SerializeField] private float dashCooldown = 1f;
 
+        public bool isDamaged;
         private bool _canDash = true;
         private bool _isDashing;
         private float _dashTimeLeft;
@@ -39,10 +41,14 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             MovementCompo = GetComponentInChildren<AgentMovement>();
             RendererCompo = GetComponentInChildren<AgentRenderer>();
-            _rigidbody = GetComponent<Rigidbody2D>();
+            HealthSystem = GetComponentInChildren<HealthSystem>();
+            DamageCaster = GetComponentInChildren<DamageCaster>();
 
             PlayerInput.OnJumpKeyPressed += HandleJumpPressed;
             PlayerInput.OnDashKeyPressed += HandleDashPressed;
+            HealthSystem.OnGetDamge += HandleHitState;
+            HealthSystem.OnDie += HandleDeathState;
+            PlayerInput.OnAttackKeyPressed += HandleAttackState;
             
             _playerStateMachine = new PlayerStateMachine(this);
         }
@@ -51,7 +57,11 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
+            HealthSystem.OnGetDamge -= HandleHitState;
+            HealthSystem.OnDie -= HandleDeathState;
+            PlayerInput.OnAttackKeyPressed -= HandleAttackState;
         }
+        
 
         private void Start()
         {
@@ -124,5 +134,22 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.jumpPressedFlag = false;
         }
+        private void HandleAttackState()
+        {
+            if (_playerStateMachine.CurrentState.States == PlayerStates.Hit) return;
+            if (_playerStateMachine.CurrentState.States == PlayerStates.Death) return;
+            
+            Debug.Log("됨");
+            _playerStateMachine.ChangeState(PlayerStates.Attack);
+        }
+        private void HandleHitState(int a, Transform t)
+        {
+            _playerStateMachine.ChangeState(PlayerStates.Hit);
+        }
+        private void HandleDeathState()
+        {
+            _playerStateMachine.ChangeState(PlayerStates.Death);
+        }
+        
     }
 }

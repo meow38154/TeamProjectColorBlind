@@ -13,7 +13,7 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
         public override void Enter()
         {
             _deathParameter = AnimatorParamManage.Instance.GetParameter(PlayerStates.Death);
-            Player.RendererCompo.SetParameter(_deathParameter, true);
+            Player.RendererCompo.SetParameter(_deathParameter);
             Player.PlayerInput.LockInput(true);
             
         }
