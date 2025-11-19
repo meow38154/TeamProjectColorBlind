@@ -57,7 +57,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
             PlayerInput.OnDashKeyPressed -= HandleDashPressed;
-            HealthSystem.OnGetDamge -= HandleHitState;
+            HealthSystem.OnGetDamage -= HandleHitState;
             HealthSystem.OnDie -= HandleDeathState;
             PlayerInput.OnAttackKeyPressed -= HandleAttackState;
         }
