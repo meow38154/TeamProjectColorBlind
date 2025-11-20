@@ -90,6 +90,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
             SetUpMovementInput();
             _playerStateMachine.UpdateMachine();
+            Debug.Log(PlayerInput.MoveDir);
         }
         
         private void HandleJumpPressed() // 점프를 담당하는 메서드
@@ -117,8 +118,9 @@ namespace _00.Work.Lusalord._02.Script.Player
         
         private void SetUpMovementInput()
         {
-            if (!_isDashing)
-                MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
+            if (_isDashing)
+                return;
+            MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
         }
 
         private IEnumerator DashRoutine()

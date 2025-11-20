@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: be945b90403522b45ab314855fc9d945
+guid: d89a0315af827ed45bf01d39b7720c5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4032807671121999288
-    second: PlayerTopAttack-Sheet_0
-  - first:
-      213: 2956184457892106908
-    second: PlayerTopAttack-Sheet_1
-  - first:
-      213: -3067357845775641185
-    second: PlayerTopAttack-Sheet_2
-  - first:
-      213: -732162781352534639
-    second: PlayerTopAttack-Sheet_3
+      213: -5465646382484160345
+    second: I_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,57 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerTopAttack-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84a8d433ac69808c0800000000000000
-      internalID: -4032807671121999288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTopAttack-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9290371a1a760920800000000000000
-      internalID: 2956184457892106908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTopAttack-Sheet_2
+      name: I_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 128
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9519837a4e8e65d0800000000000000
-      internalID: -3067357845775641185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTopAttack-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19d58bb54d5d6d5f0800000000000000
-      internalID: -732162781352534639
+      spriteID: 7a00228c29f1624b0800000000000000
+      internalID: -5465646382484160345
       vertices: []
       indices: 
       edges: []
@@ -200,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 00bb0c518b157534886a91913b29d0dd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PlayerTopAttack-Sheet_0: -4032807671121999288
-      PlayerTopAttack-Sheet_1: 2956184457892106908
-      PlayerTopAttack-Sheet_2: -3067357845775641185
-      PlayerTopAttack-Sheet_3: -732162781352534639
+      I_0: -5465646382484160345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

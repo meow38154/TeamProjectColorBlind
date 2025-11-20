@@ -112,12 +112,12 @@ TextureImporter:
       name: PlayerAttack-Sheet_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 0
         y: 48
-        width: 26
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: PlayerAttack-Sheet_1
       rect:
         serializedVersion: 2
-        x: 59
+        x: 48
         y: 48
-        width: 26
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: PlayerAttack-Sheet_2
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 0
-        width: 26
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: PlayerAttack-Sheet_3
       rect:
         serializedVersion: 2
-        x: 59
+        x: 48
         y: 0
-        width: 26
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

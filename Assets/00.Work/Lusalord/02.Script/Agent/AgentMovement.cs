@@ -17,8 +17,6 @@ namespace _00.Work.Lusalord._02.Script.Agent
         public float dashCoolTime;
         
         public bool isDash;
-        private bool isDashCoolTime;
-        private bool _canAirDash = true;
 
         private float XMove;
         
@@ -61,6 +59,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         public void MoveAgent()
         {
             if(isDash) return;
+            Debug.Log(XMove);
             Rb.linearVelocityX = XMove * moveSpeed;
         }
         

@@ -17,12 +17,12 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
         {
             _hitParameter = AnimatorParamManage.Instance.GetParameter(PlayerStates.Hit);
             Player.RendererCompo.SetParameter(_hitParameter);
-            Player.PlayerInput.LockInput(true);
+            //Player.PlayerInput.LockInput(true);
         }
         public override void Update()
         {
             AnimatorStateInfo info = Player.RendererCompo.animator.GetCurrentAnimatorStateInfo(0);
-            if (info.normalizedTime >= 1f)
+            if (info.normalizedTime >= 0.4f)
             {
                 Player.PlayerInput.LockInput(false);
                 StateMachine.ChangeState(PlayerStates.Idle);

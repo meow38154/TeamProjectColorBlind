@@ -42,6 +42,9 @@ TagManager:
   - name: BackGround
     uniqueID: 3182470787
     locked: 0
+  - name: Boss
+    uniqueID: 1636568831
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -53,9 +56,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4142942971
-    locked: 0
-  - name: Boss
-    uniqueID: 1636568831
     locked: 0
   m_RenderingLayers:
   - Default
