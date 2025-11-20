@@ -65,7 +65,7 @@ public class Boss : MonoBehaviour
 
     public void FlipXPlayer()
     {
-        int v = GameManager.Instance.TargetAndPlayerDirectionValue(transform);
+        int v = InGameManager.Instance.TargetAndPlayerDirectionValue(transform);
 
         if (v == 1)
         {

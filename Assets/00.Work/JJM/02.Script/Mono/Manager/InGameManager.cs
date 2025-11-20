@@ -1,11 +1,15 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
+public class InGameManager : Singleton<InGameManager>
 {
     [field: SerializeField] public GameObject Player { get; private set; }
     [field: SerializeField] public Boss Boss { get; private set; }
     [field: SerializeField] public CinemachineImpulseSource CinemachineImpulseSource { get; private set; }
+    [field: SerializeField] public ManaBar ManaBar { get; private set; }
+
+    public Action OnHealthUpdate;
 
 
     public int TargetAndPlayerDirectionValue(Transform targetTransform) //타겟이 플레이어보다 왼쪽에 있는지 오른쪽에 있는 지 판별 후 값을 리턴하는 메서드 

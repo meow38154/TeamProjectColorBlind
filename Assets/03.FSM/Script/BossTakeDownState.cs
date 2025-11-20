@@ -21,7 +21,7 @@ public class BossTakeDownState : BossState
     public override void Enter()
     {
         Transform tr = _bossObject.transform;
-        Transform pTr = GameManager.Instance.Player.transform;
+        Transform pTr = InGameManager.Instance.Player.transform;
 
         float originalGravity = _rb.gravityScale;
 

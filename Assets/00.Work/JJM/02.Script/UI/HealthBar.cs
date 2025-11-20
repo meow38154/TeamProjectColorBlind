@@ -35,11 +35,11 @@ public class HealthBar : MonoBehaviour
         {
             if (i >= _healthSystem.CurrentHealth)
             {
-                _healthBar.GetChild(i).GetChild(1).gameObject.SetActive(false);
+                _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().HPlay();
             }
             else
             {
-                _healthBar.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().DPlay();
             }
         }
     }

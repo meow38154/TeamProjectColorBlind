@@ -39,6 +39,7 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         public void OnMove(InputAction.CallbackContext context)
         {
             if (OnLock) return;
+            Debug.Log(MoveDir + " ¿Ö??");
             MoveDir = context.ReadValue<Vector2>();
         }
 

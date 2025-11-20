@@ -46,7 +46,7 @@ public class BossStingState : BossState
         }
         seq = DOTween.Sequence();
         seq.AppendInterval(_firstDelay);
-        seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * GameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
+        seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * InGameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
         seq.AppendCallback(() => 
         { 
                 _anim.SetBool("Dash", false);

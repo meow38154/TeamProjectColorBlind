@@ -37,13 +37,13 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
 
         private IEnumerator AttackTime()
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             StateMachine.ChangeState(PlayerStates.Idle);
         }
         private IEnumerator AttackBox()
         {
             Player.DamageCaster.gameObject.SetActive(true);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             Player.DamageCaster.gameObject.SetActive(false);
         }
 

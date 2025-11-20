@@ -42,7 +42,7 @@ public class BossJumpState : BossState
     {
         _rb = _bossObject.GetComponent<Rigidbody2D>();
 
-        GameManager instance = GameManager.Instance;
+        InGameManager instance = InGameManager.Instance;
 
         Vector3 targetPos = instance.Player.transform.position;
         float jumpHeight = _jumpPower;

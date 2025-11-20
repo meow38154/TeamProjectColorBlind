@@ -3,6 +3,8 @@ using UnityEngine;
 public class MeleeAttackObject : MonoBehaviour
 {
     [SerializeField] private bool _collider = false;
+    [SerializeField] private bool _local = false;
+    [SerializeField] private bool _player = false;
     [Header("Vector")]
     [SerializeField] private int damage = 1;
 
@@ -16,7 +18,7 @@ public class MeleeAttackObject : MonoBehaviour
 
     private void Update()
     {
-        if (!_collider)
+        if (!_collider && !_local)
         {
             Collider2D[] collider = Physics2D.OverlapBoxAll(transform.position + (Vector3)_pos, _size, transform.eulerAngles.z, _layer);
 
@@ -28,9 +30,27 @@ public class MeleeAttackObject : MonoBehaviour
                 }
             }
         }
+
+        if (_local)
+        {
+            Vector3 worldPos = transform.TransformPoint(_pos);
+            Collider2D[] collider = Physics2D.OverlapBoxAll(
+                worldPos,
+                _size,
+                transform.eulerAngles.z,
+                _layer
+            );
+            foreach (var i in collider)
+            {
+                if (i.transform.Find("Health").TryGetComponent(out HealthSystem health))
+                {
+                    health.GetDamage(damage, transform);
+                }
+            }
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         int layer = collision.gameObject.layer;
 
@@ -46,10 +66,27 @@ public class MeleeAttackObject : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!_collider)
+        if (!_collider && !_local )
         {
             Gizmos.color = _color;
             Matrix4x4 rot = Matrix4x4.TRS(transform.position + (Vector3)_pos, Quaternion.Euler(0, 0, transform.eulerAngles.z), Vector3.one);
+            Gizmos.matrix = rot;
+            Gizmos.DrawWireCube(Vector3.zero, _size);
+            Gizmos.matrix = Matrix4x4.identity;
+        }
+
+        if (_local)
+        {
+            Gizmos.color = _color;
+
+            Vector3 worldPos = transform.TransformPoint(_pos);
+
+            Matrix4x4 rot = Matrix4x4.TRS(
+                worldPos,
+                transform.rotation,
+                Vector3.one
+            );
+
             Gizmos.matrix = rot;
             Gizmos.DrawWireCube(Vector3.zero, _size);
             Gizmos.matrix = Matrix4x4.identity;
