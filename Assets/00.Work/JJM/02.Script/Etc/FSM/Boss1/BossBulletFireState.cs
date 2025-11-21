@@ -26,7 +26,7 @@ public class BossBulletFireState : BossState
 
     public IEnumerator BulletFire()
     {
-        GameManager gameManager = GameManager.Instance;
+        InGameManager gameManager = InGameManager.Instance;
         foreach (var i in _bulletSetting)
         {
             yield return new WaitForSeconds(i._waitTime);

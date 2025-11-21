@@ -18,7 +18,7 @@ public class BossStateMachine
             CurrentState = state;
             if (CurrentState._bossObject == null)
             {
-                CurrentState.Initialize(CurrentState, GameManager.Instance.Boss);
+                CurrentState.Initialize(CurrentState, InGameManager.Instance.Boss);
             }
             CurrentState.Enter();
         }
@@ -33,7 +33,7 @@ public class BossStateMachine
 
         if (nextState._bossObject == null)
         {
-            nextState.Initialize(nextState, GameManager.Instance.Boss);
+            nextState.Initialize(nextState, InGameManager.Instance.Boss);
         }
 
         CurrentState?.Exit();

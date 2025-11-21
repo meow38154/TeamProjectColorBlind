@@ -29,7 +29,7 @@ public class BossDSAttackState : BossState
         seq.AppendInterval(_firstDelay);
         seq.AppendCallback(() =>
         {
-            GameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
         });
         seq.AppendInterval(_maintenanceTime);
         seq.AppendCallback(() =>

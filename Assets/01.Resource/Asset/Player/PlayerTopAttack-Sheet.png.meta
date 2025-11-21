@@ -112,10 +112,10 @@ TextureImporter:
       name: PlayerTopAttack-Sheet_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 47
-        width: 32
-        height: 38
+        x: 0
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: PlayerTopAttack-Sheet_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 47
-        width: 30
-        height: 38
+        x: 48
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: PlayerTopAttack-Sheet_2
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 27
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: PlayerTopAttack-Sheet_3
       rect:
         serializedVersion: 2
-        x: 62
+        x: 48
         y: 0
-        width: 22
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 00bb0c518b157534886a91913b29d0dd
     internalID: 0
     vertices: []
     indices: 

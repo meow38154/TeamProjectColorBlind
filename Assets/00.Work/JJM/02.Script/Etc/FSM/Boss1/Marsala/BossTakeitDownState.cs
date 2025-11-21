@@ -46,7 +46,7 @@ public class BossTakeitDownState : BossState
             .SetEase(_jumpEase)
         );
 
-        Transform pTransform = GameManager.Instance.Player.transform;
+        Transform pTransform = InGameManager.Instance.Player.transform;
         seq.AppendInterval(_downDelay);
 
         Vector2 targetPos = new Vector2(pTransform.position.x, saveY);

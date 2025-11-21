@@ -4,6 +4,7 @@ namespace _00.Work.Lusalord._02.Script.Player.Attack
 {
     public class PlayerHandleAttack : MonoBehaviour
     {
+        
         [SerializeField] private DamageCaster damageCaster;
         [SerializeField] private int damage;
         [SerializeField] private GameObject hitBox;
@@ -20,6 +21,7 @@ namespace _00.Work.Lusalord._02.Script.Player.Attack
             IsAttacking = false;
             hitBox.SetActive(false);
         }
+
         public void OnHit(HealthSystem enemy)
         {
             enemy.GetDamage(damage, enemy.transform);

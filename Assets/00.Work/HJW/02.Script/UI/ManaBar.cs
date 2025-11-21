@@ -15,15 +15,7 @@ public class ManaBar : MonoBehaviour
         slider.value = currentHealth;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddHealth(10f); 
-        }
-    }
-
-    private void AddHealth(float value)
+    public void AddHealth(float value)
     {
         currentHealth += value;
         if(currentHealth > maxHealth)

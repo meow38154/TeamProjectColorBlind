@@ -4,6 +4,6 @@ public class CameraShake : MonoBehaviour
 {
     public void CameraShakePlay()
     {
-        GameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+        InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
     }
 }
