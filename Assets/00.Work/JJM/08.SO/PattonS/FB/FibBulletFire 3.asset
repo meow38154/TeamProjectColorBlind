@@ -18,14 +18,14 @@ MonoBehaviour:
     _speed: 75
     _lookRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
     _lookPlayer: 1
-    _pos: {x: 30, y: 30}
+    _pos: {x: 60, y: 60}
     _bullet: {fileID: 244492194436869750, guid: 74bf93be89fe6fd459794bd654fe93d4, type: 3}
     _transform: 0
   - _waitTime: 0.5
     _speed: 75
     _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
     _lookPlayer: 1
-    _pos: {x: -30, y: 30}
+    _pos: {x: -60, y: 60}
     _bullet: {fileID: 244492194436869750, guid: 74bf93be89fe6fd459794bd654fe93d4, type: 3}
     _transform: 0
   _endDelay: 1.5

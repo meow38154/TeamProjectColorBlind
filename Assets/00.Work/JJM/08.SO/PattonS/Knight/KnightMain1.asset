@@ -16,5 +16,5 @@ MonoBehaviour:
   _patterns:
   - _firstDelay: 0
     _pattern: {fileID: 11400000, guid: ef190a484aec4c846a7440e79ab77972, type: 2}
-  - _firstDelay: 0.5
+  - _firstDelay: 0.2
     _pattern: {fileID: 11400000, guid: 6d946acbc91677e42bcff279f9f4dea0, type: 2}

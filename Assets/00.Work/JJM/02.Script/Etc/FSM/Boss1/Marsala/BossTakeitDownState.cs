@@ -13,14 +13,16 @@ public class BossTakeitDownState : BossState
     public Ease _downEase;
     public float _endDelay;
 
-    public BossTakeitDownState(float firstDelay, float jumpTime, float jumpPower, Ease jumpEase, float downDelay, float downTime, Ease downEase, float endDelay)
+    Sequence seq;
+
+    public BossTakeitDownState(float firstDelay, float jumpTime, float jumpPower, Ease jumpEase, float downDelay, float downSpeed, Ease downEase, float endDelay)
     {
         _firstDelay = firstDelay;
         _jumpPower = jumpPower;
         _jumpTime = jumpTime;
         _jumpEase = jumpEase;
         _downDelay = downDelay;
-        _downSpeed = downTime;
+        _downSpeed = downSpeed;
         _downEase = downEase;
         _endDelay = endDelay;
 
@@ -31,42 +33,43 @@ public class BossTakeitDownState : BossState
     {
         base.Enter();
 
-        float saveY = _bossObject.transform.position.y;
-
-        Sequence seq = DOTween.Sequence();
+        seq = DOTween.Sequence();
 
         seq.AppendInterval(_firstDelay);
-        seq.AppendCallback(() => 
-        { 
+        seq.AppendCallback(() =>
+        {
             _anim.SetBool("Jump", true);
             _rb.gravityScale = 0f;
         });
+
         seq.Append(_bossObject.transform
             .DOMoveY(_bossObject.transform.position.y + _jumpPower, _jumpTime)
             .SetEase(_jumpEase)
         );
 
-        Transform pTransform = InGameManager.Instance.Player.transform;
         seq.AppendInterval(_downDelay);
 
-        Vector2 targetPos = new Vector2(pTransform.position.x, saveY);
-        float distance = Vector2.Distance(_bossObject.transform.position, targetPos);
-        float duration = distance / _downSpeed;
-        seq.AppendCallback(() => 
+        seq.AppendCallback(() =>
         {
+            int dir = InGameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform);
+            Vector2 targetPos = new Vector2(_bossObject.transform.position.x + dir * 4.4f, 2);
+
             _anim.SetBool("Jump", false);
             _anim.SetBool("Down", true);
             _bossObject.PassaveFlipX = false;
-        });
 
-        seq.Append(_bossObject.transform
-            .DOMove(targetPos, duration)
-            .SetEase(_downEase)
-        );
-        seq.AppendCallback(() => { _anim.SetBool("Down", false);
-            _bossObject.PassaveFlipX = true;
-            _rb.gravityScale = 4f;
+            _rb
+                .DOMove(targetPos, 0.5f)
+                .SetEase(_downEase)
+                .OnComplete(() =>
+                {
+                    _anim.SetBool("Down", false);
+                    _bossObject.PassaveFlipX = true;
+                    _rb.gravityScale = 0f;
+                });
         });
+        seq.AppendCallback(() => { _rb.gravityScale = 3f; });
+
         seq.AppendInterval(_endDelay);
     }
 
@@ -77,6 +80,9 @@ public class BossTakeitDownState : BossState
 
     public override void Exit()
     {
+        _rb.gravityScale = 3f;
+        _anim.SetBool("Down", false);
         base.Exit();
+        if (seq != null) seq.Kill();
     }
 }

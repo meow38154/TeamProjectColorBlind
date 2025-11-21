@@ -5,6 +5,8 @@ public class BossPatternSmokeState : BossState
 {
     public EachPatternSetting[] _patternSO;
 
+    public Coroutine _coroutine;
+
     public BossPatternSmokeState(EachPatternSetting[] _pattern)
     {
         _patternSO = _pattern;
@@ -17,7 +19,7 @@ public class BossPatternSmokeState : BossState
 
     public override void Enter()
     {
-        _bossObject.StartCoroutine(PatternsPlay());
+        _coroutine = _bossObject.StartCoroutine(PatternsPlay());
     }
     private IEnumerator PatternsPlay()
     {
@@ -40,5 +42,5 @@ public class BossPatternSmokeState : BossState
     public override void UpdateState()
     {
     }
-    public override void Exit() { }
+    public override void Exit() { _bossObject.StopCoroutine(_coroutine); }
 }

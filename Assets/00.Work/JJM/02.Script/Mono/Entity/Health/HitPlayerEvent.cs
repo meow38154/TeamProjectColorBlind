@@ -29,5 +29,7 @@ public class HitPlayerEvent : MonoBehaviour
     public void PlayerEvent(int a, Transform t)
     {
         InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+        InGameManager.Instance.Warning.Fade();
+        SoundManager.Instance.PlaySound(3, 0.5f);
     }
 }

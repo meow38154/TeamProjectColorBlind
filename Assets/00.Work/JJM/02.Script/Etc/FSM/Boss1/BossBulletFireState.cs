@@ -7,6 +7,8 @@ public class BossBulletFireState : BossState
 {
     public BulletSetting[] _bulletSetting;
 
+    private Coroutine _coroutine;
+
     public BossBulletFireState(BulletSetting[] bulletSetting, float endDelay)
     {
         _bulletSetting = bulletSetting;
@@ -21,7 +23,8 @@ public class BossBulletFireState : BossState
 
     public override void Enter()
     {
-        _bossObject.StartCoroutine(BulletFire());
+        Debug.Log("降紫");
+        _coroutine = _bossObject.StartCoroutine(BulletFire());
     }
 
     public IEnumerator BulletFire()
@@ -53,7 +56,7 @@ public class BossBulletFireState : BossState
             }
             else
             {
-                bullet.transform.rotation = Quaternion.Euler(0, 0,
+                bullet.transform.rotation = Quaternion.Euler(0, 0, 
                     gameManager.TargetLook(bullet.transform, gameManager.Player.transform));
             }
 
@@ -61,7 +64,11 @@ public class BossBulletFireState : BossState
     }
 
     public override void UpdateState() { }
-    public override void Exit() { }
+    public override void Exit() 
+    {
+        Debug.Log("快移醤馬澗汽つつつつつつつつつつつつつつつつつつつつ");
+        _bossObject.StopCoroutine(_coroutine);
+    }
 
     public override void Test() { }
 }

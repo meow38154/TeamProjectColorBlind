@@ -16,8 +16,30 @@ MonoBehaviour:
   _bulletSetting:
   - _waitTime: 0
     _speed: 8
-    _lookRotation: 0
-    _lookPlayer: 1
+    _lookRotation: {x: 0, y: 0, z: 0, w: 0}
+    _lookPlayer: 0
     _pos: {x: 0, y: 0}
     _bullet: {fileID: 5845182926570044099, guid: 7422cbdb98e1d694a9ce75069272247c, type: 3}
-  _endDelay: 0
+    _transform: 0
+  - _waitTime: 0
+    _speed: 8
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+    _lookPlayer: 0
+    _pos: {x: 0, y: 0}
+    _bullet: {fileID: 5845182926570044099, guid: 7422cbdb98e1d694a9ce75069272247c, type: 3}
+    _transform: 0
+  - _waitTime: 0
+    _speed: 8
+    _lookRotation: {x: 0, y: 0, z: 1, w: -0.00000004371139}
+    _lookPlayer: 0
+    _pos: {x: 0, y: 0}
+    _bullet: {fileID: 5845182926570044099, guid: 7422cbdb98e1d694a9ce75069272247c, type: 3}
+    _transform: 0
+  - _waitTime: 0
+    _speed: 8
+    _lookRotation: {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+    _lookPlayer: 0
+    _pos: {x: 0, y: 0}
+    _bullet: {fileID: 5845182926570044099, guid: 7422cbdb98e1d694a9ce75069272247c, type: 3}
+    _transform: 0
+  _endDelay: 1
