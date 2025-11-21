@@ -8,6 +8,7 @@ public class InGameManager : Singleton<InGameManager>
     [field: SerializeField] public Boss Boss { get; private set; }
     [field: SerializeField] public CinemachineImpulseSource CinemachineImpulseSource { get; private set; }
     [field: SerializeField] public ManaBar ManaBar { get; private set; }
+    [field: SerializeField] public Warning Warning { get; private set; }
 
     public Action OnHealthUpdate;
 

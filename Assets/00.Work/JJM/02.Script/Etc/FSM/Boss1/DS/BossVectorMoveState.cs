@@ -10,6 +10,7 @@ public class BossVectorMoveState : BossState
     public float _time;
     public TargetFollow _targetFollow;
     public float _endDelay;
+    Sequence seq;
 
     public BossVectorMoveState(float first, float main, Vector3 targetPos, float time, float endDelay, bool flip)
     {
@@ -29,7 +30,7 @@ public class BossVectorMoveState : BossState
         if (_flip )
         _bossObject.PassaveFlipX = false;
         _anim.SetBool("Dash", true);
-        Sequence seq = DOTween.Sequence();
+        seq = DOTween.Sequence();
         seq.AppendInterval(_firstDelay);
         seq.Append(_bossObject.transform.DOMove(_bossObject.transform.position + _targetPos, _moveTime));
         seq.AppendInterval(_time);
@@ -43,6 +44,6 @@ public class BossVectorMoveState : BossState
         });
     }
     public override void UpdateState() { }
-    public override void Exit() { }
+    public override void Exit() { seq.Kill(); _anim.SetBool("Dash", false); }
     public override void Test() { }
 }

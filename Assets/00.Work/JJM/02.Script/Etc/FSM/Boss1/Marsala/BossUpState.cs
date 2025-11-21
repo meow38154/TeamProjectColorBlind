@@ -11,6 +11,8 @@ public class BossUpState : BossState
 
     private float _holdingTime;
 
+    Sequence seq;
+
     public BossUpState(float jumpPower, Ease jumpEase, float jumpTime, float endDelay, float holdingTime)
     {
         _jumpEase = jumpEase;
@@ -28,7 +30,7 @@ public class BossUpState : BossState
     {
         saveGravity = _rb.gravityScale;
         _rb.gravityScale = 0;
-        Sequence seq = DOTween.Sequence();
+        seq = DOTween.Sequence();
         _anim.SetBool("Jump", true);
         seq.Append(_rb.DOMoveY(_jumpPower, _jumpTime).SetEase(_jumpEase));
         seq.AppendCallback(() => 
@@ -44,6 +46,7 @@ public class BossUpState : BossState
         yield return new WaitForSeconds(_holdingTime);
         _anim.SetBool("Up", false);
         _rb.gravityScale = saveGravity;
+        _rb.gravityScale = 3f;
     }
 
     public override void UpdateState()
@@ -53,6 +56,9 @@ public class BossUpState : BossState
 
     public override void Exit()
     {
-        base.Exit();
+        _rb.gravityScale = 3f;
+        _anim.SetBool("Up", false);
+        _anim.SetBool("Jump", false);
+        seq.Kill();
     }
 }

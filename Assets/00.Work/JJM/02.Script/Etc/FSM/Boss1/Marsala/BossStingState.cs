@@ -64,7 +64,9 @@ public class BossStingState : BossState
 
     public override void Exit()
     {
-        base.Exit();
+        _anim.SetBool("Dash", false);
+        Debug.Log("´ë½¬ ³¡");
         seq.Kill();
+        base.Exit();
     }
 }

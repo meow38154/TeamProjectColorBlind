@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnightMove 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Move1
-  _firstDelay: 0.8
+  _firstDelay: 1.125
   _moveSpeed: 0.45
   _ease: 12
-  _endDelay: 0.8
+  _endDelay: 1.125

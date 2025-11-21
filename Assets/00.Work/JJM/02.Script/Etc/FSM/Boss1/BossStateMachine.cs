@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class BossStateMachine
 {
-    private Dictionary<string, BossState> _stateDictionary = new();
+    private Dictionary<string, BossState> _stateDictionary = new Dictionary<string, BossState>
+    {
+        { "death", new BossDeathState() }
+    };
     public BossState CurrentState { get; private set; }
+
+    
 
     public void AddState(string stateName, BossState state)
     {

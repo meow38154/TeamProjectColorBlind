@@ -38,28 +38,44 @@ public class Boss : MonoBehaviour
     private Coroutine _coroutine;
     private SpriteRenderer _spriteRenderer;
 
+    private bool _die;
+
+    private MeleeAttackObject _melee;
+
     private void Awake()
     {
         _healthSystem = GetComponentInChildren<HealthSystem>();
         _bossBrain = GetComponent<BossBrain>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        _melee = GetComponentInChildren<MeleeAttackObject>();
     }
 
     private void Start()
     {
+        _healthSystem.OnDie += CoStop;
+        _healthSystem.OnDie += Die;
+        _healthSystem.Invincibility = true;
+    }
+
+    public void BossStart()
+    {
         PhaseChange(0, transform);
+        _healthSystem.Invincibility = false;
     }
 
     private void Update()
     {
-        if (Keyboard.current.iKey.wasPressedThisFrame)
-        {
-            Debug.Log(patterns[0].skillList[0]);
-        }
-
         if (PassaveFlipX)
         {
             FlipXPlayer();
+        }
+
+        if (_die)
+        {
+            _bossBrain.StateMachine.ChangeState("death");
+            PassaveFlipX = false;
+            PassaveFlipXFlip = false;
         }
     }
 
@@ -86,9 +102,19 @@ public class Boss : MonoBehaviour
     {
         if (_coroutine != null)
         {
-            StopCoroutine(_coroutine);
+            CoStop();
         }
         _coroutine = StartCoroutine(PatternsPlayCoroutine(skillNames, phase));
+    }
+
+    public void CoStop()
+    {
+        StopCoroutine(_coroutine);
+    }
+    public void Die()
+    {
+        Destroy(_melee);
+        _die = true;
     }
 
     public IEnumerator PatternsPlayCoroutine(string[] skillNames, int phase)

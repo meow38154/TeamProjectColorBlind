@@ -10,6 +10,7 @@ public class BossRandomMoveState : BossState
     public float _endDelay;
 
     public LineRenderer _lineRenderer;
+    Sequence seq;
 
     public BossRandomMoveState(float firstDelay, float moveSpeed, Ease ease, float endDelay)
     {
@@ -28,7 +29,7 @@ public class BossRandomMoveState : BossState
     {
         _lineRenderer = _bossObject.GetComponent<LineRenderer>();
         _bossObject.StartCoroutine(Line());
-        Sequence seq = DOTween.Sequence();
+        seq = DOTween.Sequence();
 
         if (_bossObject.transform.position.x > 0)
         {
@@ -92,6 +93,8 @@ public class BossRandomMoveState : BossState
 
     public override void Exit()
     {
+        _anim.SetBool("Move", false);
         base.Exit();
+        seq.Kill();
     }
 }

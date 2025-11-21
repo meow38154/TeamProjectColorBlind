@@ -20,12 +20,14 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         _healthSystem.OnGetDamage += HeartUpdate;
+        _healthSystem.OnHealHealth += HeartUpdate;
         _healthSystem.OnDie += Died;
     }
 
     private void OnDisable()
     {
         _healthSystem.OnGetDamage -= HeartUpdate;
+        _healthSystem.OnHealHealth -= HeartUpdate;
         _healthSystem.OnDie -= Died;
     }
 
@@ -35,12 +37,16 @@ public class HealthBar : MonoBehaviour
         {
             if (i >= _healthSystem.CurrentHealth)
             {
-                _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().HPlay();
+                if (i == _healthSystem.CurrentHealth)
+                {
+                    _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().DPlay();
+                }
             }
             else
             {
-                _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().DPlay();
+                _healthBar.GetChild(i).GetChild(0).GetComponent<HealthFade>().HPlay();
             }
+
         }
     }
 

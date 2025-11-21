@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class BossJumpState : BossState
 {
@@ -10,6 +11,8 @@ public class BossJumpState : BossState
     private float _endTime;
     private float _jumpPower;
     private float _forPower;
+
+    Sequence seq;
 
     public BossJumpState(float min, float max, float _an, float endTime, float jumpPower, float forPower)
     {
@@ -71,11 +74,14 @@ public class BossJumpState : BossState
 
     public override void Enter()
     {
+        _rb.gravityScale = 3f;
         _animator = _bossObject.GetComponentInChildren<Animator>();
         _bossObject.StartCoroutine(AnimationIdleChange());
     }
     public override void UpdateState() 
     {
     }
-    public override void Exit() { }
+    public override void Exit() { _anim.SetBool("Jump", false);
+        _rb.gravityScale = 3f;
+    }
 }

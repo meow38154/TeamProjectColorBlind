@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,21 +7,37 @@ public class ManaBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private float maxHealth = 100f;
-    private float currentHealth;
+
+    [SerializeField] private Image _fillImage;
+
+    public float CurrentHealth { get; set; }
 
     private void Start()
     {
-        currentHealth = 0f;
+        CurrentHealth = 0f;
         slider.maxValue = maxHealth;
-        slider.value = currentHealth;
+        slider.value = CurrentHealth;
     }
 
     public void AddHealth(float value)
     {
-        currentHealth += value;
-        if(currentHealth > maxHealth)
-            currentHealth = maxHealth;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(_fillImage.DOColor(Color.white, 0f));
+        seq.Append(_fillImage.DOColor(Color.black, 0.2f));
 
-        slider.value = currentHealth;
+        CurrentHealth += value;
+        if(CurrentHealth > maxHealth)
+            CurrentHealth = maxHealth;
+
+        slider.value = CurrentHealth;
+    }
+
+    public void Somo()
+    {
+        Sequence seq = DOTween.Sequence();
+        _fillImage.DOColor(Color.white, 0.1f);
+        seq.Append(slider.DOValue(0f, 0.5f).SetEase(Ease.Linear));
+        CurrentHealth = 0f;
+        seq.Append(_fillImage.DOColor(Color.black, 0.2f));
     }
 }

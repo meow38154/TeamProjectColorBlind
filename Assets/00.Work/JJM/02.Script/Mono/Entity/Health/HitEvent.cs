@@ -7,6 +7,7 @@ public class HitEvent : MonoBehaviour
     [SerializeField] private ParticleSystem _hitParticleFlyaway;
     private HealthSystem _healthSystem;
     private SpriteRenderer _renderer;
+    [SerializeField] private Animator _anim;
 
     private void Awake()
     {
@@ -36,6 +37,9 @@ public class HitEvent : MonoBehaviour
 
     private void HitParticlePlay(int num, Transform tran)
     {
+        _anim.Play("Hit", 0, 0f);
+        _anim.transform.rotation = Quaternion.Euler(0, 0, 
+            InGameManager.Instance.TargetLook(transform, InGameManager.Instance.Player.transform) + 60f);
         _renderer.DOKill();
         _renderer.color = Color.black;
 

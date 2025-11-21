@@ -9,14 +9,14 @@ using UnityEngine.Events;
 namespace _00.Work.Lusalord._02.Script.Player
 {
     public class Player : MonoBehaviour
-    {   
+    {
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
         public HealthSystem HealthSystem { get; private set; }
         public DamageCaster DamageCaster { get; private set; }
 
         [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; }
-        
+
         private PlayerStateMachine _playerStateMachine;
 
         public bool CanDoubleJump { get; private set; }
@@ -26,7 +26,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         [SerializeField] private float dashSpeed = 20f;
         [SerializeField] private int dashCount = 1;
-        
+
         [SerializeField] private float dashDuration = 0.2f;
         [SerializeField] private float dashCooldown = 1f;
 
@@ -36,6 +36,7 @@ namespace _00.Work.Lusalord._02.Script.Player
         private float _dashTimeLeft;
         private float _dashCooldownTimeLeft;
 
+        [SerializeField] private float _attackCoolTime = 0.2f;
 
         private void Awake()
         {
@@ -49,10 +50,10 @@ namespace _00.Work.Lusalord._02.Script.Player
             HealthSystem.OnGetDamage += HandleHitState;
             HealthSystem.OnDie += HandleDeathState;
             PlayerInput.OnAttackKeyPressed += HandleAttackState;
-            
+
             _playerStateMachine = new PlayerStateMachine(this);
         }
-        
+
         private void OnDestroy()
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
@@ -61,7 +62,6 @@ namespace _00.Work.Lusalord._02.Script.Player
             HealthSystem.OnDie -= HandleDeathState;
             PlayerInput.OnAttackKeyPressed -= HandleAttackState;
         }
-        
 
         private void Start()
         {
@@ -73,7 +73,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             if (MovementCompo.IsGrounded)
             {
                 CanDoubleJump = true;
-                dashCount = 1;                                  
+                dashCount = 1;
             }
 
             RendererCompo.FaceDirection(PlayerInput.MoveDir);
@@ -90,37 +90,43 @@ namespace _00.Work.Lusalord._02.Script.Player
 
             SetUpMovementInput();
             _playerStateMachine.UpdateMachine();
-            Debug.Log(PlayerInput.MoveDir);
         }
-        
-        private void HandleJumpPressed() // 점프를 담당하는 메서드
+
+        private void HandleJumpPressed()
         {
-            if(!MovementCompo.IsGrounded && !CanDoubleJump) return;
-            
-            if (MovementCompo.IsGrounded) // 처음 점프
+            if (!MovementCompo.IsGrounded && !CanDoubleJump) return;
+
+            if (MovementCompo.IsGrounded)
             {
+                SoundManager.Instance.PlaySound(4, 0.2f);
                 CanDoubleJump = true;
             }
-            else if (CanDoubleJump) // 점프 후 더블 점프 가능
+            else if (CanDoubleJump)
             {
+
                 CanDoubleJump = false;
             }
-            onJumpPressEvent?.Invoke();     
-            MovementCompo.Jump(); // 점프 키가 눌렸을 때 점프 명령을 내린다.
+            onJumpPressEvent?.Invoke();
+            MovementCompo.Jump();
             _timeInAir = 0;
         }
 
         private void HandleDashPressed()
         {
-            MovementCompo.Dash(new Vector2(RendererCompo.DirRotation, 0));
+            if (!MovementCompo.IsGrounded)
+            {
+                if (dashCount <= 0) return;
+                dashCount--;
+            }
 
+            MovementCompo.Dash(new Vector2(RendererCompo.DirRotation, 0));
         }
-        
+
         private void SetUpMovementInput()
         {
             if (_isDashing)
                 return;
-            MovementCompo.SetMove(PlayerInput.MoveDir.x); // 플레이어 인풋으로 받아온 MoveDir(Vector)의 x값을 AgentMovement의 XMove의 값에 지속적으로 전달한다.
+            MovementCompo.SetMove(PlayerInput.MoveDir.x);
         }
 
         private IEnumerator DashRoutine()
@@ -132,26 +138,42 @@ namespace _00.Work.Lusalord._02.Script.Player
             }
             _isDashing = false;
         }
+
         public void ConsumeJumpFlag()
         {
             PlayerInput.jumpPressedFlag = false;
         }
+
+        private bool _attack = true;
+
         private void HandleAttackState()
         {
-            if (_playerStateMachine.CurrentState.States == PlayerStates.Hit) return;
-            if (_playerStateMachine.CurrentState.States == PlayerStates.Death) return;
-            
-            Debug.Log("됨");
-            _playerStateMachine.ChangeState(PlayerStates.Attack);
+            if (_attack)
+            {
+                StartCoroutine(AttackCoolTime());
+                if (_playerStateMachine.CurrentState.States == PlayerStates.Hit) return;
+                if (_playerStateMachine.CurrentState.States == PlayerStates.Death) return;
+
+                SoundManager.Instance.PlaySound(1, 0.4f);
+                _playerStateMachine.ChangeState(PlayerStates.Attack);
+            }
         }
+
+        private IEnumerator AttackCoolTime()
+        {
+            _attack = false;
+            yield return new WaitForSeconds(_attackCoolTime);
+            _attack = true;
+        }
+
         private void HandleHitState(int a, Transform t)
         {
             _playerStateMachine.ChangeState(PlayerStates.Hit);
         }
+
         private void HandleDeathState()
         {
             _playerStateMachine.ChangeState(PlayerStates.Death);
         }
-        
     }
 }
