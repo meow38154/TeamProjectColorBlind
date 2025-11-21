@@ -7,7 +7,6 @@ namespace _00.Work.Lusalord._02.Script.Story
     {
         private Image _img;
         private RectTransform _rt;
-
         private Sprite _lastSprite;
 
         private void Awake()
@@ -18,47 +17,39 @@ namespace _00.Work.Lusalord._02.Script.Story
 
         private void Update()
         {
-            // Sprite가 바뀌었는지 체크
-            if (_img.sprite != _lastSprite)
-            {
-                _lastSprite = _img.sprite;
-                ApplyAspect();
-            }
+            // 스프라이트 변경 체크
+            if (_img.sprite == _lastSprite) return;
+            _lastSprite = _img.sprite;
+            ApplyAspect();
         }
 
-        private void ApplyAspect()
+        public void ApplyAspect()
         {
-            if (_img.sprite == null)
+            if (!_img.sprite)
                 return;
 
+            // 스프라이트 가로/세로 값
             float w = _img.sprite.rect.width;
             float h = _img.sprite.rect.height;
 
-            if (h == 0)
+            if (w <= 0)
                 return;
 
-            float ratio = w / h;
+            // 세로형 캐릭터 이미지의 비율
+            float ratio = h / w; // 예: 1035/424 ≈ 2.44
 
-            // 현재 부모 높이에 맞춰 자동 조정
+            // 부모 RectTransform 기준
             RectTransform parent = _rt.parent as RectTransform;
-            if (parent == null)
-                return;
+            if (parent == null) return;
 
-            float parentHeight = parent.rect.height;
+            // 부모 가로를 기준으로 맞춤
             float parentWidth = parent.rect.width;
 
-            // 부모 안에서 Fit In Parent와 비슷한 방식으로 비율 맞추기
-            float candidateWidth = parentHeight * ratio;
-            float candidateHeight = parentHeight;
+            float targetWidth = parentWidth;
+            float targetHeight = targetWidth * ratio;
 
-            // 만약 가로가 부모를 넘으면 → 가로에 맞춰 재조정
-            if (candidateWidth > parentWidth)
-            {
-                candidateWidth = parentWidth;
-                candidateHeight = parentWidth / ratio;
-            }
-
-            _rt.sizeDelta = new Vector2(candidateWidth, candidateHeight);
+            // 최종 UI 크기 적용
+            _rt.sizeDelta = new Vector2(targetWidth, targetHeight);
         }
     }
 }

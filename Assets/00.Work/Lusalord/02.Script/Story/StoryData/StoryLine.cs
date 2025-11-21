@@ -18,6 +18,8 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
 
         public string position;
         public string expressionKey;
+        
+        public MultiCharacterPositionData[] positions; // 복수 캐릭터용
 
         public string backgroundKey;
         public bool hideOthers;
@@ -28,10 +30,18 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
         public StoryLineData[] choices;
     }
     [Serializable]
+    public class MultiCharacterPositionData
+    {
+        public string pos;           // Left, Center, Right
+        public string speakerId;     // 캐릭터 ID
+        public string expressionKey; // 표정 Key
+    }
+    [Serializable]
     public class StorySequence
     {
         public string sequenceId;
         public List<StoryLine> lines;
+        public string nextSequence;
     }
     [Serializable]
     public class StorySequenceList
