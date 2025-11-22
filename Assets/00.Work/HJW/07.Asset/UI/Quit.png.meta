@@ -14,9 +14,6 @@ TextureImporter:
   - first:
       213: -6785389222039301044
     second: Quit_3
-  - first:
-      213: 1526085760574542656
-    second: Quit_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,7 +134,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c2323dc550fa88143b853151afe000ef
+    spriteID: f61670bd3f1c09f4d81beb2f88697c8d
     internalID: 0
     vertices: []
     indices: 
@@ -151,7 +148,6 @@ TextureImporter:
       Quit_1: 223920669891790421
       Quit_2: 8043252216654102714
       Quit_3: -6785389222039301044
-      Quit_4: 1526085760574542656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
