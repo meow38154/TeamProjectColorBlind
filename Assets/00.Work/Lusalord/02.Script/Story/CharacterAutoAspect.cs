@@ -9,6 +9,9 @@ namespace _00.Work.Lusalord._02.Script.Story
         private RectTransform _rt;
         private Sprite _lastSprite;
 
+        [Header("높이 제한")]
+        public float maxHeight = 1200f; // 필요하면 Inspector에서 조절
+
         private void Awake()
         {
             _img = GetComponent<Image>();
@@ -17,39 +20,36 @@ namespace _00.Work.Lusalord._02.Script.Story
 
         private void Update()
         {
-            // 스프라이트 변경 체크
-            if (_img.sprite == _lastSprite) return;
-            _lastSprite = _img.sprite;
-            ApplyAspect();
+            if (_img.sprite != _lastSprite)
+            {
+                _lastSprite = _img.sprite;
+                ApplyAspect();
+            }
         }
 
         public void ApplyAspect()
         {
-            if (!_img.sprite)
-                return;
+            if (_img.sprite == null) return;
 
-            // 스프라이트 가로/세로 값
             float w = _img.sprite.rect.width;
             float h = _img.sprite.rect.height;
+            float ratio = h / w;
 
-            if (w <= 0)
-                return;
-
-            // 세로형 캐릭터 이미지의 비율
-            float ratio = h / w; // 예: 1035/424 ≈ 2.44
-
-            // 부모 RectTransform 기준
             RectTransform parent = _rt.parent as RectTransform;
             if (parent == null) return;
 
-            // 부모 가로를 기준으로 맞춤
-            float parentWidth = parent.rect.width;
+            // 기본 가로 기준
+            float baseWidth = parent.rect.width;
+            float calcHeight = baseWidth * ratio;
 
-            float targetWidth = parentWidth;
-            float targetHeight = targetWidth * ratio;
+            // ★ 세로가 너무 길면 자동 제한
+            if (calcHeight > maxHeight)
+            {
+                calcHeight = maxHeight;
+                baseWidth = calcHeight / ratio; // 가로도 비율 유지
+            }
 
-            // 최종 UI 크기 적용
-            _rt.sizeDelta = new Vector2(targetWidth, targetHeight);
+            _rt.sizeDelta = new Vector2(baseWidth, calcHeight);
         }
     }
 }

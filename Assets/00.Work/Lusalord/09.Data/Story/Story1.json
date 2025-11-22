@@ -1,117 +1,84 @@
 {
   "sequences": [
     {
-      "sequenceId": "Intro",
+      "sequenceId": "Story1",
+      "endScene": "Story2",
       "lines": [
         {
+          
           "speakerId": "림",
           "text": "어느 날, 세계가 낯설게 느껴진다.",
-          "position": "Center",
-          "expressionKey": "",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "position": "None",
+          "backgroundKey": "House",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "눈을 떠도 색이 점점 희미해지고,",
-          "position": "Center",
-          "expressionKey": "",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "position": "None",
+          "backgroundKey": "House",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "점점 색의 기운이 옅어져 간다.",
-          "position": "Center",
-          "expressionKey": "",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "position": "None",
+          "backgroundKey": "House",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "그렇다. 색이 안보이기 시작한 것이다.",
-          "position": "Center",
-          "expressionKey": "",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "position": "None",
+          "backgroundKey": "House",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "하... 이제 어떻게 하지?",
           "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "expressionKey": "Sad",
+          "backgroundKey": "Village",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "이대로면 결국 모든 힘을 잃어 버릴텐데...",
           "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "expressionKey": "Cry",
+          "backgroundKey": "Village",
+          "hideOthers": false
         },
         {
           "speakerId": "림",
-          "text": "어? 저게 뭐지?",
+          "text": "어?",
           "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "expressionKey": "Surprise",
+          "backgroundKey": "Village",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
+          "backgroundKey": "SideSlime",
+          "hideOthers": true
         },
         {
           "speakerId": "림",
           "text": "색... 색깔이 보이잖아?",
           "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
-        },
-        {
-          "speakerId": "림",
-          "text": "특이하게 저기만 색깔이 보이는 이유는 뭘까?",
-          "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "expressionKey": "Surprise",
+          "backgroundKey": "Village",
+          "hideOthers": false
         },
         {
           "speakerId": "림",
           "text": "저쪽으로 가봐야겠어.",
           "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Room",
-          "hideOthers": true,
-          "eventTag": "",
-          "effectTag": "",
-          "choices": []
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Village",
+          "hideOthers": false
         }
       ]
     }

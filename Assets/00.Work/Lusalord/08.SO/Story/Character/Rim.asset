@@ -16,17 +16,19 @@ MonoBehaviour:
   displayName: "\uB9BC"
   sprite: {fileID: 8681912151277367108, guid: 38767f510a1051b43b419c7b5af2c56e, type: 3}
   expressions:
-  - key: Defalt
+  - key: Default
     sprite: {fileID: 8681912151277367108, guid: 38767f510a1051b43b419c7b5af2c56e, type: 3}
   - key: Sad
+    sprite: {fileID: -1817823426089315863, guid: 452f051b7345e564597a076ac5712ccc, type: 3}
+  - key: Cry
     sprite: {fileID: 2429526831467727923, guid: 3f79c619c2345b84583b81f4dae2309d, type: 3}
   - key: Surprise
     sprite: {fileID: 7197705316150115229, guid: 3e054464d2ff6054dae3150af359c95c, type: 3}
   - key: Smile
     sprite: {fileID: -1385928701729508930, guid: 04d19bfc4fa4ee641966eb5626d0bdaa, type: 3}
   - key: SmallSmile
-    sprite: {fileID: -4814624285302918608, guid: 93615528020b85341ab5578301b92638, type: 3}
+    sprite: {fileID: 2163796296791482734, guid: ad9172349e579e647a1b68480f8e0b0f, type: 3}
   - key: Angry
     sprite: {fileID: -5373471443711087141, guid: 69e8ebb62a79d0049aa3129a5ccb6d16, type: 3}
   - key: Serious
-    sprite: {fileID: -6845942031302039891, guid: 6eba74376dc880648bca23eea3d3c6c6, type: 3}
+    sprite: {fileID: 7197705316150115229, guid: 3e054464d2ff6054dae3150af359c95c, type: 3}

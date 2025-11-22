@@ -1,0 +1,17 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story1",
+      "nextSequenceId": "Story2",
+      "lines": [
+        {
+          "speakerId": "림",b 
+          "text": "어느 날, 세계가 낯설게 느껴진다.",
+          "position": "None",
+          "backgroundKey": "Forest",
+          "hideOthers": true
+        }
+      ]
+    }
+  ]
+}

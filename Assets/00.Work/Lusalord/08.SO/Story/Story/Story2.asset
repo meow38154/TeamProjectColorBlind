@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8e87070114454ba9329eefdde50aef, type: 3}
-  m_Name: CharacterDatabaseSO
+  m_Script: {fileID: 11500000, guid: cfa828d3f2ce4247b78e15c3fa1537ac, type: 3}
+  m_Name: Story2
   m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 11400000, guid: 96ed372ac0c47474aa04850aace51a9f, type: 2}
-  - {fileID: 11400000, guid: 6bffa0b706a9c5048b0c4c0c9dcf8d74, type: 2}
+  jsonFile: {fileID: 0}

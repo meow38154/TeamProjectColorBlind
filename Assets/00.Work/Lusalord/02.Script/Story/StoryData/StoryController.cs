@@ -5,6 +5,7 @@ using _00.Work.Lusalord._02.Script.VisualNovel.DialogueData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _00.Work.Lusalord._02.Script.Story.StoryData
@@ -44,7 +45,7 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
         private void Start()
         {
             LoadStory();
-            StartSequence("Intro");
+            StartSequence("Story1");
         }
 
         private void Update()
@@ -79,15 +80,23 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 SkipTyping();
                 return;
             }
-
             _index++;
 
             if (_index >= _currentSequence.lines.Count)
             {
-                // nextSequence 자동 이동
                 if (!string.IsNullOrEmpty(_currentSequence.nextSequence))
+                {
                     StartSequence(_currentSequence.nextSequence);
+                    return;
+                }
 
+                if (!string.IsNullOrEmpty(_currentSequence.endScene))
+                {
+                    SceneManager.LoadScene(_currentSequence.endScene);
+                    return;
+                }
+
+                Debug.Log("스토리 종료");
                 return;
             }
 
@@ -96,11 +105,14 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             dialogueText.gameObject.SetActive(true);
 
             UpdateBackground(line);
+
             UpdateSpeaker(line);
+
             UpdateCharacters(line);
 
             _typingCo = StartCoroutine(TypeRoutine(line.text, dialogueText));
         }
+
 
         private IEnumerator TypeRoutine(string full, TMP_Text ui)
         {

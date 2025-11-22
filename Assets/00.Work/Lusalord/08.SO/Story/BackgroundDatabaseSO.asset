@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d4a3738b264031acf009a5e256099d, type: 3}
   m_Name: BackgroundDatabaseSO
   m_EditorClassIdentifier: 
-  backgrounds: []
+  backgrounds:
+  - key: Village
+    sprite: {fileID: 21300000, guid: 1809219d992eb464ea4950d9f9be3c93, type: 3}
+  - key: SideSlime
+    sprite: {fileID: 21300000, guid: 7470dcfa298bec94a9436c1778546d40, type: 3}
+  - key: House
+    sprite: {fileID: 21300000, guid: ca22c70d49adf6a468e1f42e024ed44f, type: 3}

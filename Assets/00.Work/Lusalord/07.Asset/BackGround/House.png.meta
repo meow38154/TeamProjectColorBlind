@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 38767f510a1051b43b419c7b5af2c56e
+guid: ca22c70d49adf6a468e1f42e024ed44f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8681912151277367108
-    second: "\uB9BC \uAE30\uBCF8 \uBC30\uACBD \uC81C\uAC70_0"
+      213: -2512841817082665267
+    second: best quality, masterpiece, highly detailed background, blue archive style,
+      anime s-3466693524 (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +101,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uB9BC \uAE30\uBCF8 \uBC30\uACBD \uC81C\uAC70_0"
+      name: best quality, masterpiece, highly detailed background, blue archive style,
+        anime s-3466693524 (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 422
-        height: 1034
+        width: 1920
+        height: 1088
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44fe8045a195c7870800000000000000
-      internalID: 8681912151277367108
+      spriteID: dc66a045ea7902dd0800000000000000
+      internalID: -2512841817082665267
       vertices: []
       indices: 
       edges: []
@@ -135,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uB9BC \uAE30\uBCF8 \uBC30\uACBD \uC81C\uAC70_0": 8681912151277367108
+      best quality, masterpiece, highly detailed background, blue archive style, anime s-3466693524 (1)_0: -2512841817082665267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
