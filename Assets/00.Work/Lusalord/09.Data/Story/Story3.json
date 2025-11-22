@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story3",
-      "endScene": "Story3",
+      "endScene": "Story4",
       "lines": [
         {
           "speakerId": "림",
@@ -21,9 +21,10 @@
           "hideOthers": false
         },
         {
-          "speakerId": "",
+          "speakerId": "편지",
           "text": "",
-          "position": "None",
+          "position": "Center",
+          "expressionKey": "Default",
           "backgroundKey": "Forest",
           "hideOthers": true
         },
@@ -58,6 +59,62 @@
           "expressionKey": "Slime",
           "backgroundKey": "Forest",
           "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "쓰읍... 동글 동글 하게 생긴게...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "으악!",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "깜짝이야 갑자기 빛이나서 놀랐어",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "어? 아까보다 색깔이 조금 더...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "좀 더 잘 보이잖아?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "마왕의 부하들을 쓰러뜨리면 색을 되 찾을 수 있는건가?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "좋아! 마왕을 무찌르러 가는거야!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Forest",
+          "hideOthers": false
         }
       ]
     }

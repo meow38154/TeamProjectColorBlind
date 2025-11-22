@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using _00.Work.Lusalord._02.Script.Story.SO;
-using _00.Work.Lusalord._02.Script.VisualNovel.DialogueData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -152,7 +151,13 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             var c = characterDatabase.GetCharacter(line.speakerId);
-            speakerText.text = c != null ? c.displayName : line.speakerId;
+            if (string.IsNullOrEmpty(c.displayName))
+            {
+                speakerText.text = "";
+                return;
+            }
+            speakerText.text = c.displayName;
+
         }
         
         private void UpdateCharacters(StoryLine line)
