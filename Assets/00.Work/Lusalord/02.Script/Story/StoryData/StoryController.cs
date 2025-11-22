@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using _00.Work.Lusalord._02.Script.Story.SO;
-using _00.Work.Lusalord._02.Script.VisualNovel.DialogueData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,62 +11,72 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
 {
     public class StoryController : MonoBehaviour
     {
-        [Header("Json SO")]
+        [Header("Json Story Asset")]
         [SerializeField] private JsonStoryAssetSO storyAsset;
 
-        [Header("데이터베이스")]
+        [Header("Databases")]
         [SerializeField] private CharacterDatabase characterDatabase;
-        [SerializeField] private BackgroundDatabaseSO backgroundDatabaseSo;
+        [SerializeField] private BackgroundDatabaseSO backgroundDatabase;
 
-        [Header("UI - 캐릭터/배경")]
+        [Header("UI")]
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Image leftCharacterImage;
         [SerializeField] private Image centerCharacterImage;
         [SerializeField] private Image rightCharacterImage;
 
-        [Header("대사 UI")]
         [SerializeField] private TextMeshProUGUI speakerText;
         [SerializeField] private TextMeshProUGUI dialogueText;
 
-        [Header("설정")]
+        [Header("Settings")]
         [SerializeField] private float lettersPerSecond = 40f;
         [SerializeField] private float fadeDuration = 0.25f;
 
         private StorySequenceList _storyData;
-        private StorySequence _currentSequence;
-
+        private StorySequence _sequence;
         private int _index;
-        private bool _waitingInput;
         private Coroutine _typingCo;
 
         private Dictionary<string, StorySequence> _seqMap;
-
+        
         private void Start()
         {
             LoadStory();
-            StartSequence("Story1");
+            StartSequenceFromSO();
         }
-
+        
         private void Update()
         {
-            if (_waitingInput && Keyboard.current.spaceKey.wasPressedThisFrame)
+            // 타이핑 중에서도, 대기 중에도 Space로 다음 컷 넘기기
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
                 ShowNext();
+            }
         }
-
+        
         private void LoadStory()
         {
             _storyData = StoryJsonLoader.Load(storyAsset);
-            Debug.Assert(_storyData != null, "스토리 데이터를 불러오지 못했습니다.");
+
+            if (_storyData == null || 
+                _storyData.sequences == null ||
+                _storyData.sequences.Count == 0)
+            {
+                Debug.LogError("스토리 데이터가 없습니다.");
+                return;
+            }
 
             _seqMap = new Dictionary<string, StorySequence>();
             foreach (var seq in _storyData.sequences)
                 _seqMap[seq.sequenceId] = seq;
         }
-
-        private void StartSequence(string seqId)
+        
+        private void StartSequenceFromSO()
         {
-            Debug.Assert(_seqMap.TryGetValue(seqId, out _currentSequence),
-                "없는 시퀀스입니다: " + seqId);
+            if (!_seqMap.TryGetValue(storyAsset.startSequenceId, out _sequence))
+            {
+                Debug.LogError($"startSequenceId({storyAsset.startSequenceId})를 찾을 수 없습니다.");
+                return;
+            }
 
             _index = -1;
             ShowNext();
@@ -80,19 +89,14 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 SkipTyping();
                 return;
             }
+
             _index++;
 
-            if (_index >= _currentSequence.lines.Count)
+            if (_index >= _sequence.lines.Count)
             {
-                if (!string.IsNullOrEmpty(_currentSequence.nextSequence))
+                if (!string.IsNullOrEmpty(_sequence.endScene))
                 {
-                    StartSequence(_currentSequence.nextSequence);
-                    return;
-                }
-
-                if (!string.IsNullOrEmpty(_currentSequence.endScene))
-                {
-                    SceneManager.LoadScene(_currentSequence.endScene);
+                    SceneManager.LoadScene(_sequence.endScene);
                     return;
                 }
 
@@ -100,26 +104,21 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 return;
             }
 
-            StoryLine line = _currentSequence.lines[_index];
+            StoryLine line = _sequence.lines[_index];
 
             dialogueText.gameObject.SetActive(true);
 
             UpdateBackground(line);
-
             UpdateSpeaker(line);
-
             UpdateCharacters(line);
 
             _typingCo = StartCoroutine(TypeRoutine(line.text, dialogueText));
         }
-
-
+        
         private IEnumerator TypeRoutine(string full, TMP_Text ui)
         {
-            _waitingInput = false;
             ui.text = "";
-
-            float interval = 1f / Mathf.Max(lettersPerSecond, 1f);
+            float interval = 1f / lettersPerSecond;
 
             for (int i = 0; i < full.Length; i++)
             {
@@ -128,12 +127,11 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             _typingCo = null;
-            _waitingInput = true;
         }
 
         private void SkipTyping()
         {
-            StoryLine line = _currentSequence.lines[_index];
+            StoryLine line = _sequence.lines[_index];
 
             if (_typingCo != null)
             {
@@ -142,7 +140,6 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             dialogueText.text = line.text;
-            _waitingInput = true;
         }
         
         private void UpdateSpeaker(StoryLine line)
@@ -154,68 +151,55 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             var c = characterDatabase.GetCharacter(line.speakerId);
-            speakerText.text = c != null ? c.displayName : line.speakerId;
-        }
+            if (string.IsNullOrEmpty(c.displayName))
+            {
+                speakerText.text = "";
+                return;
+            }
+            speakerText.text = c.displayName;
 
+        }
+        
         private void UpdateCharacters(StoryLine line)
         {
-            // 먼저 모두 비활성화 (기본 상태)
+            // 모두 비활성화 (기본)
             leftCharacterImage.enabled = false;
             centerCharacterImage.enabled = false;
             rightCharacterImage.enabled = false;
 
-            // 배경 컷 (position = None)
-            if (line.position == "None" || string.IsNullOrEmpty(line.position) && (line.positions == null || line.positions.Length == 0))
+            bool useFade = line.hideOthers;
+
+            // 배경 컷 (None)
+            if (line.position == "None" &&
+                (line.positions == null || line.positions.Length == 0))
                 return;
 
-            // 단일 캐릭터(old 방식, 호환성 유지)
-            if (line.positions == null || line.positions.Length == 0)
+            // ▣ 복수 캐릭터 컷
+            if (line.positions != null && line.positions.Length > 0)
             {
-                var c = characterDatabase.GetCharacter(line.speakerId);
-                Sprite sp = c != null ? c.GetExpressionSprite(line.expressionKey) : null;
+                foreach (var p in line.positions)
+                {
+                    var charData = characterDatabase.GetCharacter(p.speakerId);
+                    Sprite sp = charData != null ? charData.GetExpressionSprite(p.expressionKey) : null;
 
-                if (line.position == "Left")
-                    SetCharacterWithFade(leftCharacterImage, sp);
-
-                else if (line.position == "Center")
-                    SetCharacterWithFade(centerCharacterImage, sp);
-
-                else if (line.position == "Right")
-                    SetCharacterWithFade(rightCharacterImage, sp);
+                    if (p.pos == "Left") SetCharacterWithFade(leftCharacterImage, sp, useFade);
+                    else if (p.pos == "Center") SetCharacterWithFade(centerCharacterImage, sp, useFade);
+                    else if (p.pos == "Right") SetCharacterWithFade(rightCharacterImage, sp, useFade);
+                }
 
                 return;
             }
 
-            // 복수 캐릭터 배열 처리
-            foreach (var p in line.positions)
-            {
-                var charData = characterDatabase.GetCharacter(p.speakerId);
-                Sprite sp = charData != null ? charData.GetExpressionSprite(p.expressionKey) : null;
+            // ▣ 단일 캐릭터 컷
+            var c = characterDatabase.GetCharacter(line.speakerId);
+            Sprite single = c != null ? c.GetExpressionSprite(line.expressionKey) : null;
 
-                if (p.pos == "Left")
-                    SetCharacterWithFade(leftCharacterImage, sp);
-
-                else if (p.pos == "Center")
-                    SetCharacterWithFade(centerCharacterImage, sp);
-
-                else if (p.pos == "Right")
-                    SetCharacterWithFade(rightCharacterImage, sp);
-            }
+            if (line.position == "Left") SetCharacterWithFade(leftCharacterImage, single, useFade);
+            else if (line.position == "Center") SetCharacterWithFade(centerCharacterImage, single, useFade);
+            else if (line.position == "Right") SetCharacterWithFade(rightCharacterImage, single, useFade);
         }
 
-        private void UpdateBackground(StoryLine line)
-        {
-            if (string.IsNullOrEmpty(line.backgroundKey)) return;
-
-            var bg = backgroundDatabaseSo.GetBackGround(line.backgroundKey);
-            if (bg != null)
-            {
-                backgroundImage.sprite = bg;
-                backgroundImage.enabled = true;
-            }
-        }
-
-        private void SetCharacterWithFade(Image img, Sprite sp)
+        private void SetCharacterWithFade(Image img, Sprite sp, bool useFade)
         {
             img.sprite = sp;
 
@@ -230,6 +214,17 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             img.enabled = true;
+
+            if (!useFade)
+            {
+                // 페이드 없음 → 즉시 표시
+                Color c = img.color;
+                c.a = 1f;
+                img.color = c;
+                return;
+            }
+
+            // 페이드 있음
             StartCoroutine(FadeIn(img));
         }
 
@@ -250,6 +245,53 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
 
             c.a = 1;
             img.color = c;
+        }
+
+        private void UpdateBackground(StoryLine line)
+        {
+            if (string.IsNullOrEmpty(line.backgroundKey))
+                return;
+
+            var bg = backgroundDatabase.GetBackGround(line.backgroundKey);
+            if (bg == null)
+                return;
+
+            // 페이드 없음 → 즉시 반영
+            if (!line.hideOthers)
+            {
+                backgroundImage.sprite = bg;
+                backgroundImage.color = new Color(1, 1, 1, 1);
+                return;
+            }
+
+            // 페이드 있음 → 부드럽게 전환
+            StopCoroutine("FadeBackground");
+            StartCoroutine(FadeBackground(bg));
+        }
+        
+        private IEnumerator FadeBackground(Sprite newSprite)
+        {
+            float t = 0;
+            Color c = backgroundImage.color;
+
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                float a = Mathf.Lerp(1, 0, t / fadeDuration);
+                backgroundImage.color = new Color(c.r, c.g, c.b, a);
+                yield return null;
+            }
+
+            backgroundImage.sprite = newSprite;
+
+            t = 0;
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                float a = Mathf.Lerp(0, 1, t / fadeDuration);
+                backgroundImage.color = new Color(c.r, c.g, c.b, a);
+                yield return null;
+            }
         }
     }
 }

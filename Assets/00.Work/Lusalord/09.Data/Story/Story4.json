@@ -1,0 +1,33 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story4",
+      "endScene": "Story5",
+      "lines": [
+        {
+          "speakerId": "림",
+          "text": "음... 그럼 마왕을 찾을려면 어디로 가야하는거지?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "음... 그럼 마왕을 찾을려면 어디로 가야하는거지?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false 
+        },
+        {
+          "speakerId": "가디언",
+          "text": "치이잉",
+          "position": "None",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,15 +1,64 @@
 {
   "sequences": [
     {
-      "sequenceId": "Story1",
-      "nextSequenceId": "Story2",
+      "sequenceId": "Story2",
+      "endScene": "Story3",
       "lines": [
         {
-          "speakerId": "림",b 
-          "text": "어느 날, 세계가 낯설게 느껴진다.",
-          "position": "None",
+          "speakerId": "림",
+          "text": "아니... 저건?",
+          "position": "Center",
+          "expressionKey": "Surprise",
           "backgroundKey": "Forest",
           "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "무지개 슬라임이잖아?",
+          "position": "Center",
+          "expressionKey": "SampleSlime",
+          "backgroundKey": "Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "루미 슬라임",
+          "text": "쫀득",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "왜 저 슬라임만 색이 보이는거지?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "어? 왜 다가오는 거지?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "루미 슬라임",
+          "text": "쫀득",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "으악! 저리가!",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Forest",
+          "hideOthers": false
         }
       ]
     }

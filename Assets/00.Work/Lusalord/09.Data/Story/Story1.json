@@ -17,21 +17,21 @@
           "text": "눈을 떠도 색이 점점 희미해지고,",
           "position": "None",
           "backgroundKey": "House",
-          "hideOthers": true
+          "hideOthers": false
         },
         {
           "speakerId": "림",
           "text": "점점 색의 기운이 옅어져 간다.",
           "position": "None",
           "backgroundKey": "House",
-          "hideOthers": true
+          "hideOthers": false
         },
         {
           "speakerId": "림",
-          "text": "그렇다. 색이 안보이기 시작한 것이다.",
+          "text": "그렇다. 더 이상 색이 보이지 않게 된 것이다.",
           "position": "None",
           "backgroundKey": "House",
-          "hideOthers": true
+          "hideOthers": false
         },
         {
           "speakerId": "림",

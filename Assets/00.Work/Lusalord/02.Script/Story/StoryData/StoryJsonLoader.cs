@@ -1,8 +1,7 @@
 using _00.Work.Lusalord._02.Script.Story.SO;
-using _00.Work.Lusalord._02.Script.Story.StoryData;
 using UnityEngine;
 
-namespace _00.Work.Lusalord._02.Script.VisualNovel.DialogueData
+namespace _00.Work.Lusalord._02.Script.Story.StoryData
 {
     public static class StoryJsonLoader
     {
