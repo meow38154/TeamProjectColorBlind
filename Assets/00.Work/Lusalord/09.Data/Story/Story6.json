@@ -1,0 +1,41 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story5",
+      "endScene": "Story6",
+      "lines": [
+        {
+          "speakerId": "림",
+          "text": "후... 마왕이 있는 곳으로 가는 길은 왜 이렇게 험난한거야...",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Flat",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
+          "backgroundKey": "Flat",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "어라? 혹시 거기 누구 계신가요?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Flat",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "마르살라",
+          "text": "아, 네가 마왕이 없애라던 그놈인건가?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Flat",
+          "hideOthers": true
+        }
+      ]
+    }
+  ]
+}

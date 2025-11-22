@@ -9,22 +9,61 @@
           "text": "음... 그럼 마왕을 찾을려면 어디로 가야하는거지?",
           "position": "Center",
           "expressionKey": "Default",
-          "backgroundKey": "Forest",
+          "backgroundKey": "Flat",
           "hideOthers": true
-        },
-        {
-          "speakerId": "림",
-          "text": "음... 그럼 마왕을 찾을려면 어디로 가야하는거지?",
-          "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Forest",
-          "hideOthers": false 
         },
         {
           "speakerId": "가디언",
           "text": "치이잉",
           "position": "None",
-          "backgroundKey": "Forest",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "어?",
+          "position": "Center",
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "가디언",
+          "text": "쿵",
+          "position": "None",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "으악!",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "으... 뭐가 날라온거지?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "가디언",
+          "text": "목표 사살 실패. 다음 공격 실행 준비",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "네 놈도 마왕의 부하인거냐? 그래 한바탕 붙자!",
+          "position": "Center",
+          "expressionKey": "Angry",
+          "backgroundKey": "Flat",
           "hideOthers": false
         }
       ]
