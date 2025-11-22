@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64cf36fb66944401af38600ea63ee804, type: 3}
-  m_Name: Slime
+  m_Name: Slime 1
   m_EditorClassIdentifier: 
-  characterId: "\uC2AC\uB77C\uC784"
-  displayName: "\uC2AC\uB77C\uC784"
-  sprite: {fileID: -6915221049980148935, guid: 21c92eff8c080ce4693bf68e5e622dc9, type: 3}
-  expressions:
-  - key: Default
-    sprite: {fileID: -6915221049980148935, guid: 21c92eff8c080ce4693bf68e5e622dc9, type: 3}
+  characterId: "\uD3B8\uC9C0"
+  displayName: 
+  sprite: {fileID: 0}
+  expressions: []

@@ -41,8 +41,6 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
     {
         public string sequenceId;
         public List<StoryLine> lines;
-        public string nextSequence;
-        
         public string endScene;
     }
     [Serializable]

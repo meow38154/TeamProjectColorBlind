@@ -1,64 +1,63 @@
 {
   "sequences": [
     {
-      "sequenceId": "Story2",
+      "sequenceId": "Story3",
       "endScene": "Story3",
       "lines": [
         {
           "speakerId": "림",
-          "text": "아니... 저건?",
+          "text": "흐아... 갑자기 공격해서 깜짝 놀랐어",
           "position": "Center",
-          "expressionKey": "Surprise",
+          "expressionKey": "SmallSmile",
           "backgroundKey": "Forest",
           "hideOthers": true
         },
         {
           "speakerId": "림",
-          "text": "무지개 슬라임이잖아?",
+          "text": "어? 이 종이는 뭐지?",
           "position": "Center",
-          "expressionKey": "SampleSlime",
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
           "backgroundKey": "Forest",
           "hideOthers": true
         },
         {
-          "speakerId": "슬라임",
-          "text": "쫀득",
-          "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Forest",
-          "hideOthers": false
-        },
-        {
           "speakerId": "림",
-          "text": "왜 저 슬라임만 색이 보이는거지?",
-          "position": "Center",
-          "expressionKey": "Default",
-          "backgroundKey": "Forest",
-          "hideOthers": false
-        },
-        {
-          "speakerId": "림",
-          "text": "어? 왜 다가오는 거지?",
+          "text": "마왕? 내 색깔을 훔쳐간게 마왕이라고?",
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Forest",
           "hideOthers": false
         },
         {
-          "speakerId": "슬라임",
-          "text": "쫀득",
+          "speakerId": "림",
+          "text": "그럼 지금 마왕 때문에 내가 색깔을 못 보고 있는거야?",
           "position": "Center",
-          "expressionKey": "Default",
+          "expressionKey": "Angry",
           "backgroundKey": "Forest",
-          "hideOthers": true
+          "hideOthers": false
         },
         {
           "speakerId": "림",
-          "text": "으악! 저리가!",
+          "text": "어? 이건 뭐지",
           "position": "Center",
-          "expressionKey": "Surprise",
+          "expressionKey": "SmallSmile",
           "backgroundKey": "Forest",
           "hideOthers": false
+        },
+        {
+          "speakerId": "아이템",
+          "text": "",
+          "position": "Center",
+          "expressionKey": "Slime",
+          "backgroundKey": "Forest",
+          "hideOthers": true
         }
       ]
     }

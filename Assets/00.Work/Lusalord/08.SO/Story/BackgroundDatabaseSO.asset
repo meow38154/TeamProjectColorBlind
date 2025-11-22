@@ -19,3 +19,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7470dcfa298bec94a9436c1778546d40, type: 3}
   - key: House
     sprite: {fileID: 21300000, guid: ca22c70d49adf6a468e1f42e024ed44f, type: 3}
+  - key: Forest
+    sprite: {fileID: 21300000, guid: 9bc69c945e210be449a954763772c8fe, type: 3}

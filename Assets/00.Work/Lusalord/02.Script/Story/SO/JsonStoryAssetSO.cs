@@ -6,5 +6,6 @@ namespace _00.Work.Lusalord._02.Script.Story.SO
     public class JsonStoryAssetSO : ScriptableObject
     {
         public TextAsset jsonFile;
+        public string startSequenceId = "Story1";
     }
 }
