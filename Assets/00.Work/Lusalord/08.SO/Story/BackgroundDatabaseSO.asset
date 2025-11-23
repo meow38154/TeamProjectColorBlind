@@ -25,3 +25,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: cff65e5db50815f4d9c33ef0496a997a, type: 3}
   - key: Dark Forest
     sprite: {fileID: 21300000, guid: 24845af9572939c42b5c81a8695e3722, type: 3}
+  - key: Boss Door
+    sprite: {fileID: 21300000, guid: ceff5b235fb6b1545bec2fd1b85fe2c4, type: 3}

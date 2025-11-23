@@ -1,12 +1,21 @@
 {
   "sequences": [
     {
-      "sequenceId": "Story8",
-      "endScene": "Story9",
+      "sequenceId": "Story9",
+      "endScene": "Story10",
       "lines": [
         {
+          "speakerId": "DS",
+          "text": "삐빅... 삐비빅...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Door",
+          "hideOthers": true,
+          "scale": 1.8
+        },
+        {
           "speakerId": "림",
-          "text": "후... 여기가 마왕의 성인가?",
+          "text": "쓰러진건가?",
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Boss Door",
@@ -14,32 +23,39 @@
         },
         {
           "speakerId": "림",
-          "text": "어?",
+          "text": "휴... 다행이다...",
+          "position": "Center",
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false 
+        },
+        {
+          "speakerId": "림",
+          "text": "또 바닥에 뭔가 떨어져있네?",
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Boss Door",
           "hideOthers": false
         },
         {
-          "speakerId": "DS",
+          "speakerId": "아이템",
           "text": "",
           "position": "Center",
-          "expressionKey": "Default",
+          "expressionKey": "Core",
           "backgroundKey": "Boss Door",
-          "hideOthers": false,
-          "scale": 1.8
+          "hideOthers": true
         },
         {
           "speakerId": "림",
-          "text": "문지기 같은 건가?",
+          "text": "역시 점점 색이 돌아오고 있어",
           "position": "Center",
-          "expressionKey": "Default",
+          "expressionKey": "Surprise",
           "backgroundKey": "Boss Door",
           "hideOthers": false
         },
         {
           "speakerId": "림",
-          "text": "그래도 저것만 잡으면 마왕을 만날 수 있는거겠지?",
+          "text": "들어가서 마왕까지 쓰러뜨리면 빼앗겼던 색을 모두 되찾을 수 있겠지?",
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Door",
@@ -47,7 +63,7 @@
         },
         {
           "speakerId": "림",
-          "text": "가자!",
+          "text": "가보자!",
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Door",

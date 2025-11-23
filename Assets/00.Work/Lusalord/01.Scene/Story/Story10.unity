@@ -213,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 5251472321769767922, guid: 0ed1c3bd82bd388479f1bb08a25dbc27, type: 3}
       propertyPath: storyAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 213c382f0313b2442a723be708fce8b6, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a9596e5a371ce547b4513c9ec08097d, type: 2}
     - target: {fileID: 6725409634848651121, guid: 0ed1c3bd82bd388479f1bb08a25dbc27, type: 3}
       propertyPath: m_Pivot.x
       value: 0
