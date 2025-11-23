@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: 3
   _bulletSetting:
   - _waitTime: 0.2
-    _speed: 15
+    _speed: 11
     _lookRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
     _lookPlayer: 1
     _pos: {x: 6.6, y: 2}

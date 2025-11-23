@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour
 
     private HealthSystem _healthSystem;
     private Coroutine _coroutine;
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer _spriteRenderer;
 
     private bool _die;
 

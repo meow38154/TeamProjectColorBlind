@@ -13,12 +13,13 @@ namespace _00.Work.Lusalord._02.Script.SO.Player
         public Action OnDashKeyPressed;
         public Action OnAttackKeyPressed { get; set; }
 
-        public Vector2 MoveDir { get; private set; }
+        public Vector2 MoveDir { get; set; }
         public Vector2 MousePos { get; private set; }
         public bool OnLock { get; private set; } = false;
         
         public void LockInput(bool isLock)
         {
+            
             OnLock = isLock;
         }
         private void OnEnable()

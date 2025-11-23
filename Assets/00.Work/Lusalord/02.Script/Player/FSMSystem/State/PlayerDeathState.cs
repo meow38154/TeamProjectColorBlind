@@ -1,4 +1,6 @@
 using _00.Work.Lusalord._02.Script.SO;
+using System.Diagnostics;
+using UnityEngine;
 
 namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
 {
@@ -14,8 +16,14 @@ namespace _00.Work.Lusalord._02.Script.Player.FSMSystem.State
         {
             _deathParameter = AnimatorParamManage.Instance.GetParameter(PlayerStates.Death);
             Player.RendererCompo.SetParameter(_deathParameter);
-            //Player.PlayerInput.LockInput(true);
-            
+
+            if (Player.transform.Find("Health").GetComponent<HealthSystem>().CurrentHealth <= 0)
+            {
+            UnityEngine.Debug.Log("ÄÑÁü");
+
+                Player.PlayerInput.LockInput(true);
+            }
+
         }
         public override void Update()
         {

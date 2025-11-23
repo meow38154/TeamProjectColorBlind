@@ -4,6 +4,9 @@ using System;
 
 public class BossTakeitDownState : BossState
 {
+    public int jumpSoundNum;
+    public int downSoundNum;
+
     public float _firstDelay;
     public float _jumpPower;
     public float _jumpTime;
@@ -15,7 +18,7 @@ public class BossTakeitDownState : BossState
 
     Sequence seq;
 
-    public BossTakeitDownState(float firstDelay, float jumpTime, float jumpPower, Ease jumpEase, float downDelay, float downSpeed, Ease downEase, float endDelay)
+    public BossTakeitDownState(float firstDelay, float jumpTime, float jumpPower, Ease jumpEase, float downDelay, float downSpeed, Ease downEase, float endDelay, int j, int d)
     {
         _firstDelay = firstDelay;
         _jumpPower = jumpPower;
@@ -26,6 +29,8 @@ public class BossTakeitDownState : BossState
         _downEase = downEase;
         _endDelay = endDelay;
 
+        jumpSoundNum = j;
+        downSoundNum = d;
         PatternPlayTime = _firstDelay + _jumpTime + _downDelay + _endDelay + 0.5f;
     }
 
@@ -40,6 +45,7 @@ public class BossTakeitDownState : BossState
         {
             _anim.SetBool("Jump", true);
             _rb.gravityScale = 0f;
+            SoundManager.Instance.PlaySound(jumpSoundNum, 0.3f);
         });
 
         seq.Append(_bossObject.transform
@@ -51,6 +57,8 @@ public class BossTakeitDownState : BossState
 
         seq.AppendCallback(() =>
         {
+            SoundManager.Instance.PlaySound(downSoundNum, 0.6f, 0.5f);
+
             int dir = InGameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform);
             Vector2 targetPos = new Vector2(_bossObject.transform.position.x + dir * 4.4f, 2);
 

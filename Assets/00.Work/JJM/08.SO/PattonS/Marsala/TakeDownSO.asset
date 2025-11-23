@@ -21,3 +21,5 @@ MonoBehaviour:
   _downTime: 14
   _downEase: 3
   _endDelay: 1
+  jumpSoundNum: 4
+  downSoundNum: 7

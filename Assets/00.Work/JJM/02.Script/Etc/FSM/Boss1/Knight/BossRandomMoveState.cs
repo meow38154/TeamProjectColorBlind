@@ -8,11 +8,12 @@ public class BossRandomMoveState : BossState
     public float _moveSpeed;
     public Ease _ease;
     public float _endDelay;
+    public float _pitch;
 
     public LineRenderer _lineRenderer;
     Sequence seq;
 
-    public BossRandomMoveState(float firstDelay, float moveSpeed, Ease ease, float endDelay)
+    public BossRandomMoveState(float firstDelay, float moveSpeed, Ease ease, float endDelay, float pitch)
     {
         _moveSpeed = moveSpeed;
         _ease = ease;
@@ -20,19 +21,21 @@ public class BossRandomMoveState : BossState
 
         PatternPlayTime = _firstDelay + _moveSpeed + _endDelay;
         _firstDelay = firstDelay;
-
+        _pitch = pitch;
     }
 
     private Vector2 _target;
 
     public override void Enter()
     {
+        SoundManager.Instance.BgmSource.pitch = _pitch;
         _lineRenderer = _bossObject.GetComponent<LineRenderer>();
         _bossObject.StartCoroutine(Line());
         seq = DOTween.Sequence();
 
         if (_bossObject.transform.position.x > 0)
         {
+            SoundManager.Instance.PlaySound(0, 0.14f, 0.5f);
             _target = new Vector2(Random.Range(-0.1f, -8f), Random.Range(3f, 8f));
             _lineRenderer.SetPosition(1, _target);
 
@@ -40,6 +43,7 @@ public class BossRandomMoveState : BossState
 
         if (_bossObject.transform.position.x < 0)
         {
+
             _target = new Vector2(Random.Range(0.1f, 8f), Random.Range(3f, 8f));
             _lineRenderer.SetPosition(1, _target);
         }
@@ -56,6 +60,7 @@ public class BossRandomMoveState : BossState
 
         seq.AppendCallback(() =>
             {
+                SoundManager.Instance.PlaySound(0, 0.5f, 1.5f);
                 _anim.SetBool("Move", true);
             });
 

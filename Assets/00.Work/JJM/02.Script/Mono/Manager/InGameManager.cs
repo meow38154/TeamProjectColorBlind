@@ -1,6 +1,7 @@
 using System;
 using Unity.Cinemachine;
 using UnityEngine;
+using DG.Tweening;
 
 public class InGameManager : Singleton<InGameManager>
 {
@@ -9,6 +10,8 @@ public class InGameManager : Singleton<InGameManager>
     [field: SerializeField] public CinemachineImpulseSource CinemachineImpulseSource { get; private set; }
     [field: SerializeField] public ManaBar ManaBar { get; private set; }
     [field: SerializeField] public Warning Warning { get; private set; }
+
+    [SerializeField] private Vector3 size;
 
     public Action OnHealthUpdate;
 
@@ -33,5 +36,34 @@ public class InGameManager : Singleton<InGameManager>
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         return angle;
+    }
+    public float TargetLook(Vector2 main, Vector2 target)
+    {
+        Vector2 mainPos = main;
+        Vector2 targetPos = target;
+
+        Vector2 dir = targetPos - mainPos;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        return angle;
+    }
+
+    public void Afterimage(SpriteRenderer spriteRenderer)
+    {
+        GameObject image = new GameObject();
+        SpriteRenderer r = image.AddComponent<SpriteRenderer>();
+        r.flipX = spriteRenderer.flipX;
+        image.transform.position = spriteRenderer.transform.position;
+        image.transform.rotation = spriteRenderer.transform.rotation;
+        image.transform.localScale = size;
+        r.sprite = spriteRenderer.sprite;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(r.DOFade(0, 0.15f));
+        seq.AppendCallback(() =>
+        {
+            Destroy(image);
+        });
+
     }
 }

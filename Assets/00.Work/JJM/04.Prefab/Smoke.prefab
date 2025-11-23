@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6778075103111799556}
   - component: {fileID: 2888300911231001230}
   - component: {fileID: 8941977215268703074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e58bec2d52ce9348afa214c2a0f7031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound: 15
+  _pitch: 1
+  _volnum: 0.4
   DurationTime: 5
 --- !u!114 &8941977215268703074
 MonoBehaviour:
@@ -59,7 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395845b0318323041aabca893d337f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  _collider: 0
+  _local: 0
+  _player: 0
+  <Damage>k__BackingField: 1
   _pos: {x: 0, y: 2}
   _size: {x: 2, y: 4}
   _layer:
@@ -77,7 +83,7 @@ GameObject:
   - component: {fileID: 9051994760440056459}
   - component: {fileID: 1074096765725937723}
   - component: {fileID: 5461803704231300135}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -27,6 +27,7 @@ public class BossDSAttackState : BossState
         _bossObject.PassaveFlipX = false;
         _anim.SetBool(_animName, true);
         seq = DOTween.Sequence();
+        SoundManager.Instance.PlaySound(14, 0.7f);
         seq.AppendInterval(_firstDelay);
         seq.AppendCallback(() =>
         {

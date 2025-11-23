@@ -43,6 +43,8 @@ public class KnightDeathEvent : MonoBehaviour
         
         seq.AppendCallback(() =>
         {
+            SoundManager.Instance.PlaySound(14, 1f, 0.5f);
+
             Destroy(_parents.gameObject);
         });
     }

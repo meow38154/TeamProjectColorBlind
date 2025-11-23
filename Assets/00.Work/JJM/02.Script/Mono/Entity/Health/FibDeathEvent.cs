@@ -41,12 +41,16 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
         });
         seq.AppendInterval(2f);
         seq.AppendCallback(() =>
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
 
         });
         seq.AppendInterval(1.5f);
@@ -54,6 +58,8 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
 
         });
         seq.AppendInterval(0.8f);
@@ -61,6 +67,8 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
 
         });
         seq.AppendInterval(0.4f);
@@ -68,6 +76,8 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
 
         });
         seq.AppendInterval(0.2f);
@@ -75,6 +85,8 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+
 
         });
         seq.AppendInterval(0.1f);
@@ -82,6 +94,9 @@ public class FibDeathEvent : MonoBehaviour
         {
             _particle.Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1.3f, 0.7f);
+            SoundManager.Instance.PlaySound(14, 1f);
+
 
         });
 
@@ -89,6 +104,8 @@ public class FibDeathEvent : MonoBehaviour
 
         seq.AppendCallback(() =>
         {
+            SoundManager.Instance.PlaySound(15, 1.5f, 1f);
+
             GameObject p = Instantiate(_particle2.gameObject);
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
             p.transform.position = _parents.transform.position;

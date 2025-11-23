@@ -32,6 +32,10 @@ public class BossUpState : BossState
         _rb.gravityScale = 0;
         seq = DOTween.Sequence();
         _anim.SetBool("Jump", true);
+        seq.AppendCallback(() =>
+        {
+            SoundManager.Instance.PlaySound(4, 0.5f);
+        });
         seq.Append(_rb.DOMoveY(_jumpPower, _jumpTime).SetEase(_jumpEase));
         seq.AppendCallback(() => 
         { 

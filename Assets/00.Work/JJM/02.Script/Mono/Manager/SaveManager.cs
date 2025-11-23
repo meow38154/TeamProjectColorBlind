@@ -3,16 +3,18 @@ using UnityEngine;
 
 namespace JJM
 {
-    public class SaveManager : MonoBehaviour
+    public class SaveManager : Singleton<SaveManager>
     {
         [SerializeField] private SaveData _data;
         private string _fileName = "SaveData.json";
         private string _filePath;
 
+        public SaveData Data => _data;
+
         private void Awake()
         {
 
-            
+            Debug.Log(Application.persistentDataPath);
             _filePath = Path.Combine(Application.persistentDataPath, _fileName);
 
             if (File.Exists(_filePath))

@@ -38,6 +38,8 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         [SerializeField] private float _attackCoolTime = 0.2f;
 
+        private bool _bugKill = true;
+
         private void Awake()
         {
             MovementCompo = GetComponentInChildren<AgentMovement>();
@@ -65,6 +67,7 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void Start()
         {
+            StartCoroutine(BugKillTime());
             _playerStateMachine.Initialize(PlayerStates.Idle);
         }
 
@@ -81,6 +84,9 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void Update()
         {
+
+            Debug.Log(PlayerInput.OnLock);
+
             if (!_canDash)
             {
                 _dashCooldownTimeLeft -= Time.deltaTime;
@@ -90,6 +96,23 @@ namespace _00.Work.Lusalord._02.Script.Player
 
             SetUpMovementInput();
             _playerStateMachine.UpdateMachine();
+
+            if (_bugKill)
+            {
+                BugKill();
+            }
+        }
+
+        private void BugKill()
+        {
+            PlayerInput.LockInput(false);
+            PlayerInput.MoveDir = Vector2.zero;
+        }
+
+        private IEnumerator BugKillTime()
+        {
+            yield return new WaitForSeconds(0.3f);
+            _bugKill = false;
         }
 
         private void HandleJumpPressed()
@@ -103,6 +126,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             }
             else if (CanDoubleJump)
             {
+                SoundManager.Instance.PlaySound(4, 0.2f);
 
                 CanDoubleJump = false;
             }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
+using System.Collections;
 
 public class BossStingState : BossState
 {
@@ -11,6 +11,8 @@ public class BossStingState : BossState
     public float _dashDistance;
     public float _endDelay;
     public TargetFollow targetF;
+
+    private Coroutine _coroutine;
 
     public BossStingState(float firstDelay, float dashTime, float dashDistance, float endDelay)
     {
@@ -24,7 +26,7 @@ public class BossStingState : BossState
 
     public override void Enter()
     {
-
+        _coroutine = _bossObject.StartCoroutine(AfterImage());
         if (_bossObject.TryGetComponent<TargetFollow>(out TargetFollow tar))
         {
             targetF = tar;
@@ -46,7 +48,9 @@ public class BossStingState : BossState
         }
         seq = DOTween.Sequence();
         seq.AppendInterval(_firstDelay);
-        seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * InGameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
+        seq.AppendCallback(() =>
+        { SoundManager.Instance.PlaySound(7, 0.7f); });
+            seq.Append(_rb.DOMoveX(_bossObject.transform.position.x + _dashDistance * InGameManager.Instance.TargetAndPlayerDirectionValue(_bossObject.transform), _dashTime));
         seq.AppendCallback(() => 
         { 
                 _anim.SetBool("Dash", false);
@@ -54,7 +58,17 @@ public class BossStingState : BossState
             {
                 _bossObject.PassaveFlipX = true;
             }
+            _bossObject.StopCoroutine(_coroutine);
         });
+    }
+
+    private IEnumerator AfterImage()
+    {
+        while (true)
+        {
+            InGameManager.Instance.Afterimage(_bossObject._spriteRenderer);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public override void UpdateState()
@@ -64,6 +78,7 @@ public class BossStingState : BossState
 
     public override void Exit()
     {
+       
         _anim.SetBool("Dash", false);
         Debug.Log("´ë½¬ ³¡");
         seq.Kill();

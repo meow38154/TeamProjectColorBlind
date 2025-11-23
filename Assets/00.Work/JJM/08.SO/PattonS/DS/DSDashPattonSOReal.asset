@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Dash
   <firstDelay>k__BackingField: 0
-  <dashTime>k__BackingField: 1
-  <dashDistance>k__BackingField: 15
-  <endDelay>k__BackingField: 1
+  <dashTime>k__BackingField: 2
+  <dashDistance>k__BackingField: 30
+  <endDelay>k__BackingField: 2

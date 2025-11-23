@@ -2,12 +2,13 @@
 using System;
 using System.Collections;
 using UnityEngine.InputSystem;
+using _00.Work.Lusalord._02.Script.Player;
 
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private bool _boss = true;
 
-    [field: SerializeField] public int MaxHealth { get; private set; }
+    [field: SerializeField] public int MaxHealth { get; set; }
     [field: SerializeField, ReadOnly] public int CurrentHealth { get; private set; }
 
     public Action<int, Transform> OnGetDamage; //����� �Ծ��� �� ȣ��� �׼�
@@ -19,13 +20,25 @@ public class HealthSystem : MonoBehaviour
 
     public bool Invincibility { get; set; }
 
+    private bool die = false;
+
+    private float _saveX;
 
     private void Awake()
     {
+
         CurrentHealth = MaxHealth; //���� ü���� �ִ�ü������ ����
     }
 
-    public void GetDamage(int damage, Transform transform)
+    private void Update()
+    {
+        if (die && !_boss)
+        {
+            transform.root.position = new Vector3(_saveX, transform.root.position.y, transform.root.position.z);
+        }
+    }
+
+    public void GetDamage(int damage, Transform transformm)
     {
         if (!Invincibility)
         {
@@ -40,14 +53,18 @@ public class HealthSystem : MonoBehaviour
                 StartCoroutine(InvincibilityTime());
                 CurrentHealth -= damage;
                 CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
-                if (CurrentHealth > 0) //���� ���� ü���� 0 �ʰ��� ��
+                if (CurrentHealth >= 0 && !die) //���� ���� ü���� 0 �ʰ��� ��
                 {
-                    OnGetDamage?.Invoke(damage, transform);
+                    OnGetDamage?.Invoke(damage, transformm);
                 }
 
-                else //���� ���� ü���� 0 ������ ��
+                if (CurrentHealth <= 0)
                 {
-                    Die(); //�׾��� �� ���Ǵ� �޼��� ȣ��
+                    if (!die)
+                    {
+                        die = true;
+                        Die(); //�׾��� �� ���Ǵ� �޼��� ȣ��
+                    }
                 }
             }
         }
@@ -67,6 +84,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (!Invincibility)
         {
+            _saveX = transform.root.position.x;
             OnDie?.Invoke(); //�׾��� �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
             Debug.Log($"{gameObject} is die");
         }

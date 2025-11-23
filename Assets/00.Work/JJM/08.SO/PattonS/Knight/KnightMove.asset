@@ -17,3 +17,4 @@ MonoBehaviour:
   _moveSpeed: 0.5
   _ease: 12
   _endDelay: 1.5
+  _pitch: 1

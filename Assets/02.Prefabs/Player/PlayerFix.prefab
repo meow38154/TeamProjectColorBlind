@@ -367,6 +367,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 1
   isDamaged: 0
+  _attackCoolTime: 0.2
 --- !u!114 &7867089730104465871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3853345217637542926}
   - component: {fileID: 8450453641168280537}
+  - component: {fileID: 5849814225131262764}
   m_Layer: 0
   m_Name: PlayerEvent
   m_TagString: Untagged
@@ -782,6 +784,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cf33854152b914a9c773d816e7907d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5849814225131262764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608517202686390544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee441ab4d777e9f4daa933b9c22ea07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 0}
 --- !u!1001 &3243518948574597335
 PrefabInstance:
   m_ObjectHideFlags: 0

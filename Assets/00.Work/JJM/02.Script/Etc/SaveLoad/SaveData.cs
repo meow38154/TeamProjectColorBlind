@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using JJM;
+using UnityEngine;
 
 
 namespace JJM
@@ -9,6 +10,10 @@ namespace JJM
 
     public class SaveData
     {
-        public string[] 임리우들;
+        public bool[] itemSetting;
+        [Range(-100f, 0f)]
+        public float colorBlindness = -100;
+        public int useItem = 0;
+        public float soundSetting = 1;
     }
 }

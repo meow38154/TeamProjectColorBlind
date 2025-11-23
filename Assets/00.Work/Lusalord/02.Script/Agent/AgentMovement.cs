@@ -73,6 +73,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
         public void Dash(Vector2 direction, float multiplier = 1f)
         {
             if(isDash) return;
+            SoundManager.Instance.PlaySound(7, 1);
             StartCoroutine(DashCoroutine(direction, multiplier));
         }
         

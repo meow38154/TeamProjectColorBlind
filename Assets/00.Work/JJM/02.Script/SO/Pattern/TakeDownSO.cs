@@ -14,6 +14,10 @@ public class TakeDownSO : PatternSO
     public Ease _downEase;
     public float _endDelay;
 
+    [Header(("»ç¿îµå"))]
+    public int jumpSoundNum;
+    public int downSoundNum;
+
     public void OnEnable()
     {
         SettingUpdate();
@@ -21,7 +25,7 @@ public class TakeDownSO : PatternSO
 
     public override void SettingUpdate()
     {
-        BossStateData = new BossTakeitDownState(_firstDelay, _jumpTime, _jumpPower, _jumpEase, _downDelay, _downTime, _downEase, _endDelay);
+        BossStateData = new BossTakeitDownState(_firstDelay, _jumpTime, _jumpPower, _jumpEase, _downDelay, _downTime, _downEase, _endDelay, jumpSoundNum, downSoundNum);
     }
 }
 

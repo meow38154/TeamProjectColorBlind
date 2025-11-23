@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NoDelayDashPattonSO
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Dash
-  <firstDelay>k__BackingField: 0
+  <firstDelay>k__BackingField: 0.5
   <dashTime>k__BackingField: 0.6
   <dashDistance>k__BackingField: 7.5
-  <endDelay>k__BackingField: 0.2
+  <endDelay>k__BackingField: 1

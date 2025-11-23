@@ -52,6 +52,8 @@ public class HealthBar : MonoBehaviour
 
     private void Died()
     {
-        _healthBar.GetChild(_healthSystem.MaxHealth).GetChild(1).gameObject.SetActive(false);
+        //_healthBar.GetChild(_healthSystem.MaxHealth).GetChild(1).gameObject.SetActive(false);
+
+        HeartUpdate(0, _healthBar);
     }
 }

@@ -19,3 +19,4 @@ MonoBehaviour:
   _endTime: 1
   _jumpPower: 5
   _forPower: 3
+  _sound: 4
