@@ -1253,6 +1253,7 @@ MonoBehaviour:
   <ManaBar>k__BackingField: {fileID: 943804765}
   <Warning>k__BackingField: {fileID: 533009297}
   size: {x: 0, y: 0, z: 0}
+  _time: 7
 --- !u!1 &1035903752
 GameObject:
   m_ObjectHideFlags: 0
@@ -26376,6 +26377,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2549071533716139381, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
+      propertyPath: _scene
+      value: Story5
+      objectReference: {fileID: 0}
     - target: {fileID: 2549071533716139381, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: _invincibilityTime
       value: 0.15

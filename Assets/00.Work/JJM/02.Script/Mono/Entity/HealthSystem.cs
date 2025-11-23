@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private bool _boss = true;
-
+    [SerializeField] private string _scene;
     [field: SerializeField] public int MaxHealth { get; set; }
     [field: SerializeField, ReadOnly] public int CurrentHealth { get; private set; }
 
@@ -95,8 +95,12 @@ public class HealthSystem : MonoBehaviour
 
     private IEnumerator BgmFadeOut()
     {
-        yield return new WaitForSeconds(3f);
-        SoundManager.Instance.BgmSource.DOFade(0f, 2f);
+        if (_boss)
+        {
+            yield return new WaitForSeconds(3f);
+            SoundManager.Instance.BgmSource.DOFade(0f, 2f);
+            InGameManager.Instance.S(_scene);
+        }
     }
 
     private IEnumerator InvincibilityTime()

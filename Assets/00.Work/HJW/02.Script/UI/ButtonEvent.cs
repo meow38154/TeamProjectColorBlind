@@ -23,6 +23,8 @@ public class ButtonEvent : MonoBehaviour
 
     public void StartButton()
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(NextSceneName);
     }
 
@@ -31,6 +33,7 @@ public class ButtonEvent : MonoBehaviour
     }
     public void OptionButton()
     {
+
         OptionPanel.SetActive(true);
         Time.timeScale = 0;
     }

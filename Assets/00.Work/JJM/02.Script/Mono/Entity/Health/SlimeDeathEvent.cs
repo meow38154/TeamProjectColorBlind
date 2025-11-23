@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class SlimeDeathEvent : MonoBehaviour
@@ -47,7 +48,8 @@ public class SlimeDeathEvent : MonoBehaviour
             Destroy(_parents);
         });
 
-
+        
     }
+
 }
 

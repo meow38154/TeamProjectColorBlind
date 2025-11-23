@@ -10,14 +10,39 @@ public class UIColor : MonoBehaviour
 
     [SerializeField] private Color _color;
 
+    private bool _use;
+
     public void Num(int n)
     {
-        SaveManager.Instance.Data.useItem = n;
-        SaveManager.Instance.Save();
+        if (_use)
+        {
+
+            SaveManager.Instance.Data.useItem = n;
+            SaveManager.Instance.Save();
+        }
     }
 
     private void Update()
     {
+        if (num != 0)
+        {
+            if (!SaveManager.Instance.Data.itemSetting[num - 1])
+            {
+                transform.GetChild(0).GetComponentInChildren<Image>().color = Color.black;
+                _use = false;
+            }
+            else
+            {
+                transform.GetChild(0).GetComponentInChildren<Image>().color = Color.white;
+                _use = true;
+            }
+        }
+
+        else
+        {
+            _use = true;
+        }
+
         if (num == SaveManager.Instance.Data.useItem)
         {
             _image.DOColor(_color, 0.5f);

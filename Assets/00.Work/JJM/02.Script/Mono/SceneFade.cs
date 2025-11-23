@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneFade : MonoBehaviour
@@ -40,7 +41,7 @@ public class SceneFade : MonoBehaviour
         seq.AppendInterval(_bossTime);
         seq.AppendCallback(() =>
         {
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
 }

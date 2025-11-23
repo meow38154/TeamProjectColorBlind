@@ -927,6 +927,7 @@ MonoBehaviour:
   <ManaBar>k__BackingField: {fileID: 1150987813}
   <Warning>k__BackingField: {fileID: 1150987812}
   size: {x: 0, y: 0, z: 0}
+  _time: 7
 --- !u!1 &1035903752
 GameObject:
   m_ObjectHideFlags: 0
@@ -24480,6 +24481,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe1ddaab3cd11a94680935c05710f2af, type: 3}
+--- !u!114 &2131063869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6651154118141002587, guid: fe1ddaab3cd11a94680935c05710f2af, type: 3}
+  m_PrefabInstance: {fileID: 2131063868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2402c78b561ec4080752e682a90817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7905234896997144626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24624,6 +24636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2549071533716139381, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
+      propertyPath: _scene
+      value: Story3
+      objectReference: {fileID: 0}
     - target: {fileID: 2549071533716139381, guid: bd3e2754090cb954aa4a5f57722a448f, type: 3}
       propertyPath: _invincibilityTime
       value: 0.13
@@ -24924,6 +24940,34 @@ PrefabInstance:
     - target: {fileID: 961659401346543028, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2131063869}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Out
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneFade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096527203648089339, guid: 91947d927311ff7429402696d1a9d00c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
