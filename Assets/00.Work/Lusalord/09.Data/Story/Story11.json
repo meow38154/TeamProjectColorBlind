@@ -11,7 +11,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": true,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
@@ -28,7 +28,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": false,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
