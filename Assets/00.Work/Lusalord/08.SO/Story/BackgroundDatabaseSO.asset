@@ -27,3 +27,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 24845af9572939c42b5c81a8695e3722, type: 3}
   - key: Boss Door
     sprite: {fileID: 21300000, guid: ceff5b235fb6b1545bec2fd1b85fe2c4, type: 3}
+  - key: Boss Room
+    sprite: {fileID: 21300000, guid: b69ea807450755342a8041f9d8b48095, type: 3}

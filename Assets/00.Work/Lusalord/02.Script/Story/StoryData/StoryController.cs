@@ -52,6 +52,25 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 ShowNext();
             }
         }
+        public void SkipStory()
+        {
+            // 타이핑 중이면 즉시 스킵
+            if (_typingCo != null)
+            {
+                SkipTyping();
+            }
+
+            // 시퀀스에 endScene이 있으면 거기로 이동
+            if (!string.IsNullOrEmpty(_sequence.endScene))
+            {
+                SceneManager.LoadScene(_sequence.endScene);
+                return;
+            }
+
+            // 그렇지 않으면 기본 skipSceneName으로 이동
+            SceneManager.LoadScene("Start");
+        }
+
         
         private void LoadStory()
         {
@@ -296,5 +315,6 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 yield return null;
             }
         }
+        
     }
 }

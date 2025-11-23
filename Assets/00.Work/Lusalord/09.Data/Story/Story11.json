@@ -1,0 +1,92 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story11",
+      "endScene": "Start",
+      "lines": [
+        {
+          "speakerId": "마왕",
+          "text": "크아악",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Room",
+          "hideOthers": true,
+          "scale": 3
+        },
+        {
+          "speakerId": "림",
+          "text": "마왕 이제 끝이다! 내 색을 돌려내!",
+          "position": "Center",
+          "expressionKey": "Angry",
+          "backgroundKey": "Boss Room",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "마왕",
+          "text": "내가... 내가... 으아악!!!",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Room",
+          "hideOthers": false,
+          "scale": 3
+        },
+        {
+          "speakerId": "림",
+          "text": "쓰러뜨린건가?",
+          "position": "Center",
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Boss Room",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "아이템",
+          "text": "",
+          "position": "Center",
+          "expressionKey": "Mawang",
+          "backgroundKey": "Boss Room",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "저게... 마지막 색깔인가?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Room",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "그럼...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Room",
+          "hideOthers": false 
+        },
+        {
+          "speakerId": "림",
+          "text": "이제... 전과 똑같아졌어!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Boss Room",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "빨간색... 초록색... 파란색... 모두 보인다고!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Boss Room",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "이제 색깔을 볼 수 있어!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Boss Room",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

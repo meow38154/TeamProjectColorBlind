@@ -18,3 +18,9 @@ MonoBehaviour:
   expressions:
   - key: Slime
     sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
+  - key: Sword
+    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
+  - key: Slime
+    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
+  - key: Slime
+    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
