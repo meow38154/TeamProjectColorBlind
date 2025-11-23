@@ -16,9 +16,13 @@ public class UIColor : MonoBehaviour
     {
         if (_use)
         {
-
+            SoundManager.Instance.PlaySound(16, 0.8f);
             SaveManager.Instance.Data.useItem = n;
             SaveManager.Instance.Save();
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound(16, 0.8f, 0.5f);
         }
     }
 

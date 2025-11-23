@@ -10,15 +10,16 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField] private GameObject OptionPanel;
     [SerializeField] private Slider slider;
 
-    private void Awake()
+    private void Start()
     {
         slider.value = SaveManager.Instance.Data.soundSetting;
     }
 
     private void Update()
     {
+
         SaveManager.Instance.Data.soundSetting = slider.value;
-        
+        SaveManager.Instance.Save();
     }
 
     public void StartButton()
@@ -33,7 +34,7 @@ public class ButtonEvent : MonoBehaviour
     }
     public void OptionButton()
     {
-
+        SoundManager.Instance.PlaySound(16, 0.8f);
         OptionPanel.SetActive(true);
         Time.timeScale = 0;
     }
@@ -45,6 +46,7 @@ public class ButtonEvent : MonoBehaviour
 
     public void OptionQuitButton()
     {
+        SoundManager.Instance.PlaySound(16, 0.8f);
         Time.timeScale = 1;
         OptionPanel.SetActive(false);
     }

@@ -61,5 +61,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d49a52bf1b1141240a408321d811624c, type: 3}
   - {fileID: 8300000, guid: c8fd846d9b396654fae8751c6bcf46dc, type: 3}
   - {fileID: 8300000, guid: 9bd51aa52224b2f4db496b0f598b5385, type: 3}
+  - {fileID: 8300000, guid: 100e77c9b344cb84a953109907127a3f, type: 3}
   _sceneBGM: {fileID: 8300000, guid: 177cd53ad499b224d9fa5370a02612c4, type: 3}
   _sceneBGMVolnum: 0.3

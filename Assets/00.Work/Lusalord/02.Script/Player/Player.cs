@@ -56,6 +56,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             _playerStateMachine = new PlayerStateMachine(this);
         }
 
+        
         private void OnDestroy()
         {
             PlayerInput.OnJumpKeyPressed -= HandleJumpPressed;
@@ -67,6 +68,8 @@ namespace _00.Work.Lusalord._02.Script.Player
 
         private void Start()
         {
+            transform.Find("VisualAttack").gameObject.SetActive(false);
+            GetComponentInChildren<MeleeAttackObject>().gameObject.SetActive(false);
             StartCoroutine(BugKillTime());
             _playerStateMachine.Initialize(PlayerStates.Idle);
         }
