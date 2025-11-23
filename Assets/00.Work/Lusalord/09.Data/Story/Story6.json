@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story6",
-      "endScene": "Story7",
+      "endScene": "Boss3",
       "lines": [
         {
           "speakerId": "림",
