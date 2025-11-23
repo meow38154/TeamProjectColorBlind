@@ -26,7 +26,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "scale": 1.8
         },
         {
           "speakerId": "림",

@@ -19,8 +19,8 @@ MonoBehaviour:
   - key: Slime
     sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
   - key: Sword
-    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
-  - key: Slime
-    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
-  - key: Slime
-    sprite: {fileID: -7169317725849760947, guid: fce374338a6bcba4a939f3d17080495e, type: 3}
+    sprite: {fileID: 6108012597462862368, guid: 7f26b3e4020f8734e8334b8efe3558ab, type: 3}
+  - key: Core
+    sprite: {fileID: -6829946253058147384, guid: e17f45caa8b978842af9ed4aba4b0613, type: 3}
+  - key: Bullet
+    sprite: {fileID: 8859622594542979045, guid: 793b1fd1e3c9ae549a44337a5651fba6, type: 3}
