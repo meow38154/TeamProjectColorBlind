@@ -12,13 +12,17 @@ public class BossJumpState : BossState
     private float _jumpPower;
     private float _forPower;
 
+    private int _sound;
+
     Sequence seq;
 
-    public BossJumpState(float min, float max, float _an, float endTime, float jumpPower, float forPower)
+    public BossJumpState(float min, float max, float _an, float endTime, float jumpPower, float forPower, int sound)
     {
         _maxTime = max;
         _minTime = min;
         _animWait = _an;
+
+        _sound = sound;
 
         _endTime = endTime;
         _jumpPower = jumpPower;
@@ -44,7 +48,7 @@ public class BossJumpState : BossState
     private void Jump()
     {
         _rb = _bossObject.GetComponent<Rigidbody2D>();
-
+        SoundManager.Instance.PlaySound(_sound, 0.5f);
         InGameManager instance = InGameManager.Instance;
 
         Vector3 targetPos = instance.Player.transform.position;

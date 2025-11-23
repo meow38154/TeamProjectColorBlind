@@ -6,7 +6,7 @@ public class MeleeAttackObject : MonoBehaviour
     [SerializeField] private bool _local = false;
     [SerializeField] private bool _player = false;
     [Header("Vector")]
-    [SerializeField] private int damage = 1;
+    [field: SerializeField] public int Damage { get; set; } = 1;
 
     [Header("Vector")]
     [SerializeField] private Vector2 _pos;
@@ -26,7 +26,7 @@ public class MeleeAttackObject : MonoBehaviour
             {
                 if (i.transform.Find("Health").TryGetComponent(out HealthSystem health))
                 {
-                    health.GetDamage(damage, transform);
+                    health.GetDamage(Damage, transform);
                 }
             }
         }
@@ -44,7 +44,7 @@ public class MeleeAttackObject : MonoBehaviour
             {
                 if (i.transform.Find("Health").TryGetComponent(out HealthSystem health))
                 {
-                    health.GetDamage(damage, transform);
+                    health.GetDamage(Damage, transform);
                 }
             }
         }
@@ -58,7 +58,7 @@ public class MeleeAttackObject : MonoBehaviour
         {
             if (collision.transform.Find("Health").TryGetComponent(out HealthSystem health))
             {
-                health.GetDamage(damage, transform);
+                health.GetDamage(Damage, transform);
             }
         }
 

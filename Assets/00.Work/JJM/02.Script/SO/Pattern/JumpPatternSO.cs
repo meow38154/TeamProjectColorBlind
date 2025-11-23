@@ -9,6 +9,9 @@ public class JumpPatternSO : PatternSO
     [SerializeField] private float _endTime;
     [SerializeField] private float _jumpPower;
     [SerializeField] private float _forPower;
+
+    [Header("Sound")]
+    [SerializeField] private int _sound;
     private void OnEnable() 
     {
         SettingUpdate();
@@ -16,6 +19,6 @@ public class JumpPatternSO : PatternSO
 
     public override void SettingUpdate()
     {
-        BossStateData = new BossJumpState(_minTime, _maxTime, _animWait, _endTime, _jumpPower, _forPower);
+        BossStateData = new BossJumpState(_minTime, _maxTime, _animWait, _endTime, _jumpPower, _forPower, _sound);
     }
 }

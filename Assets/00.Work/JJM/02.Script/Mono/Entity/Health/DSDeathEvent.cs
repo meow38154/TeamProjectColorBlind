@@ -47,6 +47,14 @@ public class DSDeathEvent : MonoBehaviour
     {
         _savePos = _parents.transform.position;
         _anim.SetBool("Death", true);
+
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(0.3f);
+        seq.AppendCallback(() =>
+        {
+            SoundManager.Instance.PlaySound(15, 1);
+        });
+
         _pos = true;
     }
 }

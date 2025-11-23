@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DSMove 1
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Mo
-  _firstDelay: 1
-  _moveTime: 0.5
+  _firstDelay: 0
+  _moveTime: 1
   _targetPos: {x: 0, y: -3, z: 0}
-  _time: 1
-  _endDelay: 0.2
+  _time: 2
+  _endDelay: 1
   _flip: 0

@@ -15,14 +15,14 @@ MonoBehaviour:
   <Name>k__BackingField: 
   _bulletSetting:
   - _waitTime: 0
-    _speed: 10
+    _speed: 6
     _lookRotation: {x: 0.00000004371139, y: 1, z: -1.9106855e-15, w: -0.00000004371139}
     _lookPlayer: 0
     _pos: {x: -3.6, y: -5}
     _bullet: {fileID: 1181580741237142103, guid: 6f80b2b6b801716479baf7c1897044d1, type: 3}
     _transform: 0
   - _waitTime: 0
-    _speed: 10
+    _speed: 6
     _lookRotation: {x: 0, y: 0, z: 0, w: 0}
     _lookPlayer: 0
     _pos: {x: -3.6, y: -5}

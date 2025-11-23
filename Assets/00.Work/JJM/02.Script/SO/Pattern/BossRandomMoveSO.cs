@@ -8,6 +8,7 @@ public class BossRandomMoveSO : PatternSO
     public float _moveSpeed;
     public Ease _ease;
     public float _endDelay;
+    public float _pitch;
 
     public void OnEnable()
     {
@@ -16,6 +17,6 @@ public class BossRandomMoveSO : PatternSO
 
     public override void SettingUpdate()
     {
-        BossStateData = new BossRandomMoveState(_firstDelay, _moveSpeed, _ease, _endDelay);
+        BossStateData = new BossRandomMoveState(_firstDelay, _moveSpeed, _ease, _endDelay, _pitch);
     }
 }

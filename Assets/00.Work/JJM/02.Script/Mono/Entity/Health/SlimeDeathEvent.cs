@@ -42,9 +42,12 @@ public class SlimeDeathEvent : MonoBehaviour
 
             a.GetComponent<ParticleSystem>().Play();
             InGameManager.Instance.CinemachineImpulseSource.GenerateImpulse();
+            SoundManager.Instance.PlaySound(15, 1f, 1.5f);
+
             Destroy(_parents);
         });
 
 
     }
 }
+

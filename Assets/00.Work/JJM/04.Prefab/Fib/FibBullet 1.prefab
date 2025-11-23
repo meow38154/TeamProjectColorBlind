@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 158507416829546441}
   - component: {fileID: 672631495159198115}
   - component: {fileID: 3243943602523993016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FibBullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e58bec2d52ce9348afa214c2a0f7031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound: 8
+  _pitch: 1
+  _volnum: 0.6
   DurationTime: 8
 --- !u!114 &672631495159198115
 MonoBehaviour:
@@ -64,7 +67,7 @@ MonoBehaviour:
   _collider: 0
   _local: 0
   _player: 0
-  damage: 1
+  <Damage>k__BackingField: 1
   _pos: {x: 0, y: 0}
   _size: {x: 1, y: 1}
   _layer:
@@ -97,7 +100,7 @@ GameObject:
   - component: {fileID: 5270341912456449931}
   - component: {fileID: 5330594529930035303}
   - component: {fileID: 7373279527902836803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,7 +4932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8085586486145673738}
   - component: {fileID: 745101936128432976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5016,7 +5019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1044321945377219671}
   - component: {fileID: 4611831640614454487}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FibBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5051,4 +5054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e58bec2d52ce9348afa214c2a0f7031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound: 0
+  _pitch: 0
+  _volnum: 0
   DurationTime: 8

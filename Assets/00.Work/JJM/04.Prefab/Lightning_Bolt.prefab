@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2963010446904953565}
   - component: {fileID: 1985895772815499490}
   - component: {fileID: 5296162117596339875}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lightning_Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad59e056d3384b4b8aa4dd6d524bf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound: 13
+  _pitch: 1
+  _volnum: 0.5
   DurationTime: 0.7
 --- !u!114 &5296162117596339875
 MonoBehaviour:
@@ -140,7 +143,7 @@ MonoBehaviour:
   _collider: 0
   _local: 0
   _player: 0
-  damage: 1
+  <Damage>k__BackingField: 1
   _pos: {x: 0, y: 0}
   _size: {x: 2, y: 10}
   _layer:

@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395845b0318323041aabca893d337f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: 0
+  _local: 0
+  _player: 0
   damage: 1
   _pos: {x: 0, y: 0}
   _size: {x: 7.3, y: 0.9}
@@ -120,4 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e58bec2d52ce9348afa214c2a0f7031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sound: 15
+  _pitch: 1
+  _volnum: 0.6
   DurationTime: 0.3

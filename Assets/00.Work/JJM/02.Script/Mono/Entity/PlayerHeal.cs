@@ -20,6 +20,7 @@ public class PlayerHeal : MonoBehaviour
             {
                 InGameManager.Instance.ManaBar.Somo();
                 healthSystem.GetHeal(1, transform);
+                SoundManager.Instance.PlaySound(6, 0.5f);
             }
         }
     }
