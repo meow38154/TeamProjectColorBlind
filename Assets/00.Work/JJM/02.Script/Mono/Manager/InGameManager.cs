@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using JJM;
 
 public class InGameManager : Singleton<InGameManager>
 {
@@ -50,6 +51,35 @@ public class InGameManager : Singleton<InGameManager>
         return angle;
     }
 
+    private void Update()
+    {
+        int c = 0;
+        foreach (var i in SaveManager.Instance.Data.itemSetting)
+        {
+            if (i)
+                c++;
+        }
+
+        switch (c)
+        {
+            case 0:
+                SaveManager.Instance.Data.colorBlindness = -100f;
+                break;
+            case 1:
+                SaveManager.Instance.Data.colorBlindness = -75f;
+                break;
+            case 2:
+                SaveManager.Instance.Data.colorBlindness = -50f;
+                break;
+            case 3:
+                SaveManager.Instance.Data.colorBlindness = -25f;
+                break;
+            default:
+                SaveManager.Instance.Data.colorBlindness = 0f;
+                break;
+        }
+    }
+
     public void Afterimage(SpriteRenderer spriteRenderer)
     {
         GameObject image = new GameObject();
@@ -71,5 +101,9 @@ public class InGameManager : Singleton<InGameManager>
     public void ScenePlay(int num)
     {
         SceneManager.LoadScene(num);
+    }
+    public void ScenePlay(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }
