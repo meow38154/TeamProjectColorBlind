@@ -1,0 +1,106 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story7",
+      "endScene": "Story8",
+      "lines": [
+        {
+          "speakerId": "마르살라",
+          "text": "크으윽",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true,
+          "scale": 1.8
+        },
+        {
+          "speakerId": "림",
+          "text": "휴... 하마타면 내가 먼저 쓰러질 뻔 했어...",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "마르살라",
+          "text": "이... 이렇게 쓰러질 수는...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false,
+          "scale": 1.8
+        },
+        {
+          "speakerId": "마르살라",
+          "text": "끄윽",
+          "position": "None",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "쓰러진거겠지?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "아?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "아이템",
+          "text": "",
+          "position": "Center",
+          "expressionKey": "Sword",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "이거는 마르살라가 들고 있던 검이잖아??",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "이것도 한번...",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "그래... 확실히 좀 더 색이 잘 보여!",
+          "position": "Center",
+          "expressionKey": "SmallSmile",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true  
+        },
+        {
+          "speakerId": "림",
+          "text": "그래. 계속 마왕을 찾아 떠나는거야!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

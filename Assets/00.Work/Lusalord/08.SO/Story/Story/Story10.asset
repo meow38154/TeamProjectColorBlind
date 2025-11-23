@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfa828d3f2ce4247b78e15c3fa1537ac, type: 3}
-  m_Name: Story4
+  m_Name: Story10
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 1c773fd0331244e0bf134639662f46be, type: 3}
-  startSequenceId: Story4
+  jsonFile: {fileID: 4900000, guid: cc02720e0bcf4631956b3816475433da, type: 3}
+  startSequenceId: Story10

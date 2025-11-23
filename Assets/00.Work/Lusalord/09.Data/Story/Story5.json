@@ -1,0 +1,88 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story5",
+      "endScene": "Story6",
+      "lines": [
+        {
+          "speakerId": "가디언",
+          "text": "기기 손상 심각. 폭주 모드로 전환합니다.",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "뭐? 폭주 모드?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "가디언",
+          "text": "3... 2... 1..",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "",
+          "text": "펑",
+          "position": "None",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "가디언",
+          "text": "마왕님 도대체 왜...",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "가디언",
+          "text": "생명 시스템 종료.",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "어디선가 뾰족한 물체가 날라왔는데... 마왕?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "저쪽이 마왕이 있는 곳인가?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "그래, 저기로 한번 가보는거야!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Flat",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

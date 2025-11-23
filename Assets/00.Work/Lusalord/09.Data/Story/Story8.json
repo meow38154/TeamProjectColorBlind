@@ -1,0 +1,59 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story8",
+      "endScene": "Story9",
+      "lines": [
+        {
+          "speakerId": "림",
+          "text": "후... 여기가 마왕의 성인가?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Boss Door",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "림",
+          "text": "어?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "DS",
+          "text": "",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false,
+          "scale": 1.8
+        },
+        {
+          "speakerId": "림",
+          "text": "문지기 같은 건가?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "그래도 저것만 잡으면 마왕을 만날 수 있는거겠지?",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "가자!",
+          "position": "Center",
+          "expressionKey": "Smile",
+          "backgroundKey": "Boss Door",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

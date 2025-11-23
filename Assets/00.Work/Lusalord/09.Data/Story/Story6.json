@@ -1,0 +1,67 @@
+{
+  "sequences": [
+    {
+      "sequenceId": "Story6",
+      "endScene": "Story7",
+      "lines": [
+        {
+          "speakerId": "림",
+          "text": "후... 마왕이 있는 곳으로 가는 길은 왜 이렇게 험난한거야...",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": true
+        },
+        {
+          "speakerId": "",
+          "text": "",
+          "position": "None",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "어라? 혹시 거기 누구 계신가요?",
+          "position": "Center",
+          "expressionKey": "Sad",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "마르살라",
+          "text": "아, 네가 마왕이 없애라던 그놈인건가?",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false,
+          "scale": 1.8
+        },
+        {
+          "speakerId": "마르살라",
+          "text": "생각보다 어린데... 아쉽지만 여기서 네놈을 끝내야겠어",
+          "position": "Center",
+          "expressionKey": "Default",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false,
+          "scale": 1.8
+        },
+        {
+          "speakerId": "림",
+          "text": "너도 마왕의 부하?",
+          "position": "Center",
+          "expressionKey": "Surprise",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        },
+        {
+          "speakerId": "림",
+          "text": "으아아.... 또 싸움인거야?",
+          "position": "Center",
+          "expressionKey": "Angry",
+          "backgroundKey": "Dark Forest",
+          "hideOthers": false
+        }
+      ]
+    }
+  ]
+}

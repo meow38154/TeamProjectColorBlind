@@ -28,6 +28,8 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
         public string effectTag;
 
         public StoryLineData[] choices;
+        
+        public float scale = 1f;
     }
     [Serializable]
     public class MultiCharacterPositionData
