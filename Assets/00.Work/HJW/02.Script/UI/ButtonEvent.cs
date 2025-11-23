@@ -10,9 +10,15 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField] private GameObject OptionPanel;
     [SerializeField] private Slider slider;
 
+    private void Awake()
+    {
+        slider.value = SaveManager.Instance.Data.soundSetting;
+    }
+
     private void Update()
     {
         SaveManager.Instance.Data.soundSetting = slider.value;
+        
     }
 
     public void StartButton()
