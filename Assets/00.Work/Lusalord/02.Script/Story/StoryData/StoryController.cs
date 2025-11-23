@@ -182,9 +182,9 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                     var charData = characterDatabase.GetCharacter(p.speakerId);
                     Sprite sp = charData != null ? charData.GetExpressionSprite(p.expressionKey) : null;
 
-                    if (p.pos == "Left") SetCharacterWithFade(leftCharacterImage, sp, useFade);
-                    else if (p.pos == "Center") SetCharacterWithFade(centerCharacterImage, sp, useFade);
-                    else if (p.pos == "Right") SetCharacterWithFade(rightCharacterImage, sp, useFade);
+                    if (p.pos == "Left") SetCharacterWithFade(leftCharacterImage, sp, useFade, line.scale);
+                    else if (p.pos == "Center") SetCharacterWithFade(centerCharacterImage, sp, useFade, line.scale);
+                    else if (p.pos == "Right") SetCharacterWithFade(rightCharacterImage, sp, useFade, line.scale);
                 }
 
                 return;
@@ -194,12 +194,12 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             var c = characterDatabase.GetCharacter(line.speakerId);
             Sprite single = c != null ? c.GetExpressionSprite(line.expressionKey) : null;
 
-            if (line.position == "Left") SetCharacterWithFade(leftCharacterImage, single, useFade);
-            else if (line.position == "Center") SetCharacterWithFade(centerCharacterImage, single, useFade);
-            else if (line.position == "Right") SetCharacterWithFade(rightCharacterImage, single, useFade);
+            if (line.position == "Left") SetCharacterWithFade(leftCharacterImage, single, useFade, line.scale);
+            else if (line.position == "Center") SetCharacterWithFade(centerCharacterImage, single, useFade, line.scale);
+            else if (line.position == "Right") SetCharacterWithFade(rightCharacterImage, single, useFade, line.scale);
         }
 
-        private void SetCharacterWithFade(Image img, Sprite sp, bool useFade)
+        private void SetCharacterWithFade(Image img, Sprite sp, bool useFade, float scale)
         {
             img.sprite = sp;
 
@@ -212,7 +212,10 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
                 img.enabled = false;
                 return;
             }
-
+            if (auto != null)
+            {
+                auto.SetScale(scale);   // 🔥 JSON scale 적용
+            }
             img.enabled = true;
 
             if (!useFade)
