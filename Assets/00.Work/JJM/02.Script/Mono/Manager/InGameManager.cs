@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class InGameManager : Singleton<InGameManager>
 {
@@ -65,5 +66,10 @@ public class InGameManager : Singleton<InGameManager>
             Destroy(image);
         });
 
+    }
+
+    public void ScenePlay(int num)
+    {
+        SceneManager.LoadScene(num);
     }
 }

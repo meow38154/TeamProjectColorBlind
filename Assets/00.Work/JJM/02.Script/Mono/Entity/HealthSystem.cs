@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using _00.Work.Lusalord._02.Script.Player;
+using DG.Tweening;
 using System;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using _00.Work.Lusalord._02.Script.Player;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -85,9 +86,17 @@ public class HealthSystem : MonoBehaviour
         if (!Invincibility)
         {
             _saveX = transform.root.position.x;
-            OnDie?.Invoke(); //�׾��� �� ���Ǵ� �׼� ȣ�� (null�̸� ȣ�� ����)
+            OnDie?.Invoke();
             Debug.Log($"{gameObject} is die");
+
+            StartCoroutine(BgmFadeOut());
         }
+    }
+
+    private IEnumerator BgmFadeOut()
+    {
+        yield return new WaitForSeconds(3f);
+        SoundManager.Instance.BgmSource.DOFade(0f, 2f);
     }
 
     private IEnumerator InvincibilityTime()

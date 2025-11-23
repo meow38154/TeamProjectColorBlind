@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 992075381175691205}
   - component: {fileID: 9217018763530391005}
   - component: {fileID: 7044084456491631503}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 8274988646504432406}
   - component: {fileID: 206935773371577998}
   - component: {fileID: 6490361013308590214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShurikenBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   _collider: 0
   _local: 0
   _player: 0
-  damage: 1
+  <Damage>k__BackingField: 1
   _pos: {x: 0, y: 0}
   _size: {x: 0.7, y: 0.7}
   _layer:
