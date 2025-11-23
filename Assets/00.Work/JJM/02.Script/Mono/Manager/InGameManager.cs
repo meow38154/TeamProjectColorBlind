@@ -78,6 +78,7 @@ public class InGameManager : Singleton<InGameManager>
                 SaveManager.Instance.Data.colorBlindness = 0f;
                 break;
         }
+        SaveManager.Instance.Save();
     }
 
     public void Afterimage(SpriteRenderer spriteRenderer)

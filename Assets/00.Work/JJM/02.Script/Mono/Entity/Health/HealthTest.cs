@@ -13,9 +13,9 @@ public class HealthTest : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.hKey.wasPressedThisFrame)
-        {
-            healthSystem.GetDamage(1 ,_transform);
-        }
+        //if (Keyboard.current.hKey.wasPressedThisFrame)
+        //{
+        //    healthSystem.GetDamage(1 ,_transform);
+        //}
     }
 }
