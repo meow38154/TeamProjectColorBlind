@@ -57,7 +57,7 @@
           "speakerId": "림",
           "text": "으아아.... 또 싸움인거야?",
           "position": "Center",
-          "expressionKey": "Angry",
+          "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
           "hideOthers": false
         }
