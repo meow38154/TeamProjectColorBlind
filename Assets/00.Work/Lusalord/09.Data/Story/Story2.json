@@ -10,7 +10,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -34,7 +35,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "림",

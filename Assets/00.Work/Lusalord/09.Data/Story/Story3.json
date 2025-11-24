@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story3",
-      "endScene": "Story4",
+      "endScene": "Start",
       "lines": [
         {
           "speakerId": "림",
@@ -10,7 +10,8 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "우울"
         },
         {
           "speakerId": "림",
@@ -18,7 +19,8 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "편지",
@@ -35,7 +37,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          
         },
         {
           "speakerId": "림",
@@ -51,7 +54,8 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "아이템",
@@ -75,7 +79,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -83,7 +88,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "우울"
         },
         {
           "speakerId": "림",
@@ -91,7 +97,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "림",
@@ -99,7 +106,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -107,7 +115,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "반짝반짝"
         },
         {
           "speakerId": "림",

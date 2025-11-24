@@ -10,14 +10,16 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Flat",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "생각 중"
         },
         {
           "speakerId": "가디언",
           "text": "치이잉",
           "position": "None",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "차징"
         },
         {
           "speakerId": "림",
@@ -25,14 +27,16 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "가디언",
           "text": "쿵",
           "position": "None",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "발사"
         },
         {
           "speakerId": "림",
@@ -40,7 +44,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -48,7 +53,9 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "슬픈"
+          
         },
         {
           "speakerId": "가디언",

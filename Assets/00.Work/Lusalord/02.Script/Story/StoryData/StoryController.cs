@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _00.Work.Lusalord._02.Script.Manager;
 using _00.Work.Lusalord._02.Script.Story.SO;
 using TMPro;
 using UnityEngine;
@@ -30,6 +31,8 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
         [Header("Settings")]
         [SerializeField] private float lettersPerSecond = 40f;
         [SerializeField] private float fadeDuration = 0.25f;
+        
+        public AudioDataBaseSO audioDatabase;
 
         private StorySequenceList _storyData;
         private StorySequence _sequence;
@@ -110,6 +113,7 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             _index++;
+            
 
             if (_index >= _sequence.lines.Count)
             {
@@ -124,9 +128,10 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             StoryLine line = _sequence.lines[_index];
+            PlayAudio(line);
 
             dialogueText.gameObject.SetActive(true);
-
+            
             UpdateBackground(line);
             UpdateSpeaker(line);
             UpdateCharacters(line);
@@ -146,6 +151,35 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
             }
 
             _typingCo = null;
+        }
+        private void PlayAudio(StoryLine line)
+        {
+            if (audioDatabase == null)
+                return;
+
+            // BGM
+            if (!string.IsNullOrEmpty(line.bgm))
+            {
+                var bgmClip = audioDatabase.GetBGM(line.bgm);
+                if (bgmClip != null)
+                    AudioManager.Instance.PlayBGM(bgmClip);
+            }
+
+            // SE
+            if (!string.IsNullOrEmpty(line.se))
+            {
+                var seClip = audioDatabase.GetSE(line.se);
+                if (seClip != null)
+                    AudioManager.Instance.PlaySE(seClip);
+            }
+
+            // Voice
+            if (!string.IsNullOrEmpty(line.voice))
+            {
+                var voiceClip = audioDatabase.GetVoice(line.voice);
+                if (voiceClip != null)
+                    AudioManager.Instance.PlayVoice(voiceClip);
+            }
         }
 
         private void SkipTyping()

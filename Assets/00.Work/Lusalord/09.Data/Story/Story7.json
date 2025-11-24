@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story7",
-      "endScene": "Story8",
+      "endScene": "Start",
       "lines": [
         {
           "speakerId": "마르살라",
@@ -19,7 +19,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "슬픈"
         },
         {
           "speakerId": "마르살라",
@@ -47,11 +48,12 @@
         },
         {
           "speakerId": "림",
-          "text": "아?",
+          "text": "어?",
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Dark Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "생각 중"
         },
         {
           "speakerId": "아이템",
@@ -67,7 +69,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -90,7 +93,8 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Dark Forest",
-          "hideOthers": true  
+          "hideOthers": true,
+          "se": "생각난"
         },
         {
           "speakerId": "림",

@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story9",
-      "endScene": "Story10",
+      "endScene": "Start",
       "lines": [
         {
           "speakerId": "DS",
@@ -19,7 +19,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Boss Door",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "생각 중"
         },
         {
           "speakerId": "림",
@@ -35,7 +36,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "아이템",
@@ -51,7 +53,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "반짝반짝"
         },
         {
           "speakerId": "림",
@@ -59,7 +62,8 @@
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각난"
         },
         {
           "speakerId": "림",

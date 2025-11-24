@@ -10,7 +10,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "우울"
         },
         {
           "speakerId": "",
@@ -25,7 +26,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "마르살라",
@@ -59,7 +61,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "슬픈"
         }
       ]
     }
