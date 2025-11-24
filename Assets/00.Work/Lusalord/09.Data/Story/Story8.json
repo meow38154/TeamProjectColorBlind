@@ -18,7 +18,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "DS",
@@ -35,7 +36,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "우울"
         },
         {
           "speakerId": "림",
@@ -43,7 +45,8 @@
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Door",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "반짝반짝"
         },
         {
           "speakerId": "림",

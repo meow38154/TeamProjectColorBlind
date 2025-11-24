@@ -39,7 +39,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Village",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "우울"
         },
         {
           "speakerId": "림",
@@ -47,7 +48,8 @@
           "position": "Center",
           "expressionKey": "Cry",
           "backgroundKey": "Village",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "슬픈"
         },
         {
           "speakerId": "림",
@@ -55,7 +57,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Village",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "",
@@ -70,7 +73,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Village",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",

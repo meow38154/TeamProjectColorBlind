@@ -2,7 +2,7 @@
   "sequences": [
     {
       "sequenceId": "Story5",
-      "endScene": "Story6",
+      "endScene": "Start",
       "lines": [
         {
           "speakerId": "가디언",
@@ -18,7 +18,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "가디언",
@@ -64,7 +65,8 @@
           "position": "Center",
           "expressionKey": "Surprise",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -72,7 +74,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Flat",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "림",

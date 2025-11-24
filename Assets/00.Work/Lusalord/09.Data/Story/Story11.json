@@ -11,7 +11,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": true,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
@@ -28,7 +28,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": false,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
@@ -36,7 +36,8 @@
           "position": "Center",
           "expressionKey": "SmallSmile",
           "backgroundKey": "Boss Room",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "생각 중"
         },
         {
           "speakerId": "아이템",
@@ -52,7 +53,8 @@
           "position": "Center",
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "림",
@@ -68,7 +70,8 @@
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Room",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "림",
@@ -76,7 +79,8 @@
           "position": "Center",
           "expressionKey": "Smile",
           "backgroundKey": "Boss Room",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "반짝반짝"
         },
         {
           "speakerId": "림",

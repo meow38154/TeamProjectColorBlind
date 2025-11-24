@@ -10,7 +10,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "우울"
         },
         {
           "speakerId": "",
@@ -25,7 +26,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "생각 중"
         },
         {
           "speakerId": "마르살라",
@@ -57,9 +59,10 @@
           "speakerId": "림",
           "text": "으아아.... 또 싸움인거야?",
           "position": "Center",
-          "expressionKey": "Angry",
+          "expressionKey": "Sad",
           "backgroundKey": "Dark Forest",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "슬픈"
         }
       ]
     }

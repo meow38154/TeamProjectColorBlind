@@ -10,7 +10,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Boss Room",
-          "hideOthers": true
+          "hideOthers": true,
+          "se": "생각 중"
         },
         {
           "speakerId": "마왕",
@@ -19,7 +20,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": true,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
@@ -27,7 +28,8 @@
           "position": "Center",
           "expressionKey": "Sad",
           "backgroundKey": "Boss Room",
-          "hideOthers": false
+          "hideOthers": false,
+          "se": "깜짝 놀란"
         },
         {
           "speakerId": "마왕",
@@ -36,7 +38,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": true,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",
@@ -44,7 +46,7 @@
           "position": "Center",
           "expressionKey": "Angry",
           "backgroundKey": "Boss Room",
-          "hideOthers": false 
+          "hideOthers": false
         },
         {
           "speakerId": "림",
@@ -61,7 +63,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": true,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "마왕",
@@ -70,7 +72,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": false,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "마왕",
@@ -79,7 +81,7 @@
           "expressionKey": "Default",
           "backgroundKey": "Boss Room",
           "hideOthers": false,
-          "scale": 3
+          "scale": 4
         },
         {
           "speakerId": "림",

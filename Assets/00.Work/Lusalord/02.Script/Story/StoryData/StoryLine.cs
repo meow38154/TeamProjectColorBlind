@@ -29,6 +29,10 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
 
         public StoryLineData[] choices;
         
+        public string bgm;
+        public string se;
+        public string voice;
+        
         public float scale = 1f;
     }
     [Serializable]
@@ -55,6 +59,13 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
     {
         public string key;
         public Sprite sprite;
+    }
+    
+    [System.Serializable]
+    public class AudioData
+    {
+        public string key;
+        public AudioClip clip;
     }
     
 }
