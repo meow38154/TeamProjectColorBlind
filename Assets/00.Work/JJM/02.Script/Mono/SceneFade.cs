@@ -7,7 +7,10 @@ public class SceneFade : MonoBehaviour
 {
     [SerializeField] private float _time;
     [SerializeField] private float _bossTime;
-    private Image _image;
+
+    [SerializeField] private bool not;
+
+    [SerializeField] private Image _image;
 
     private void Awake()
     {
@@ -23,8 +26,12 @@ public class SceneFade : MonoBehaviour
         seq.AppendInterval(_bossTime);
         seq.AppendCallback(() =>
         {
-            InGameManager.Instance.Boss.BossStart();
+            if (!not)
+            {
+                InGameManager.Instance.Boss.BossStart();
+            }
             _image.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         });
     }
     public void Out()
