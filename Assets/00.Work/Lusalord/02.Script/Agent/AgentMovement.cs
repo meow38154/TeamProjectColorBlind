@@ -7,7 +7,7 @@ namespace _00.Work.Lusalord._02.Script.Agent
 {
     public class AgentMovement : MonoBehaviour
     {
-
+        [SerializeField] private ParticleSystem _par1;
         [Header("PlayerMovement")]      
         public float moveSpeed;
         public float jumpPower;
@@ -49,6 +49,10 @@ namespace _00.Work.Lusalord._02.Script.Agent
         {
             IsGrounded = CheckGround();
             MoveAgent();
+            if (isDash)
+            {
+                _par1.Play();
+            }
         }
         
         public void SetMove(float xMove)    
