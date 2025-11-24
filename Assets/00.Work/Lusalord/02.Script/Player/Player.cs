@@ -10,6 +10,8 @@ namespace _00.Work.Lusalord._02.Script.Player
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem _p1;
+        [SerializeField] private ParticleSystem _p2;
         public AgentMovement MovementCompo { get; private set; }
         public AgentRenderer RendererCompo { get; private set; }
         public HealthSystem HealthSystem { get; private set; }
@@ -129,6 +131,7 @@ namespace _00.Work.Lusalord._02.Script.Player
             }
             else if (CanDoubleJump)
             {
+                _p1.Play();
                 SoundManager.Instance.PlaySound(4, 0.2f);
 
                 CanDoubleJump = false;
