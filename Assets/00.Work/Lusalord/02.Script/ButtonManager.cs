@@ -1,3 +1,4 @@
+using System;
 using JJM;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,23 +10,35 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private int num;
     public string sceneName;
 
-    private Image _image;
+    private Image Image => GetComponentInChildren<Image>();
 
-    private void Awake()
+    private void Start()
     {
-        _image = GetComponentInChildren<Image>();
+        try
+        {
+            if (Image == null)
+            {
+                throw new NullReferenceException("자식 객체에서 Image 컴포넌트를 찾을 수 없습니다.");
+            }
+            
+            Image.enabled = true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[Example] Image 참조 오류: {e.Message}\n{e.StackTrace}");
+        }
     }
 
     private void Update()
     {
         if (SaveManager.Instance.Data.itemSetting[num] || not)
         {
-            _image.color = Color.white;
+            Image.color = Color.white;
         }
 
         else
         {
-            _image.color = Color.black;
+            Image.color = Color.black;
         }
     }
 
