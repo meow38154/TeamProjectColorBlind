@@ -19,7 +19,7 @@ namespace _00.Work.Lusalord._02.Script.Story.StoryData
         public string position;
         public string expressionKey;
         
-        public MultiCharacterPositionData[] positions; // 복수 캐릭터용
+        public MultiCharacterPositionData[] positions;
 
         public string backgroundKey;
         public bool hideOthers;
